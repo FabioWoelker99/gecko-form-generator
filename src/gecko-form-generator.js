@@ -26,6 +26,16 @@ const gecko_class_formStepLabelStylingClasses = 'txt--lh-100';
 const gecko_class_formStepDivider = 'el--form-step';
 const gecko_class_formStepDividerStylingClasses = 'bg--pri';
 const gecko_class_formItemError = 'has_error';
+const gecko_class_radioButtonGroupComponent = 'cmp--rb-group';
+const gecko_class_radioButtonGroupLayout = 'lyt--rb-group';
+const gecko_class_radioButtonComponent = 'cmp--rb';
+const gecko_class_radioButtonLayout = 'lyt--rb';
+const gecko_class_radioButton = 'rb';
+const gecko_class_checkboxGroupComponent = 'cmp--cb-group';
+const gecko_class_checkboxGroupLayout = 'lyt--cb-group';
+const gecko_class_checkboxComponent = 'cmp--cb';
+const gecko_class_checkboxLayout = 'lyt--cb';
+const gecko_class_checkbox = 'cb';
 
 // eslint-disable-next-line no-unused-vars
 class GeckoForm {
@@ -225,9 +235,67 @@ class GeckoForm {
                         content += this.generateTextareaFormItem(json);
                         break;
                     }
+                    case 'radio': {
+                        content += this.generateRadioFormItem(json);
+                        break;
+                    }
+                    case 'checkbox': {
+                        content += this.generateCheckboxFormItem(json);
+                        break;
+                    }
                 }
 
                 
+            content += '</div>';
+        content += '</div>';
+
+        return content;
+    }
+
+    generateRadioFormItem(json) {
+        let content = '';
+
+        const label = json.label ?? '';
+
+        content += `<p class="${gecko_class_label}">${label}</p>`;
+
+        content += `<div class="${gecko_class_radioButtonGroupComponent} cmp">`;
+            content += `<div class="${gecko_class_radioButtonGroupLayout} lyt">`;
+
+            json.options.forEach(option => {
+                content += `<div class="${gecko_class_radioButtonComponent} cmp">`;
+                    content += `<div class="${gecko_class_radioButtonLayout} lyt">`;
+                        content += `<input id="${option.id}" type="radio" data-name="${json.name}" class="${gecko_class_radioButton}" value="${option.value}">`;
+                        content += `<label class="${gecko_class_label} for="${option.id}"></label>`;
+                    content += '</div>';
+                content += '</div>';
+            });
+
+            content += '</div>';
+        content += '</div>';
+
+        return content;
+    }
+
+    generateCheckboxFormItem(json) {
+        let content = '';
+
+        const label = json.label ?? '';
+
+        content += `<p class="${gecko_class_label}">${label}</p>`;
+
+        content += `<div class="${gecko_class_checkboxGroupComponent} cmp">`;
+            content += `<div class="${gecko_class_checkboxGroupLayout} lyt">`;
+
+            json.options.forEach(option => {
+                content += `<div class="${gecko_class_checkboxComponent} cmp">`;
+                    content += `<div class="${gecko_class_checkboxLayout} lyt">`;
+                        content += `<input id="${option.id}" type="radio" data-name="${json.name}" class="${gecko_class_checkbox}" value="${option.value}">`;
+                        content += `<label class="${gecko_class_label} for="${option.id}"></label>`;
+                    content += '</div>';
+                content += '</div>';
+            });
+
             content += '</div>';
         content += '</div>';
 

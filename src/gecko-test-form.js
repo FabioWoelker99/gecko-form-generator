@@ -83,6 +83,63 @@ const testForm = {
                         }
                     ]
                 },
+                {
+                    elements: [
+                        {
+                            type: 'radio',
+                            required: true,
+                            label: 'Umfang',
+                            name: 'umfang',
+                            options: [
+                                {
+                                    label: 'Wohnung',
+                                    value: 'wohnung',
+                                    id: 'wohnung',
+                                },
+                                {
+                                    label: 'Ganzes Haus',
+                                    value: 'haus',
+                                    id: 'haus',
+                                }
+                            ]
+                        },
+                        {
+                            type: 'text',
+                            placeholder: 'Adresszusatz',
+                            required: true,
+                            label: 'Adresszusatz',
+                            name: 'adresszusatz',
+                        }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'checkbox',
+                            label: 'Aufzug',
+                            name: 'aufzug',
+                            options: [
+                                {
+                                    label: 'Ja',
+                                    value: 'ja',
+                                    id: 'ja',
+                                },
+                                {
+                                    label: 'Nein',
+                                    value: 'nein',
+                                    id: 'nein',
+                                }
+                            ]
+                        },
+                        {
+                            type: 'text',
+                            placeholder: 'Etage',
+                            required: true,
+                            label: 'Etage',
+                            name: 'etage',
+                        }
+                    ]
+                },
             ]
         }
     ]
