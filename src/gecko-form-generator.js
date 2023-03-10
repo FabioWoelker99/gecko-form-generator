@@ -25,6 +25,7 @@ const gecko_class_formStepLabel = 'h--xxs';
 const gecko_class_formStepLabelStylingClasses = 'txt--lh-100';
 const gecko_class_formStepDivider = 'el--form-step';
 const gecko_class_formStepDividerStylingClasses = 'bg--pri';
+const gecko_class_formItemError = 'has_error';
 
 // eslint-disable-next-line no-unused-vars
 class GeckoForm {
@@ -115,6 +116,8 @@ class GeckoForm {
     }
 
     moveToNextStep() {
+        $(`${this.formSelector} ${gecko_selector_formComponent}`).removeClass(gecko_class_formItemError);
+
         const currentStepId = this.formSteps[this.currentStep - 1];
         const currentStepSelector = `${this.formSelector} ${gecko_selector_formComponent}[stepid="${currentStepId}"]`;
         let categoryRequestObject = {};
@@ -124,13 +127,26 @@ class GeckoForm {
 
         const currentStep = this.formJson.steps.filter(step => step.stepId == currentStepId)[0];
 
+        let error = false;
+        
         currentStep.rows.forEach(row => {
             row.elements.forEach(element => {
-                const value = $(`${currentStepSelector} ${gecko_selector_inputElement}[name="${element.name}"]`).val();
+                const currentSelector = `${currentStepSelector} ${gecko_selector_inputElement}[name="${element.name}"]`;
+                const value = $(currentSelector).val().trim() != '' ? $(currentSelector).val() : null;
                 if(value != null) categoryRequestObject.children.push({ name: element.name, val: value });
+
+                if(element.required == true && value == null) {
+                    $(currentSelector).addClass(gecko_class_formItemError);
+                    error = true;
+                }
             });
         });
 
+        if(error) {
+            // OTHER ERROR OPTIONS
+            return;
+        }
+        
         this.geckoRequest.data.categories.push(categoryRequestObject);
 
         if(this.currentStep >= this.formSteps.length) {
