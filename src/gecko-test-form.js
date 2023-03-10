@@ -1,56 +1,81 @@
 const testForm = {
-    rows: [
+    steps: [
         {
-            elements: [
+            label: 'Persönliche Daten',
+            stepId: 'personal',
+            rows: [
                 {
-                    type: 'text',
-                    placeholder: 'Vorname',
-                    required: true,
-                    autocomplete: 'given-name',
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: 'Vorname',
+                            required: true,
+                            autocomplete: 'given-name',
+                            label: 'Name'
+                        },
+                        {
+                            type: 'text',
+                            placeholder: 'Nachname',
+                            required: true,
+                            autocomplete: 'family-name',
+                        }
+                    ]
                 },
                 {
-                    type: 'text',
-                    placeholder: 'Nachname',
-                    required: true,
-                    autocomplete: 'family-name',
+                    elements: [
+                        {
+                            type: 'email',
+                            placeholder: 'max.muster@company.com',
+                            required: true,
+                            autocomplete: 'email',
+                            label: 'E-Mail'
+                        },
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'tel',
+                            placeholder: '+41 00 000 00 00',
+                            required: true,
+                            autocomplete: 'tel',
+                            label: 'Telefonnummer'
+                        },
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'textarea',
+                            placeholder: 'Ihre Nachricht oder Bemerkung',
+                            required: false,
+                            label: 'Nachricht'
+                        },
+                    ]
                 }
             ]
         },
         {
-            elements: [
+            label: 'Privatumzug',
+            stepId: 'private',
+            rows: [
                 {
-                    type: 'email',
-                    placeholder: 'max.muster@company.com',
-                    required: true,
-                    autocomplete: 'email',
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: 'Musterstrasse',
+                            required: true,
+                            label: 'Strasse'
+                        },
+                        {
+                            type: 'text',
+                            placeholder: 'Hausnummer',
+                            required: true,
+                            label: 'Hausnummer'
+                        }
+                    ]
                 },
             ]
-        },
-        {
-            elements: [
-                {
-                    type: 'tel',
-                    placeholder: '+41 00 000 00 00',
-                    required: true,
-                    autocomplete: 'tel',
-                },
-            ]
-        },
-        {
-            elements: [
-                {
-                    type: 'textarea',
-                    placeholder: 'Ihre Nachricht oder Bemerkung',
-                    required: false,
-                },
-            ]
-        },
-        {
-            elements: [
-                {
-                    type: 'text',
-                },
-            ]
-        },
+        }
     ]
 };
