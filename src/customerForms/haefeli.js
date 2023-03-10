@@ -234,24 +234,6 @@ const haefeliForm = {
                     elements: [
                         {
                             type: 'text',
-                            placeholder: '2.5 Zimmer',
-                            required: false,
-                            label: 'Anzahl der Räume',
-                            name: 'einzug_anzahl_räume',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: '100 m²',
-                            required: false,
-                            label: 'Gesamtfläche',
-                            name: 'einzug_gesamtfläche',
-                        },
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
                             placeholder: 'Etage',
                             required: false,
                             label: 'Etage',
@@ -345,7 +327,7 @@ const haefeliForm = {
                             required: false,
                             label: 'Gesamtfläche',
                             name: 'auszug_firma_gesamtfläche',
-                        },
+                        }
                     ]
                 },
                 {
@@ -372,13 +354,6 @@ const haefeliForm = {
                             type: 'text',
                             placeholder: 'dd.mm.yyyy',
                             required: false,
-                            label: 'Der Umzug wird bezahlt von',
-                            name: 'auszug_firma_bezahlung',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: 'dd.mm.yyyy',
-                            required: false,
                             label: 'gewünschtes Datum Auszug',
                             name: 'auszug_firma_datum',
                         }
@@ -398,8 +373,8 @@ const haefeliForm = {
             ]
         },
         {
-            label: 'Einzugsort',
-            stepId: 'einzugsort',
+            label: 'Einzugsort Firma',
+            stepId: 'einzugsort_firma',
             rows: [
                 {
                     elements: [
@@ -408,14 +383,14 @@ const haefeliForm = {
                             placeholder: 'Musterstrasse',
                             required: false,
                             label: 'Strasse',
-                            name: 'einzug_strasse',
+                            name: 'einzug_firma_strasse',
                         },
                         {
                             type: 'text',
                             placeholder: 'Hausnummer',
                             required: false,
                             label: 'Hausnummer',
-                            name: 'einzug_hausnummer',
+                            name: 'einzug_firma_hausnummer',
                         }
                     ]
                 },
@@ -426,7 +401,7 @@ const haefeliForm = {
                             placeholder: 'Adresszusatz',
                             required: false,
                             label: 'Adresszusatz',
-                            name: 'einzug_adresszusatz',
+                            name: 'einzug_firma_adresszusatz',
                         }
                     ]
                 },
@@ -437,33 +412,15 @@ const haefeliForm = {
                             placeholder: 'Ort',
                             required: false,
                             label: 'Ort',
-                            name: 'einzug_ort',
+                            name: 'einzug_firma_ort',
                         },
                         {
                             type: 'text',
                             placeholder: '0000',
                             required: false,
                             label: 'PLZ',
-                            name: 'einzug_plz',
+                            name: 'einzug_firma_plz',
                         }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: '2.5 Zimmer',
-                            required: false,
-                            label: 'Anzahl der Räume',
-                            name: 'einzug_anzahl_räume',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: '100 m²',
-                            required: false,
-                            label: 'Gesamtfläche',
-                            name: 'einzug_gesamtfläche',
-                        },
                     ]
                 },
                 {
@@ -473,14 +430,14 @@ const haefeliForm = {
                             placeholder: 'Etage',
                             required: false,
                             label: 'Etage',
-                            name: 'einzug_etage',
+                            name: 'einzug_firma_etage',
                         },
                         {
                             type: 'text',
                             placeholder: 'dd.mm.yyyy',
                             required: false,
                             label: 'gewünschtes Datum Einzug',
-                            name: 'einzug_datum',
+                            name: 'einzug_firma_datum',
                         }
                     ]
                 },
@@ -491,218 +448,7 @@ const haefeliForm = {
                             placeholder: 'Ihre Nachricht',
                             required: false,
                             label: 'Bemerkung',
-                            name: 'einzug_bemerkung',
-                        }
-                    ]
-                },
-            ]
-        },
-        {
-            label: 'Auszugsort Firma',
-            stepId: 'auszugsort firma',
-            rows: [
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: 'Musterstrasse',
-                            required: false,
-                            label: 'Strasse',
-                            name: 'auszug_firma_strasse',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: 'Hausnummer',
-                            required: false,
-                            label: 'Hausnummer',
-                            name: 'auszug_firma_hausnummer',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: 'Adresszusatz',
-                            required: false,
-                            label: 'Adresszusatz',
-                            name: 'auszug_firma_adresszusatz',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: 'Ort',
-                            required: false,
-                            label: 'Ort',
-                            name: 'auszug_firma_ort',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: 'PLZ',
-                            required: false,
-                            label: 'PLZ',
-                            name: 'auszug_firma_plz',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: 'Etage',
-                            required: false,
-                            label: 'Etage',
-                            name: 'auszug_firma_etage',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: '2.5 Zimmer',
-                            required: false,
-                            label: 'Anzahl der Räume',
-                            name: 'auszug_firma_räume',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: '100 m²',
-                            required: false,
-                            label: 'Gesamtfläche',
-                            name: 'etage',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: 'Personen',
-                            required: false,
-                            label: 'Anzahl der umziehenden Personen',
-                            name: 'personen',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: 'dd.mm.yyyy',
-                            required: false,
-                            label: 'gewünschtes Datum Auszug',
-                            name: 'auszugsdatum',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'textarea',
-                            placeholder: 'Ihre Nachricht',
-                            required: false,
-                            label: 'Bemerkung',
-                            name: 'bemerkung',
-                        }
-                    ]
-                },
-            ]
-        },
-        {
-            label: 'Einzugsort Firma',
-            stepId: 'einzugsort firma',
-            rows: [
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: 'Musterstrasse',
-                            required: false,
-                            label: 'Strasse',
-                            name: 'strasse',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: 'Hausnummer',
-                            required: false,
-                            label: 'Hausnummer',
-                            name: 'hausnummer',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: 'Adresszusatz',
-                            required: false,
-                            label: 'Adresszusatz',
-                            name: 'adresszusatz',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: 'Ort',
-                            required: false,
-                            label: 'Ort',
-                            name: 'ort',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: 'PLZ',
-                            required: false,
-                            label: 'PLZ',
-                            name: 'plz',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: 'Etage',
-                            required: false,
-                            label: 'Etage',
-                            name: 'etage',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: '2.5 Zimmer',
-                            required: false,
-                            label: 'Anzahl der Räume',
-                            name: 'raeume',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: '100 m²',
-                            required: false,
-                            label: 'Gesamtfläche',
-                            name: 'etage',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: 'dd.mm.yyyy',
-                            required: false,
-                            label: 'gewünschtes Datum Auszug',
-                            name: 'auszugsdatum',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'textarea',
-                            placeholder: 'Ihre Nachricht',
-                            required: false,
-                            label: 'Bemerkung',
-                            name: 'bemerkung',
+                            name: 'einzug_firma_bemerkung',
                         }
                     ]
                 },
@@ -719,14 +465,14 @@ const haefeliForm = {
                             placeholder: 'dd.mm.yyyy',
                             required: false,
                             label: 'Reinigungstermin',
-                            name: 'reinigungstermin',
+                            name: 'reinigung_termin',
                         },
                         {
                             type: 'text',
                             placeholder: '07:30 Uhr',
                             required: false,
                             label: 'Uhrzeit',
-                            name: 'reinigungstermin uhrzeit',
+                            name: 'reinigung_termin_uhrzeit',
                         }
                     ]
                 },
@@ -737,14 +483,14 @@ const haefeliForm = {
                             placeholder: 'dd.mm.yyyy',
                             required: false,
                             label: 'Abgabetermin',
-                            name: 'abgabetermin',
+                            name: 'abgabe_termin',
                         },
                         {
                             type: 'text',
                             placeholder: '14:00 Uhr',
                             required: false,
                             label: 'Uhrzeit',
-                            name: 'abgabetermin uhrzeit',
+                            name: 'abgabe_termin_uhrzeit',
                         }
                     ]
                 },
@@ -752,17 +498,17 @@ const haefeliForm = {
                     elements: [
                         {
                             type: 'text',
-                            placeholder: '100 m²',
-                            required: false,
-                            label: 'Gesamtfläche',
-                            name: 'etage',
-                        },
-                        {
-                            type: 'text',
                             placeholder: '2.5 Zimmer',
                             required: false,
                             label: 'Anzahl der Räume',
-                            name: 'raeume',
+                            name: 'reinigung_anzahl_räume',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: '100 m²',
+                            required: false,
+                            label: 'Gesamtfläche',
+                            name: 'reinigung_gesamtfläche',
                         }
                     ]
                 },
@@ -773,7 +519,7 @@ const haefeliForm = {
                             placeholder: 'Ihre Nachricht',
                             required: false,
                             label: 'Bemerkung',
-                            name: 'bemerkung',
+                            name: 'reinigung_bemerkung',
                         }
                     ]
                 },
@@ -790,14 +536,14 @@ const haefeliForm = {
                             placeholder: 'dd.mm.yyyy',
                             required: false,
                             label: 'Lagerungs Beginn',
-                            name: 'lagerungsbeginn',
+                            name: 'lagerung_beginn',
                         },
                         {
                             type: 'text',
                             placeholder: 'dd.mm.yyyy',
                             required: false,
                             label: 'Voraussichtliches Lagerungs Ende',
-                            name: 'lagerungs ende',
+                            name: 'lagerung_ende',
                         },
                     ]
                 },
@@ -808,7 +554,7 @@ const haefeliForm = {
                             placeholder: '10m³',
                             required: false,
                             label: 'Volumen',
-                            name: 'volumen',
+                            name: 'lagerung_volumen',
                         },
                     ]
                 },
@@ -819,7 +565,7 @@ const haefeliForm = {
                             placeholder: 'Ihre Nachricht',
                             required: false,
                             label: 'Bemerkung',
-                            name: 'bemerkung',
+                            name: 'lagerung_bemerkung',
                         }
                     ]
                 },
@@ -836,14 +582,14 @@ const haefeliForm = {
                             placeholder: 'dd.mm.yyyy',
                             required: false,
                             label: 'Miete Beginn',
-                            name: 'mietebeginn',
+                            name: 'treppensteiger_miete_beginn',
                         },
                         {
                             type: 'text',
                             placeholder: '07:30 Uhr',
                             required: false,
                             label: 'Uhrzeit',
-                            name: 'miete beginn uhrzeit',
+                            name: 'treppensteiger_miete_beginn_uhrzeit',
                         }
                     ]
                 },
@@ -854,14 +600,14 @@ const haefeliForm = {
                             placeholder: 'dd.mm.yyyy',
                             required: false,
                             label: 'Miete Ende',
-                            name: 'mieteende',
+                            name: 'treppensteiger_miete_ende',
                         },
                         {
                             type: 'text',
                             placeholder: '14:00 Uhr',
                             required: false,
                             label: 'Uhrzeit',
-                            name: 'miete ende uhrzeit',
+                            name: 'treppensteiger_miete_ende_uhrzeit',
                         }
                     ]
                 },
@@ -872,7 +618,7 @@ const haefeliForm = {
                             placeholder: '2',
                             required: false,
                             label: 'Anzahl benötigter Helfer',
-                            name: 'helfer',
+                            name: 'treppensteiger_helfer',
                         }
                     ]
                 },
@@ -883,7 +629,7 @@ const haefeliForm = {
                             placeholder: 'Ihre Nachricht',
                             required: false,
                             label: 'Bemerkung',
-                            name: 'bemerkung',
+                            name: 'treppensteiger_bemerkung',
                         }
                     ]
                 },
@@ -900,14 +646,14 @@ const haefeliForm = {
                             placeholder: 'dd.mm.yyyy',
                             required: false,
                             label: 'Miete Beginn',
-                            name: 'miete beginn',
+                            name: 'möbellift_miete_beginn',
                         },
                         {
                             type: 'text',
                             placeholder: '07:30 Uhr',
                             required: false,
                             label: 'Uhrzeit',
-                            name: 'miete beginn uhrzeit',
+                            name: 'möbellift_miete_beginn_uhrzeit',
                         }
                     ]
                 },
@@ -918,14 +664,14 @@ const haefeliForm = {
                             placeholder: 'dd.mm.yyyy',
                             required: false,
                             label: 'Miete Ende',
-                            name: 'miete ende',
+                            name: 'möbellift_miete_ende',
                         },
                         {
                             type: 'text',
                             placeholder: '14:00 Uhr',
                             required: false,
                             label: 'Uhrzeit',
-                            name: 'miete ende uhrzeit',
+                            name: 'möbellift_miete_ende_uhrzeit',
                         }
                     ]
                 },
@@ -936,7 +682,7 @@ const haefeliForm = {
                             placeholder: 'mind. 1',
                             required: false,
                             label: 'Anzahl benötigter Helfer',
-                            name: 'helfer',
+                            name: 'möbellift_helfer',
                         }
                     ]
                 },
@@ -947,7 +693,7 @@ const haefeliForm = {
                             placeholder: 'Ihre Nachricht',
                             required: false,
                             label: 'Bemerkung',
-                            name: 'bemerkung',
+                            name: 'möbellift_bemerkung',
                         }
                     ]
                 },
@@ -964,14 +710,14 @@ const haefeliForm = {
                             placeholder: 'dd.mm.yyyy',
                             required: false,
                             label: 'Entsorgung Termin',
-                            name: 'entsorgung termin',
+                            name: 'entsorgung_termin',
                         },
                         {
                             type: 'text',
                             placeholder: '07:30 Uhr',
                             required: false,
                             label: 'Uhrzeit',
-                            name: 'entsorgung uhrzeit',
+                            name: 'entsorgung_uhrzeit',
                         }
                     ]
                 },
@@ -982,21 +728,21 @@ const haefeliForm = {
                             placeholder: '10',
                             required: false,
                             label: 'Anzahl der Packstücke',
-                            name: 'packstuecke',
+                            name: 'entsorgung_packstuecke',
                         },
                         {
                             type: 'text',
                             placeholder: '100 kg',
                             required: false,
                             label: 'Gewicht',
-                            name: 'gewicht',
+                            name: 'entsorgung_gewicht',
                         },
                         {
                             type: 'text',
                             placeholder: '10m³',
                             required: false,
                             label: 'Volumen',
-                            name: 'volumen',
+                            name: 'entsorgung_volumen',
                         }
                     ]
                 },
@@ -1007,14 +753,14 @@ const haefeliForm = {
                             placeholder: 'Musterstrasse',
                             required: false,
                             label: 'Strasse Abholung',
-                            name: 'strasse abholung',
+                            name: 'entsorgung_strasse_abholung',
                         },
                         {
                             type: 'text',
                             placeholder: 'Hausnummer',
                             required: false,
                             label: 'Hausnummer Abholung',
-                            name: 'hausnummer abholung',
+                            name: 'entsorgung_hausnummer_abholung',
                         }
                     ]
                 },
@@ -1025,7 +771,7 @@ const haefeliForm = {
                             placeholder: 'Adresszusatz',
                             required: false,
                             label: 'Adresszusatz Abholung',
-                            name: 'adresszusatz abholung',
+                            name: 'entsorgung_adresszusatz_abholung',
                         }
                     ]
                 },
@@ -1036,14 +782,14 @@ const haefeliForm = {
                             placeholder: 'Ort',
                             required: false,
                             label: 'Ort Abholung',
-                            name: 'ort abholung',
+                            name: 'entsorgung_ort_abholung',
                         },
                         {
                             type: 'text',
                             placeholder: 'PLZ',
                             required: false,
                             label: 'PLZ Abholung',
-                            name: 'plz abholung',
+                            name: 'entsorgung_plz_abholung',
                         }
                     ]
                 },
@@ -1054,7 +800,7 @@ const haefeliForm = {
                             placeholder: 'Ihre Nachricht',
                             required: false,
                             label: 'Bemerkung',
-                            name: 'bemerkung',
+                            name: 'entsorgung_bemerkung',
                         }
                     ]
                 },
