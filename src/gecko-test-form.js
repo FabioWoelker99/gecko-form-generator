@@ -1,4 +1,5 @@
 const testForm = {
+    requestName: 'winno',
     steps: [
         {
             label: 'Persönliche Daten',
@@ -11,13 +12,15 @@ const testForm = {
                             placeholder: 'Vorname',
                             required: true,
                             autocomplete: 'given-name',
-                            label: 'Name'
+                            label: 'Name',
+                            name: 'surname',
                         },
                         {
                             type: 'text',
                             placeholder: 'Nachname',
                             required: true,
                             autocomplete: 'family-name',
+                            name: 'name',
                         }
                     ]
                 },
@@ -28,7 +31,8 @@ const testForm = {
                             placeholder: 'max.muster@company.com',
                             required: true,
                             autocomplete: 'email',
-                            label: 'E-Mail'
+                            label: 'E-Mail',
+                            name: 'email',
                         },
                     ]
                 },
@@ -39,7 +43,8 @@ const testForm = {
                             placeholder: '+41 00 000 00 00',
                             required: true,
                             autocomplete: 'tel',
-                            label: 'Telefonnummer'
+                            label: 'Telefonnummer',
+                            name: 'telefon',
                         },
                     ]
                 },
@@ -49,7 +54,8 @@ const testForm = {
                             type: 'textarea',
                             placeholder: 'Ihre Nachricht oder Bemerkung',
                             required: false,
-                            label: 'Nachricht'
+                            label: 'Nachricht',
+                            name: 'nachricht',
                         },
                     ]
                 }
@@ -57,7 +63,7 @@ const testForm = {
         },
         {
             label: 'Privatumzug',
-            stepId: 'private',
+            stepId: 'privatumzug',
             rows: [
                 {
                     elements: [
@@ -65,13 +71,15 @@ const testForm = {
                             type: 'text',
                             placeholder: 'Musterstrasse',
                             required: true,
-                            label: 'Strasse'
+                            label: 'Strasse',
+                            name: 'strasse',
                         },
                         {
                             type: 'text',
                             placeholder: 'Hausnummer',
                             required: true,
-                            label: 'Hausnummer'
+                            label: 'Hausnummer',
+                            name: 'hausnummer',
                         }
                     ]
                 },

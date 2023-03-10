@@ -1,4 +1,5 @@
 const gecko_selector_formComponent = '.cmp--form';
+const gecko_selector_inputElement = '.inp';
 
 const gecko_class_formComponent = 'cmp--form';
 const gecko_class_formLayout = 'lyt--form';
@@ -34,6 +35,7 @@ class GeckoForm {
         this.formStepsSelector = formStepsSelector;
         this.formSteps = [];
         this.currentStep = 1;
+        this.geckoRequest = { data: { categories: [] } };
     }
 
     validateGeckoForm() {
@@ -109,11 +111,45 @@ class GeckoForm {
     }
 
     addListener() {
-        $(`${this.submitButtonSelector}`).on('click', () => {
-            console.log('submit button clicked');
-            this.currentStep++;
-            this.activateCurrentStep();
+        $(`${this.submitButtonSelector}`).on('click', this.moveToNextStep.bind(this));
+    }
+
+    moveToNextStep() {
+        const currentStepId = this.formSteps[this.currentStep - 1];
+        const currentStepSelector = `${this.formSelector} ${gecko_selector_formComponent}[stepid="${currentStepId}"]`;
+        let categoryRequestObject = {};
+
+        categoryRequestObject.name = currentStepId;
+        categoryRequestObject.children = [];
+
+        const currentStep = this.formJson.steps.filter(step => step.stepId == currentStepId)[0];
+
+        currentStep.rows.forEach(row => {
+            row.elements.forEach(element => {
+                const value = $(`${currentStepSelector} ${gecko_selector_inputElement}[name="${element.name}"]`).val();
+                if(value != null) categoryRequestObject.children.push({ name: element.name, val: value });
+            });
         });
+
+        this.geckoRequest.data.categories.push(categoryRequestObject);
+
+        if(this.currentStep >= this.formSteps.length) {
+            $.ajax({
+                url: `https://ltavphiuzenejhnrbxvl.functions.supabase.co/mail-service?name=${this.formJson.requestName}`,
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(this.geckoRequest),
+                success: function(response) {
+                    console.log('Response:', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        this.currentStep++;
+        this.activateCurrentStep();
     }
 
     /*checkEntries() {
@@ -186,11 +222,12 @@ class GeckoForm {
         const autocomplete = json.autocomplete ? `autocomplete="${json.autocomplete}"` : '';
         const placeholder = json.placeholder ? `placeholder="${json.placeholder}"` : '';
         const required = json.required ? `required="${json.required}"` : '';
+        const name = json.name ? `name="${json.name}"` : '';
         const label = json.label ?? '';
 
         let content = '';
         content += `<p class="${gecko_class_label}">${label}</p>`;
-        content += `<input class="${gecko_class_inputElement}" type="${json.type}" ${placeholder} ${required} ${autocomplete}>`;
+        content += `<input class="${gecko_class_inputElement}" type="${json.type}" ${placeholder} ${required} ${autocomplete} ${name}>`;
 
         return content;
     }
@@ -198,11 +235,12 @@ class GeckoForm {
     generateTextareaFormItem(json) {
         const placeholder = json.placeholder ? `placeholder="${json.placeholder}"` : '';
         const required = json.required ? `required="${json.required}"` : '';
+        const name = json.name ? `name="${json.name}"` : '';
         const label = json.label ?? '';
 
         let content = '';
         content += `<p class="${gecko_class_label}">${label}</p>`;
-        content += `<textarea class="${gecko_class_inputElement}" ${placeholder} ${required}"></textarea>`;
+        content += `<textarea class="${gecko_class_inputElement}" ${placeholder} ${required} ${name}"></textarea>`;
 
         return content;
     }
@@ -212,3 +250,5 @@ class GeckoForm {
 // CHECK JSON RULES!!!
 
 // Edge casees (form steps change AFTER WE STARTED!!!)
+
+// Add error handling for exceptions????
