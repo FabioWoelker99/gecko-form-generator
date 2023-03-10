@@ -125,6 +125,7 @@ class GeckoForm {
         $(`${this.submitButtonSelector}`).on('click', this.moveToNextStep.bind(this));
     }
 
+    // TODO refactor method
     moveToNextStep() {
         $(`${this.formSelector} ${gecko_selector_inputElement}`).removeClass(gecko_class_formItemError);
 
