@@ -116,7 +116,7 @@ class GeckoForm {
     }
 
     moveToNextStep() {
-        $(`${this.formSelector} ${gecko_selector_formComponent}`).removeClass(gecko_class_formItemError);
+        $(`${this.formSelector} ${gecko_selector_inputElement}`).removeClass(gecko_class_formItemError);
 
         const currentStepId = this.formSteps[this.currentStep - 1];
         const currentStepSelector = `${this.formSelector} ${gecko_selector_formComponent}[stepid="${currentStepId}"]`;
