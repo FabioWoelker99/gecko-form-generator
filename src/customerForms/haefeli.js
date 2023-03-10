@@ -1,4 +1,4 @@
-const testForm = {
+const haefeliForm = {
     requestName: 'winno',
     steps: [
         {
