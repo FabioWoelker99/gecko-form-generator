@@ -55,8 +55,13 @@ class GeckoForm {
 
     buildGeckoForm() {
         this.buildGeckoSteps();
+        this.buildConditionals();
         this.activateCurrentStep();
         this.addListener();
+    }
+
+    buildConditionals() {
+
     }
 
     buildGeckoSteps() {
@@ -335,3 +340,8 @@ class GeckoForm {
 // Edge casees (form steps change AFTER WE STARTED!!!)
 
 // Add error handling for exceptions????
+
+
+// TODO Form clear nach absenden
+
+// TODO Messages
