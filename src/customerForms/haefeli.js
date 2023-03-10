@@ -72,14 +72,14 @@ const testForm = {
                             placeholder: 'Musterstrasse',
                             required: false,
                             label: 'Strasse',
-                            name: 'strasse',
+                            name: 'auszug_strasse',
                         },
                         {
                             type: 'text',
                             placeholder: 'Hausnummer',
                             required: false,
                             label: 'Hausnummer',
-                            name: 'hausnummer',
+                            name: 'auszug_hausnummer',
                         }
                     ]
                 },
@@ -90,7 +90,7 @@ const testForm = {
                             placeholder: 'Adresszusatz',
                             required: false,
                             label: 'Adresszusatz',
-                            name: 'adresszusatz',
+                            name: 'auszug_adresszusatz',
                         }
                     ]
                 },
@@ -101,15 +101,33 @@ const testForm = {
                             placeholder: 'Ort',
                             required: false,
                             label: 'Ort',
-                            name: 'ort',
+                            name: 'auszug_ort',
                         },
                         {
                             type: 'text',
-                            placeholder: 'PLZ',
+                            placeholder: '0000',
                             required: false,
                             label: 'PLZ',
-                            name: 'plz',
+                            name: 'auszug_plz',
                         }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: '2.5 Zimmer',
+                            required: false,
+                            label: 'Anzahl der Räume',
+                            name: 'auszug_anzahl_räume',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: '100 m²',
+                            required: false,
+                            label: 'Gesamtfläche',
+                            name: 'auszug_gesamtfläche',
+                        },
                     ]
                 },
                 {
@@ -119,32 +137,14 @@ const testForm = {
                             placeholder: 'Etage',
                             required: false,
                             label: 'Etage',
-                            name: 'etage',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: '2.5 Zimmer',
-                            required: false,
-                            label: 'Anzahl der Räume',
-                            name: 'raeume',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: '100 m²',
-                            required: false,
-                            label: 'Gesamtfläche',
-                            name: 'etage',
+                            name: 'auszug_etage',
                         },
                         {
                             type: 'text',
                             placeholder: 'Personen',
                             required: false,
                             label: 'Anzahl der umziehenden Personen',
-                            name: 'personen',
+                            name: 'auszug_personen',
                         }
                     ]
                 },
@@ -154,8 +154,15 @@ const testForm = {
                             type: 'text',
                             placeholder: 'dd.mm.yyyy',
                             required: false,
+                            label: 'Der Umzug wird bezahlt von',
+                            name: 'auszug_bezahlung',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: 'dd.mm.yyyy',
+                            required: false,
                             label: 'gewünschtes Datum Auszug',
-                            name: 'auszugsdatum',
+                            name: 'auszug_datum',
                         }
                     ]
                 },
@@ -166,7 +173,7 @@ const testForm = {
                             placeholder: 'Ihre Nachricht',
                             required: false,
                             label: 'Bemerkung',
-                            name: 'bemerkung',
+                            name: 'auszug_bemerkung',
                         }
                     ]
                 },
@@ -183,14 +190,14 @@ const testForm = {
                             placeholder: 'Musterstrasse',
                             required: false,
                             label: 'Strasse',
-                            name: 'strasse',
+                            name: 'einzug_strasse',
                         },
                         {
                             type: 'text',
                             placeholder: 'Hausnummer',
                             required: false,
                             label: 'Hausnummer',
-                            name: 'hausnummer',
+                            name: 'einzug_hausnummer',
                         }
                     ]
                 },
@@ -201,7 +208,7 @@ const testForm = {
                             placeholder: 'Adresszusatz',
                             required: false,
                             label: 'Adresszusatz',
-                            name: 'adresszusatz',
+                            name: 'einzug_adresszusatz',
                         }
                     ]
                 },
@@ -212,15 +219,33 @@ const testForm = {
                             placeholder: 'Ort',
                             required: false,
                             label: 'Ort',
-                            name: 'ort',
+                            name: 'einzug_ort',
                         },
                         {
                             type: 'text',
-                            placeholder: 'PLZ',
+                            placeholder: '0000',
                             required: false,
                             label: 'PLZ',
-                            name: 'plz',
+                            name: 'einzug_plz',
                         }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: '2.5 Zimmer',
+                            required: false,
+                            label: 'Anzahl der Räume',
+                            name: 'einzug_anzahl_räume',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: '100 m²',
+                            required: false,
+                            label: 'Gesamtfläche',
+                            name: 'einzug_gesamtfläche',
+                        },
                     ]
                 },
                 {
@@ -230,32 +255,14 @@ const testForm = {
                             placeholder: 'Etage',
                             required: false,
                             label: 'Etage',
-                            name: 'etage',
-                        },
-                        {
-                            type: 'text',
-                            placeholder: '2.5 Zimmer',
-                            required: false,
-                            label: 'Anzahl der Räume',
-                            name: 'raeume',
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            placeholder: '100 m²',
-                            required: false,
-                            label: 'Gesamtfläche',
-                            name: 'etage',
+                            name: 'einzug_etage',
                         },
                         {
                             type: 'text',
                             placeholder: 'dd.mm.yyyy',
                             required: false,
-                            label: 'gewünschtes Datum Auszug',
-                            name: 'auszugsdatum',
+                            label: 'gewünschtes Datum Einzug',
+                            name: 'einzug_datum',
                         }
                     ]
                 },
@@ -266,7 +273,7 @@ const testForm = {
                             placeholder: 'Ihre Nachricht',
                             required: false,
                             label: 'Bemerkung',
-                            name: 'bemerkung',
+                            name: 'einzug_bemerkung',
                         }
                     ]
                 },
