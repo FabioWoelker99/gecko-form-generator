@@ -54,17 +54,15 @@ class GeckoForm {
     }
 
     buildGeckoForm() {
-        //const rows = this.generateRows(this.formJson.rows);
+        this.buildGeckoSteps();
+        this.activateCurrentStep();
+        this.addListener();
+    }
 
-        //$(`${this.formSelector} ${gecko_selector_form}`).append(rows);
-
+    buildGeckoSteps() {
         this.formJson.steps.forEach(step => {
             this.buildSingleGeckoStep(step);
         });
-
-        this.activateCurrentStep();
-
-        this.addListener();
     }
 
     buildSingleGeckoStep(json) {
