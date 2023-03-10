@@ -281,7 +281,7 @@ const haefeliForm = {
         },
         {
             label: 'Auszugsort Firma',
-            stepId: 'auszugsort firma',
+            stepId: 'auszugsort_firma',
             rows: [
                 {
                     elements: [
@@ -290,14 +290,14 @@ const haefeliForm = {
                             placeholder: 'Musterstrasse',
                             required: false,
                             label: 'Strasse',
-                            name: 'strasse',
+                            name: 'auszug_firma_strasse',
                         },
                         {
                             type: 'text',
                             placeholder: 'Hausnummer',
                             required: false,
                             label: 'Hausnummer',
-                            name: 'hausnummer',
+                            name: 'auszug_firma_hausnummer',
                         }
                     ]
                 },
@@ -308,7 +308,7 @@ const haefeliForm = {
                             placeholder: 'Adresszusatz',
                             required: false,
                             label: 'Adresszusatz',
-                            name: 'adresszusatz',
+                            name: 'auszug_firma_adresszusatz',
                         }
                     ]
                 },
@@ -319,14 +319,232 @@ const haefeliForm = {
                             placeholder: 'Ort',
                             required: false,
                             label: 'Ort',
-                            name: 'ort',
+                            name: 'auszug_firma_ort',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: '0000',
+                            required: false,
+                            label: 'PLZ',
+                            name: 'auszug_firma_plz',
+                        }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: '2.5 Zimmer',
+                            required: false,
+                            label: 'Anzahl der Räume',
+                            name: 'auszug_firma_anzahl_räume',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: '100 m²',
+                            required: false,
+                            label: 'Gesamtfläche',
+                            name: 'auszug_firma_gesamtfläche',
+                        },
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: 'Etage',
+                            required: false,
+                            label: 'Etage',
+                            name: 'auszug_firma_etage',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: 'Personen',
+                            required: false,
+                            label: 'Anzahl der Arbeitsplätze',
+                            name: 'auszug_firma_personen',
+                        }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: 'dd.mm.yyyy',
+                            required: false,
+                            label: 'Der Umzug wird bezahlt von',
+                            name: 'auszug_firma_bezahlung',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: 'dd.mm.yyyy',
+                            required: false,
+                            label: 'gewünschtes Datum Auszug',
+                            name: 'auszug_firma_datum',
+                        }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'textarea',
+                            placeholder: 'Ihre Nachricht',
+                            required: false,
+                            label: 'Bemerkung',
+                            name: 'auszug_bemerkung',
+                        }
+                    ]
+                },
+            ]
+        },
+        {
+            label: 'Einzugsort',
+            stepId: 'einzugsort',
+            rows: [
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: 'Musterstrasse',
+                            required: false,
+                            label: 'Strasse',
+                            name: 'einzug_strasse',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: 'Hausnummer',
+                            required: false,
+                            label: 'Hausnummer',
+                            name: 'einzug_hausnummer',
+                        }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: 'Adresszusatz',
+                            required: false,
+                            label: 'Adresszusatz',
+                            name: 'einzug_adresszusatz',
+                        }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: 'Ort',
+                            required: false,
+                            label: 'Ort',
+                            name: 'einzug_ort',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: '0000',
+                            required: false,
+                            label: 'PLZ',
+                            name: 'einzug_plz',
+                        }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: '2.5 Zimmer',
+                            required: false,
+                            label: 'Anzahl der Räume',
+                            name: 'einzug_anzahl_räume',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: '100 m²',
+                            required: false,
+                            label: 'Gesamtfläche',
+                            name: 'einzug_gesamtfläche',
+                        },
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: 'Etage',
+                            required: false,
+                            label: 'Etage',
+                            name: 'einzug_etage',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: 'dd.mm.yyyy',
+                            required: false,
+                            label: 'gewünschtes Datum Einzug',
+                            name: 'einzug_datum',
+                        }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'textarea',
+                            placeholder: 'Ihre Nachricht',
+                            required: false,
+                            label: 'Bemerkung',
+                            name: 'einzug_bemerkung',
+                        }
+                    ]
+                },
+            ]
+        },
+        {
+            label: 'Auszugsort Firma',
+            stepId: 'auszugsort firma',
+            rows: [
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: 'Musterstrasse',
+                            required: false,
+                            label: 'Strasse',
+                            name: 'auszug_firma_strasse',
+                        },
+                        {
+                            type: 'text',
+                            placeholder: 'Hausnummer',
+                            required: false,
+                            label: 'Hausnummer',
+                            name: 'auszug_firma_hausnummer',
+                        }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: 'Adresszusatz',
+                            required: false,
+                            label: 'Adresszusatz',
+                            name: 'auszug_firma_adresszusatz',
+                        }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'text',
+                            placeholder: 'Ort',
+                            required: false,
+                            label: 'Ort',
+                            name: 'auszug_firma_ort',
                         },
                         {
                             type: 'text',
                             placeholder: 'PLZ',
                             required: false,
                             label: 'PLZ',
-                            name: 'plz',
+                            name: 'auszug_firma_plz',
                         }
                     ]
                 },
@@ -337,14 +555,14 @@ const haefeliForm = {
                             placeholder: 'Etage',
                             required: false,
                             label: 'Etage',
-                            name: 'etage',
+                            name: 'auszug_firma_etage',
                         },
                         {
                             type: 'text',
                             placeholder: '2.5 Zimmer',
                             required: false,
                             label: 'Anzahl der Räume',
-                            name: 'raeume',
+                            name: 'auszug_firma_räume',
                         }
                     ]
                 },
