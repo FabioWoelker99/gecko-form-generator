@@ -265,7 +265,7 @@ class GeckoForm {
             json.options.forEach(option => {
                 content += `<div class="${gecko_class_radioButtonComponent} cmp">`;
                     content += `<div class="${gecko_class_radioButtonLayout} lyt">`;
-                        content += `<input id="${option.id}" type="radio" data-name="${json.name}" class="${gecko_class_radioButton}" value="${option.value}">`;
+                        content += `<input id="${option.id}" type="radio" name="${json.name}" class="${gecko_class_radioButton}" value="${option.value}">`;
                         content += `<label class="${gecko_class_label}" for="${option.id}">${option.label}</label>`;
                     content += '</div>';
                 content += '</div>';
@@ -290,7 +290,7 @@ class GeckoForm {
             json.options.forEach(option => {
                 content += `<div class="${gecko_class_checkboxComponent} cmp">`;
                     content += `<div class="${gecko_class_checkboxLayout} lyt">`;
-                        content += `<input id="${option.id}" type="radio" data-name="${json.name}" class="${gecko_class_checkbox}" value="${option.value}">`;
+                        content += `<input id="${option.id}" type="checkbox" name="${json.name}" class="${gecko_class_checkbox}" value="${option.value}">`;
                         content += `<label class="${gecko_class_label}" for="${option.id}">${option.label}</label>`;
                     content += '</div>';
                 content += '</div>';
