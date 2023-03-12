@@ -10,6 +10,10 @@
     "eslint-plugin-jquery": "^1.5.1"
   },
   "scripts": {
-    "build": "mkdir -p dist && npx babel src --out-dir dist --copy-files && npx uglifyjs dist/constants.js dist/GeckoFormManipulator.js dist/GeckoFormListener.js dist/GeckoFormGenerator.js dist/GeckoForm.js -o dist/bundle.js"
+    "generate-dist": "mkdir -p dist/bundles",
+    "deploy-src": "npx babel src --out-dir dist --copy-files",
+    "deployment-general": "npx uglifyjs dist/constants.js dist/GeckoFormManipulator.js dist/GeckoFormListener.js dist/GeckoFormGenerator.js dist/GeckoForm.js -o dist/bundles/gecko-form-generator.js",
+    "deployment-haefeli": "npx uglifyjs dist/constants.js dist/GeckoFormManipulator.js dist/GeckoFormListener.js dist/GeckoFormGenerator.js dist/GeckoForm.js dist/customerForms/haefeli/haefeli-data.js dist/customerForms/haefeli/executioner.js -o dist/bundles/gecko-form-generator-haefeli.js",
+    "build": "npm run generate-dist && npm run deploy-src && npm run deployment-general && npm run deployment-haefeli"
   }
 }
