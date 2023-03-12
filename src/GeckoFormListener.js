@@ -4,6 +4,6 @@ class GeckoFormListener {
     }
 
     addSubmitListener() {
-        $(`${this.geckoForm.submitButtonSelector}`).on('click', this.moveToNextStep.bind(this.geckoForm));
+        $(`${this.geckoForm.submitButtonSelector}`).on('click', this.geckoForm.moveToNextStep.bind(this.geckoForm));
     }
 }
