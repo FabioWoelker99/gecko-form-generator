@@ -1,6 +1,6 @@
 class GeckoForm {
     constructor(formJson, formSelector, submitButtonSelector, formStepsSelector) {
-        this.geckoFormGenerator = new GeckoFormGenerator(formSelector, formStepsSelector);
+        this.geckoFormGenerator = new GeckoFormGenerator(formJson, formSelector, formStepsSelector);
         this.formJson = formJson;
         this.formSelector = formSelector;
         this.submitButtonSelector = submitButtonSelector;
@@ -20,23 +20,10 @@ class GeckoForm {
     }
 
     buildGeckoForm() {
-        this.buildGeckoSteps();
+        this.geckoFormGenerator.buildGeckoSteps();
         //this.buildConditionals();
         this.activateCurrentStep();
         this.addListener();
-    }
-
-    buildGeckoSteps() {
-        this.formJson.steps.forEach(step => {
-            if(step.type == 'default') this.buildSingleGeckoStep(step);
-        });
-    }
-
-    buildSingleGeckoStep(json) {
-        this.formSteps.push(json.stepId);
-
-        this.geckoFormGenerator.buildSingleGeckoStepView(json, this.formSteps);
-        this.geckoFormGenerator.buildSingleGeckoStepContent(json);
     }
 
     activateCurrentStep() {

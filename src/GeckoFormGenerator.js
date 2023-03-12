@@ -1,8 +1,23 @@
 class GeckoFormGenerator {
-    constructor(formSelector, formStepsSelector) {
+    constructor(formJson, formSelector, formStepsSelector) {
+        this.formJson = formJson;
         this.formSelector = formSelector;
         this.formStepsSelector = formStepsSelector;
     }
+
+    buildGeckoSteps() {
+        this.formJson.steps.forEach(step => {
+            if(step.type == 'default') this.buildSingleGeckoStep(step);
+        });
+    }
+
+    buildSingleGeckoStep(json) {
+        this.formSteps.push(json.stepId);
+
+        this.geckoFormGenerator.buildSingleGeckoStepView(json, this.formSteps);
+        this.geckoFormGenerator.buildSingleGeckoStepContent(json);
+    }
+
     
     buildSingleGeckoStepView(json, formSteps) {
         let content = '';
@@ -36,8 +51,9 @@ class GeckoFormGenerator {
 
     buildSingleGeckoStepContent(json) {
         let content = '';
+        const stepGroup = json.stepGroup != null ? `stepgroup="${json.stepGroup}"` : '';
 
-        content += `<div class="${gecko_class_formComponent} cmp ${gecko_class_hidden}" stepid="${json.stepId}">`;
+        content += `<div class="${gecko_class_formComponent} cmp ${gecko_class_hidden}" stepid="${json.stepId} ${stepGroup}">`;
             content += `<div class="${gecko_class_formLayout} lyt">`;
                 content += this.generateRows(json.rows);
             content += '</div>';
@@ -133,6 +149,22 @@ class GeckoFormGenerator {
     
             content += '</div>';
         content += '</div>';
+
+        if(json.triggers == true) {
+            const stepGroups = json.stepGroups;
+            $(document).on('change', `${this.formSelector} input[type="radio"][name="json.name"]`, function() {
+                const value = this.value;
+                console.log(value);
+
+                // add step groups
+                const steps = this.formJson.steps.filter(step => step.stepGroup == value);
+                steps.forEach(step => {
+                    buildSingleGeckoStep(step);
+                });
+                
+                // delete step groups
+            });
+        }
     
         return content;
     }
