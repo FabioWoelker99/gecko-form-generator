@@ -24,7 +24,7 @@ class GeckoForm {
         this.geckoFormGenerator.buildGeckoSteps(this.formJson.steps);
         //this.buildConditionals();
         this.activateCurrentStep();
-        this.geckoformListener.addSubmitListener();
+        this.geckoFormListener.addSubmitListener();
     }
 
     activateCurrentStep() {
