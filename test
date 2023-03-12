@@ -1,0 +1,53 @@
+name: Build and Deploy
+on:
+  release:
+    types: [created]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy artifact gecko-form-generator
+        uses: actions/upload-artifact@v2
+        with:
+          name: gecko-form-generator
+          path: dist/bundles/gecko-form-generator.js
+
+      - name: Deploy artifact gecko-form-generator-haefeli
+        uses: actions/upload-artifact@v2
+        with:
+          name: gecko-form-generator-haefeli
+          path: dist/bundles/gecko-form-generator-haefeli.js
+
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: gecko-form-generator
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Extract artifact
+        run: unzip -q ${{ github.workspace }}/gecko-form-generator.zip -d ${{ github.workspace }}/dist/bundles
+
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: gecko-form-generator-haefeli
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Extract artifact
+        run: unzip -q ${{ github.workspace }}/gecko-form-generator-haefeli.zip -d ${{ github.workspace }}/dist/bundles
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update dist folder with gecko-form-generator-haefeli artifact"
+          file_pattern: "dist/*"
+          branch: ${{ github.event.release.target_commitish }}
