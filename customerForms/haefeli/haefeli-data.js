@@ -61,7 +61,7 @@ const geckoHaefeliForm = {
                     ]
                 },
                 {
-                    element: [
+                    elements: [
                         {
                             type: 'radio',
                             required: true,
