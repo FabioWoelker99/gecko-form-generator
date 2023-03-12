@@ -15,7 +15,7 @@ class GeckoFormManipulator {
   }
   activateCurrentStep() {
     $(`${this.formSelector} ${gecko_selector_formComponent}`).addClass(gecko_class_hidden);
-    $(`${this.formSelector} ${gecko_selector_formComponent}[stepid="${this.formSteps[this.currentStep - 1]}"]`).removeClass(gecko_class_hidden);
+    $(`${this.formSelector} ${gecko_selector_formComponent}[stepid="${this.geckoForm.formSteps[this.geckoForm.currentStep - 1]}"]`).removeClass(gecko_class_hidden);
   }
   moveToNextStep() {
     $(`${this.formSelector} ${gecko_selector_inputElement}`).removeClass(gecko_class_formItemError);
