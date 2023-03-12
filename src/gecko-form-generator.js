@@ -50,18 +50,19 @@ class GeckoForm {
     }
 
     validateGeckoForm() {
-        // VALIDATION HERE
+        // TODO possible VALIDATION of JSON here
+    }
+
+
+    buildConditionals() {
+        
     }
 
     buildGeckoForm() {
         this.buildGeckoSteps();
-        this.buildConditionals();
+        //this.buildConditionals();
         this.activateCurrentStep();
         this.addListener();
-    }
-
-    buildConditionals() {
-
     }
 
     buildGeckoSteps() {
