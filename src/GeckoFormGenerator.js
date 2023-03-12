@@ -1,8 +1,9 @@
 class GeckoFormGenerator {
-    constructor(formJson, formSelector, formStepsSelector) {
+    constructor(formJson, formSelector, formStepsSelector, geckoForm) {
         this.formJson = formJson;
         this.formSelector = formSelector;
         this.formStepsSelector = formStepsSelector;
+        this.geckoForm = geckoForm;
     }
 
     buildGeckoSteps() {
@@ -12,7 +13,7 @@ class GeckoFormGenerator {
     }
 
     buildSingleGeckoStep(json) {
-        this.formSteps.push(json.stepId);
+        this.geckoForm.formSteps.push(json.stepId);
 
         this.geckoFormGenerator.buildSingleGeckoStepView(json, this.formSteps);
         this.geckoFormGenerator.buildSingleGeckoStepContent(json);
@@ -161,7 +162,7 @@ class GeckoFormGenerator {
                 steps.forEach(step => {
                     buildSingleGeckoStep(step);
                 });
-                
+
                 // delete step groups
             });
         }
