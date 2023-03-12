@@ -14,17 +14,17 @@ class GeckoFormManipulator {
     this.geckoForm.geckoFormGenerator.buildSingleGeckoStepContent(json);
   }
   activateCurrentStep() {
-    $(`${this.formSelector} ${gecko_selector_formComponent}`).addClass(gecko_class_hidden);
-    $(`${this.formSelector} ${gecko_selector_formComponent}[stepid="${this.geckoForm.formSteps[this.geckoForm.currentStep - 1]}"]`).removeClass(gecko_class_hidden);
+    $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}`).addClass(gecko_class_hidden);
+    $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}[stepid="${this.geckoForm.formSteps[this.geckoForm.currentStep - 1]}"]`).removeClass(gecko_class_hidden);
   }
   moveToNextStep() {
-    $(`${this.formSelector} ${gecko_selector_inputElement}`).removeClass(gecko_class_formItemError);
-    const currentStepId = this.formSteps[this.currentStep - 1];
+    $(`${this.geckoForm.formSelector} ${gecko_selector_inputElement}`).removeClass(gecko_class_formItemError);
+    const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1];
     const currentStepSelector = `${this.formSelector} ${gecko_selector_formComponent}[stepid="${currentStepId}"]`;
     let categoryRequestObject = {};
     categoryRequestObject.name = currentStepId;
     categoryRequestObject.children = [];
-    const currentStep = this.formJson.steps.filter(step => step.stepId == currentStepId)[0];
+    const currentStep = this.geckoForm.formJson.steps.filter(step => step.stepId == currentStepId)[0];
     let error = false;
     currentStep.rows.forEach(row => {
       row.elements.forEach(element => {
@@ -44,13 +44,13 @@ class GeckoFormManipulator {
       // OTHER ERROR OPTIONS
       return;
     }
-    this.geckoRequest.data.categories.push(categoryRequestObject);
-    if (this.currentStep >= this.formSteps.length) {
+    this.geckoForm.geckoRequest.data.categories.push(categoryRequestObject);
+    if (this.geckoForm.currentStep >= this.geckoForm.formSteps.length) {
       $.ajax({
-        url: `https://ltavphiuzenejhnrbxvl.functions.supabase.co/mail-service?name=${this.formJson.requestName}`,
+        url: `https://ltavphiuzenejhnrbxvl.functions.supabase.co/mail-service?name=${this.geckoForm.formJson.requestName}`,
         method: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify(this.geckoRequest),
+        data: JSON.stringify(this.geckoForm.geckoRequest),
         success: function (response) {
           console.log('Response:', response);
         },
