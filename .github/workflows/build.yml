@@ -28,7 +28,7 @@ jobs:
           path: dist
 
       - name: Unzip artifact
-        run: unzip -q ${{ github.workspace }}/dist.zip -d dist
+        run: unzip -q ${{ github.workspace }}/dist/dist.zip -d dist
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v4
