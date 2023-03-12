@@ -17,8 +17,10 @@ jobs:
         with:
           name: gecko-form-generator
           path: dist/bundles/gecko-form-generator.js
+          public: true
       - name: Deploy artifact gecko-form-generator-haefeli
         uses: actions/upload-artifact@v2
         with:
           name: gecko-form-generator-haefeli
           path: dist/bundles/gecko-form-generator-haefeli.js
+          public: true
