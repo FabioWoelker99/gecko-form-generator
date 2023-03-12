@@ -1,6 +1,7 @@
 class GeckoForm {
     constructor(formJson, formSelector, submitButtonSelector, formStepsSelector) {
         this.geckoFormGenerator = new GeckoFormGenerator(this);
+        this.geckoFormListener = new GeckoFormListener(this);
         this.formJson = formJson;
         this.formSelector = formSelector;
         this.submitButtonSelector = submitButtonSelector;
@@ -20,19 +21,15 @@ class GeckoForm {
     }
 
     buildGeckoForm() {
-        this.geckoFormGenerator.buildGeckoSteps();
+        this.geckoFormGenerator.buildGeckoSteps(this.formJson.steps);
         //this.buildConditionals();
         this.activateCurrentStep();
-        this.addListener();
+        this.geckoformListener.addSubmitListener();
     }
 
     activateCurrentStep() {
         $(`${this.formSelector} ${gecko_selector_formComponent}`).addClass(gecko_class_hidden);
         $(`${this.formSelector} ${gecko_selector_formComponent}[stepid="${this.formSteps[this.currentStep - 1]}"]`).removeClass(gecko_class_hidden);
-    }
-
-    addListener() {
-        $(`${this.submitButtonSelector}`).on('click', this.moveToNextStep.bind(this));
     }
 
     // TODO refactor method

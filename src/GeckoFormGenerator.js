@@ -3,10 +3,14 @@ class GeckoFormGenerator {
         this.geckoForm = geckoForm;
     }
 
-    buildGeckoSteps() {
-        this.geckoForm.formJson.steps.forEach(step => {
+    buildGeckoSteps(json) {
+        json.forEach(step => {
             if(step.type == 'default') this.buildSingleGeckoStep(step);
         });
+    }
+
+    destroyGeckoStep() {
+
     }
 
     buildSingleGeckoStep(json) {
@@ -148,7 +152,7 @@ class GeckoFormGenerator {
             content += '</div>';
         content += '</div>';
 
-        /*if(json.triggers == true) {
+        if(json.trigger == true) {
             const stepGroups = json.stepGroups;
             $(document).on('change', `${this.geckoForm.formSelector} input[type="radio"][name="json.name"]`, function() {
                 const value = this.value;
@@ -156,13 +160,11 @@ class GeckoFormGenerator {
 
                 // add step groups
                 const steps = this.geckoForm.formJson.steps.filter(step => step.stepGroup == value);
-                steps.forEach(step => {
-                    buildSingleGeckoStep(step);
-                });
+                this.buildGeckoSteps(steps);
 
                 // delete step groups
             });
-        }*/
+        }
     
         return content;
     }
