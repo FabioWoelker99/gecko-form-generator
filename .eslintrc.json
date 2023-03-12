@@ -14,6 +14,8 @@
     "plugins": ["jquery"],
     "rules": {
         "indent": "off",
+        "no-unused-vars": "off",
+        "no-undef": "off",
         "linebreak-style": [
             "error",
             "unix"
