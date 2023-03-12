@@ -15,8 +15,8 @@ class GeckoFormGenerator {
     buildSingleGeckoStep(json) {
         this.geckoForm.formSteps.push(json.stepId);
 
-        this.geckoFormGenerator.buildSingleGeckoStepView(json, this.formSteps);
-        this.geckoFormGenerator.buildSingleGeckoStepContent(json);
+        this.buildSingleGeckoStepView(json, this.geckoForm.formSteps);
+        this.buildSingleGeckoStepContent(json);
     }
 
     
