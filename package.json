@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "jquery": "^3.6.4"
+    "jquery": "^3.6.4",
+    "uglify-js": "^3.17.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.21.0",
