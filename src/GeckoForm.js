@@ -28,7 +28,7 @@ class GeckoForm {
 
     buildGeckoSteps() {
         this.formJson.steps.forEach(step => {
-            this.buildSingleGeckoStep(step);
+            if(step.type == 'default') this.buildSingleGeckoStep(step);
         });
     }
 

@@ -2,6 +2,7 @@ const geckoHaefeliForm = {
     requestName: 'winno',
     steps: [
         {
+            type: 'default',
             label: 'Persönliche Daten',
             stepId: 'personal',
             rows: [
@@ -58,12 +59,45 @@ const geckoHaefeliForm = {
                             name: 'nachricht',
                         },
                     ]
+                },
+                {
+                    element: [
+                        {
+                            type: 'radio',
+                            required: true,
+                            label: 'Art des Umzugs',
+                            name: 'umzugsart',
+                            trigger: true,
+                            stepGroups: ['privatumzug', 'firmenumzug'],
+                            options: [
+                                {
+                                    label: 'Privatumzug',
+                                    value: 'privatumzug',
+                                    id: 'privatumzug',
+                                    stepGroup: 'privatumzug',
+                                },
+                                {
+                                    label: 'Firmenumzug',
+                                    value: 'firmenumzug',
+                                    id: 'firmenumzug',
+                                    stepGroup: 'firmenumzug',
+                                },
+                                {
+                                    label: 'Kein Umzug',
+                                    value: 'kein_umzug',
+                                    id: 'kein_umzug',
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
         {
+            type: 'hidden',
             label: 'Auszugsort',
             stepId: 'auszugsort',
+            stepGroup: 'privatumzug',
             rows: [
                 {
                     elements: [
@@ -180,8 +214,10 @@ const geckoHaefeliForm = {
             ]
         },
         {
+            type: 'hidden',
             label: 'Einzugsort',
             stepId: 'einzugsort',
+            stepGroup: 'privatumzug',
             rows: [
                 {
                     elements: [
@@ -262,8 +298,10 @@ const geckoHaefeliForm = {
             ]
         },
         {
+            type: 'hidden',
             label: 'Auszugsort Firma',
             stepId: 'auszugsort_firma',
+            stepGroup: 'firmenumzug',
             rows: [
                 {
                     elements: [
@@ -373,8 +411,10 @@ const geckoHaefeliForm = {
             ]
         },
         {
+            type: 'hidden',
             label: 'Einzugsort Firma',
             stepId: 'einzugsort_firma',
+            stepGroup: 'firmenumzug',
             rows: [
                 {
                     elements: [
@@ -455,6 +495,7 @@ const geckoHaefeliForm = {
             ]
         },
         {
+            type: 'hidden',
             label: 'Reinigung',
             stepId: 'reinigung',
             rows: [
@@ -526,6 +567,7 @@ const geckoHaefeliForm = {
             ]
         },
         {
+            type: 'hidden',
             label: 'Lagerung',
             stepId: 'lagerung',
             rows: [
@@ -572,6 +614,7 @@ const geckoHaefeliForm = {
             ]
         },
         {
+            type: 'hidden',
             label: 'Treppensteiger',
             stepId: 'treppensteiger',
             rows: [
@@ -636,6 +679,7 @@ const geckoHaefeliForm = {
             ]
         },
         {
+            type: 'hidden',
             label: 'Möbellift',
             stepId: 'moebellift',
             rows: [
@@ -700,6 +744,7 @@ const geckoHaefeliForm = {
             ]
         },
         {
+            type: 'hidden',
             label: 'Entsorgung',
             stepId: 'entsorgung',
             rows: [
