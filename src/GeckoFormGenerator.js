@@ -154,7 +154,7 @@ class GeckoFormGenerator {
 
         if(json.trigger == true) {
             const stepGroups = json.stepGroups;
-            $(document).on('change', `${this.geckoForm.formSelector} input[type="radio"][name="json.name"]`, function() {
+            $(document).on('change', `${this.geckoForm.formSelector} input[type="radio"][name="${json.name}"]`, function() {
                 const value = this.value;
                 console.log(value);
 
