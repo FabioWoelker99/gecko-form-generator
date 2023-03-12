@@ -34,7 +34,7 @@ jobs:
           ref: ${{ github.event.release.tag_name }}
 
       - name: Extract artifact
-        run: unzip ${{ github.workspace }}/gecko-form-generator.zip -d ${{ github.workspace }}/dist
+        run: unzip -q ${{ github.workspace }}/gecko-form-generator.zip -d ${{ github.workspace }}/dist/bundles
 
       - name: Download artifact
         uses: actions/download-artifact@v2
@@ -43,7 +43,7 @@ jobs:
           ref: ${{ github.event.release.tag_name }}
 
       - name: Extract artifact
-        run: unzip ${{ github.workspace }}/gecko-form-generator-haefeli.zip -d ${{ github.workspace }}/dist
+        run: unzip -q ${{ github.workspace }}/gecko-form-generator-haefeli.zip -d ${{ github.workspace }}/dist/bundles
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v4
