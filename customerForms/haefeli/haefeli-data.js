@@ -1,4 +1,4 @@
-const haefeliForm = {
+const geckoHaefeliForm = {
     requestName: 'winno',
     steps: [
         {

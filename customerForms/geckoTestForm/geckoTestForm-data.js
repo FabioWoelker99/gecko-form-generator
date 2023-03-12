@@ -1,4 +1,4 @@
-const testForm = {
+const geckoTestForm = {
     requestName: 'winno',
     steps: [
         {
