@@ -2,29 +2,11 @@ class GeckoFormGenerator {
     constructor(geckoForm) {
         this.geckoForm = geckoForm;
     }
-
-    buildGeckoSteps(json) {
-        json.forEach(step => {
-            if(step.type == 'default') this.buildSingleGeckoStep(step);
-        });
-    }
-
-    destroyGeckoStep() {
-
-    }
-
-    buildSingleGeckoStep(json) {
-        this.geckoForm.formSteps.push(json.stepId);
-
-        this.buildSingleGeckoStepView(json, this.geckoForm.formSteps);
-        this.buildSingleGeckoStepContent(json);
-    }
-
     
-    buildSingleGeckoStepView(json, formSteps) {
+    buildSingleGeckoStepView(json) {
         let content = '';
 
-        if(formSteps.length > 1) {
+        if(this.geckoForm.formSteps.length > 1) {
             content += `<div class="${gecko_class_formStepDivider} el ${gecko_class_formStepDividerStylingClasses}"></div>`;
         }
 
@@ -35,7 +17,7 @@ class GeckoFormGenerator {
                     content += `<div class="${gecko_class_formStepNumberCD} cd">`;
                         content += `<div class="${gecko_class_formStepNumberLayout} lyt">`;
                             content += `<div class="${gecko_class_formStepNumberWrapper} wr_p">`;
-                                content += `<p class="${gecko_class_formStepNumberLabel} ${gecko_class_formStepNumberLabelStylingClasses}">${formSteps.length}</p>`;
+                                content += `<p class="${gecko_class_formStepNumberLabel} ${gecko_class_formStepNumberLabelStylingClasses}">${this.geckoForm.formSteps.length}</p>`;
                             content += '</div>';
                         content += '</div>';
                     content += '</div>';
@@ -152,19 +134,7 @@ class GeckoFormGenerator {
             content += '</div>';
         content += '</div>';
 
-        if(json.trigger == true) {
-            const stepGroups = json.stepGroups;
-            $(document).on('change', `${this.geckoForm.formSelector} input[type="radio"][name="${json.name}"]`, function() {
-                const value = this.value;
-                console.log(value);
-
-                // add step groups
-                const steps = this.geckoForm.formJson.steps.filter(step => step.stepGroup == value);
-                this.buildGeckoSteps(steps);
-
-                // delete step groups
-            });
-        }
+        if(json.trigger == true) this.geckoForm.geckoFormListener.addRadioTriggerListener(json);
     
         return content;
     }
