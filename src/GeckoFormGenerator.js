@@ -1,10 +1,13 @@
 class GeckoFormGenerator {
-    construct() {}
+    construct(formSelector, formStepsSelector) {
+        this.formSelector = formSelector;
+        this.formStepsSelector = formStepsSelector;
+    }
     
-    buildSingleGeckoStepView(json) {
+    buildSingleGeckoStepView(json, formSteps) {
         let content = '';
 
-        if(this.formSteps.length > 1) {
+        if(formSteps.length > 1) {
             content += `<div class="${gecko_class_formStepDivider} el ${gecko_class_formStepDividerStylingClasses}"></div>`;
         }
 
@@ -15,7 +18,7 @@ class GeckoFormGenerator {
                     content += `<div class="${gecko_class_formStepNumberCD} cd">`;
                         content += `<div class="${gecko_class_formStepNumberLayout} lyt">`;
                             content += `<div class="${gecko_class_formStepNumberWrapper} wr_p">`;
-                                content += `<p class="${gecko_class_formStepNumberLabel} ${gecko_class_formStepNumberLabelStylingClasses}">${this.formSteps.length}</p>`;
+                                content += `<p class="${gecko_class_formStepNumberLabel} ${gecko_class_formStepNumberLabelStylingClasses}">${formSteps.length}</p>`;
                             content += '</div>';
                         content += '</div>';
                     content += '</div>';
