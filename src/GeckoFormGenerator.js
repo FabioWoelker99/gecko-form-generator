@@ -1,5 +1,5 @@
 class GeckoFormGenerator {
-    construct(formSelector, formStepsSelector) {
+    constructor(formSelector, formStepsSelector) {
         this.formSelector = formSelector;
         this.formStepsSelector = formStepsSelector;
     }
