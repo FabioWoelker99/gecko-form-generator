@@ -51,7 +51,7 @@ class GeckoFormGenerator {
         let content = '';
         const stepGroup = json.stepGroup != null ? `stepgroup="${json.stepGroup}"` : '';
 
-        content += `<div class="${gecko_class_formComponent} cmp ${gecko_class_hidden}" stepid="${json.stepId} ${stepGroup}">`;
+        content += `<div class="${gecko_class_formComponent} cmp ${gecko_class_hidden}" stepid="${json.stepId}" ${stepGroup}>`;
             content += `<div class="${gecko_class_formLayout} lyt">`;
                 content += this.generateRows(json.rows);
             content += '</div>';
