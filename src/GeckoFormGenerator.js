@@ -1,13 +1,10 @@
 class GeckoFormGenerator {
-    constructor(formJson, formSelector, formStepsSelector, geckoForm) {
-        this.formJson = formJson;
-        this.formSelector = formSelector;
-        this.formStepsSelector = formStepsSelector;
+    constructor(geckoForm) {
         this.geckoForm = geckoForm;
     }
 
     buildGeckoSteps() {
-        this.formJson.steps.forEach(step => {
+        this.geckoForm.formJson.steps.forEach(step => {
             if(step.type == 'default') this.buildSingleGeckoStep(step);
         });
     }
@@ -47,7 +44,7 @@ class GeckoFormGenerator {
             content += '</div>';
         content += '</div>';
 
-        $(`${this.formStepsSelector}`).append(content);
+        $(`${this.geckoForm.formStepsSelector}`).append(content);
     }
 
     buildSingleGeckoStepContent(json) {
@@ -60,7 +57,7 @@ class GeckoFormGenerator {
             content += '</div>';
         content += '</div>';
 
-        $(`${this.formSelector}`).append(content);
+        $(`${this.geckoForm.formSelector}`).append(content);
     }
 
     generateRows(json) {
@@ -151,21 +148,21 @@ class GeckoFormGenerator {
             content += '</div>';
         content += '</div>';
 
-        if(json.triggers == true) {
+        /*if(json.triggers == true) {
             const stepGroups = json.stepGroups;
-            $(document).on('change', `${this.formSelector} input[type="radio"][name="json.name"]`, function() {
+            $(document).on('change', `${this.geckoForm.formSelector} input[type="radio"][name="json.name"]`, function() {
                 const value = this.value;
                 console.log(value);
 
                 // add step groups
-                const steps = this.formJson.steps.filter(step => step.stepGroup == value);
+                const steps = this.geckoForm.formJson.steps.filter(step => step.stepGroup == value);
                 steps.forEach(step => {
                     buildSingleGeckoStep(step);
                 });
 
                 // delete step groups
             });
-        }
+        }*/
     
         return content;
     }

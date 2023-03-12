@@ -1,6 +1,6 @@
 class GeckoForm {
     constructor(formJson, formSelector, submitButtonSelector, formStepsSelector) {
-        this.geckoFormGenerator = new GeckoFormGenerator(formJson, formSelector, formStepsSelector, this);
+        this.geckoFormGenerator = new GeckoFormGenerator(this);
         this.formJson = formJson;
         this.formSelector = formSelector;
         this.submitButtonSelector = submitButtonSelector;
