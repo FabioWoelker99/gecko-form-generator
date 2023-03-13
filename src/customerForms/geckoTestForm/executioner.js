@@ -1,2 +1,2 @@
-const geckoForm = new GeckoForm(geckoTestForm, '#test-gecko-form', '.wr_btn--submit', '.lyt--form-steps');
+const geckoForm = new GeckoForm(geckoTestForm, '#test-gecko-form', '.wr_btn--submit', 'wr_btn--form-back', '.lyt--form-steps');
 geckoForm.buildGeckoForm();

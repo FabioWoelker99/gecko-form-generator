@@ -32,6 +32,11 @@ class GeckoFormManipulator {
     $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}`).addClass(gecko_class_hidden);
     $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}[stepid="${this.geckoForm.formSteps[this.geckoForm.currentStep - 1]}"]`).removeClass(gecko_class_hidden);
   }
+  moveToLastStep() {
+    this.geckoForm.geckoRequest.data.categories.pop();
+    this.currentStep--;
+    this.activateCurrentStep();
+  }
   moveToNextStep() {
     $(`${this.geckoForm.formSelector} ${gecko_selector_inputElement}`).removeClass(gecko_class_formItemError);
     const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1];
@@ -44,7 +49,39 @@ class GeckoFormManipulator {
     currentStep.rows.forEach(row => {
       row.elements.forEach(element => {
         const currentSelector = `${currentStepSelector} ${gecko_selector_inputElement}[name="${element.name}"]`;
-        const value = $(currentSelector).val().trim() != '' ? $(currentSelector).val() : null;
+        let value = '';
+        switch (element.type) {
+          case 'text':
+            {
+              value = $(currentSelector).val();
+              break;
+            }
+          case 'email':
+            {
+              value = $(currentSelector).val();
+              break;
+            }
+          case 'tel':
+            {
+              value = $(currentSelector).val();
+              break;
+            }
+          case 'textarea':
+            {
+              value = $(currentSelector).val();
+              break;
+            }
+          case 'radio':
+            {
+              value = $(`${currentSelector}:checked`).val() ?? null;
+              break;
+            }
+          case 'checkbox':
+            {
+              break;
+            }
+        }
+        value = value == null ? null : value.trim() == '' ? null : value;
         if (value != null) categoryRequestObject.children.push({
           name: element.name,
           val: value
@@ -56,7 +93,7 @@ class GeckoFormManipulator {
       });
     });
     if (error) {
-      // OTHER ERROR OPTIONS
+      // OTHER ERROR OPTIONS -> throw message
       return;
     }
     this.geckoForm.geckoRequest.data.categories.push(categoryRequestObject);

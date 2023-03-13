@@ -3,8 +3,9 @@ class GeckoFormListener {
         this.geckoForm = geckoForm;
     }
 
-    addSubmitListener() {
+    addMoveButtonListener() {
         $(`${this.geckoForm.submitButtonSelector}`).on('click', this.geckoForm.geckoFormManipulator.moveToNextStep.bind(this.geckoForm.geckoFormManipulator));
+        $(`${this.geckoForm.backButtonSelector}`).on('click', this.geckoForm.geckoFormManipulator.moveToLastStep.bind(this.geckoForm.geckoFormManipulator));
     }
 
     addRadioTriggerListener(json) {
