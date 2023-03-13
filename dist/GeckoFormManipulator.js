@@ -3,20 +3,18 @@ class GeckoFormManipulator {
     this.geckoForm = geckoForm;
   }
   buildGeckoSteps(json, stepType) {
-    console.log('build');
     json.forEach(step => {
       if (step.type == stepType) this.buildSingleGeckoStep(step);
     });
   }
   destroyGeckoSteps(json) {
-    console.log('destroy');
     const stepsToDestroy = this.geckoForm.formJson.steps.filter(step => json.includes(step.stepGroup));
     let stepIds = [];
     stepsToDestroy.forEach(step => stepIds.push(step.stepId));
     this.geckoForm.formSteps = this.geckoForm.formSteps.filter(step => !stepIds.includes(step));
     json.forEach(stepGroup => {
-      $(`${this.geckoForm.formSelector} ${gecko_selector_formStepComponent}[stepgroup="${stepGroup}"]`).remove();
-      $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}[steogroup="${stepGroup}"]`).remove();
+      $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepgroup="${stepGroup}"]`).remove();
+      $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}[stepgroup="${stepGroup}"]`).remove();
     });
   }
   buildSingleGeckoStep(json) {
@@ -26,8 +24,6 @@ class GeckoFormManipulator {
   }
   triggerStepManipulation(value, json) {
     this.destroyGeckoSteps(json.stepGroups);
-    console.log('activate');
-    // add step groups
     const stepsToCreate = this.geckoForm.formJson.steps.filter(step => step.stepGroup == value);
     this.buildGeckoSteps(stepsToCreate, 'hidden');
   }
