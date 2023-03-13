@@ -13,10 +13,10 @@ class GeckoForm {
     }
 
     buildGeckoForm() {
-        this.geckoFormManipulator.buildGeckoSteps(this.formJson.steps);
+        this.geckoFormManipulator.buildGeckoSteps(this.formJson.steps, 'default');
         this.geckoFormManipulator.activateCurrentStep();
         this.geckoFormListener.addSubmitListener();
-    }
+      }
 }
 
 

@@ -3,14 +3,14 @@ class GeckoFormManipulator {
         this.geckoForm = geckoForm;
     }
 
-    buildGeckoSteps(json) {
+    buildGeckoSteps(json, stepType) {
         json.forEach(step => {
-            if(step.type == 'default') this.buildSingleGeckoStep(step);
+            if(step.type == stepType) this.buildSingleGeckoStep(step);
         });
     }
 
-    destroyGeckoStep() {
-
+    destroyGeckoSteps(arr) {
+        console.log(this.geckoForm.formSteps);
     }
 
     buildSingleGeckoStep(json) {
@@ -18,6 +18,16 @@ class GeckoFormManipulator {
 
         this.geckoForm.geckoFormGenerator.buildSingleGeckoStepView(json);
         this.geckoForm.geckoFormGenerator.buildSingleGeckoStepContent(json);
+    }
+
+    triggerStepManipulation(value, json) {
+        // delete step groups
+        this.destroyGeckoSteps(json.stepGroups);
+
+        console.log('activate');
+        // add step groups
+        const stepsToCreate = this.geckoForm.formJson.steps.filter(step => step.stepGroup == value);
+        this.buildGeckoSteps(stepsToCreate, 'hidden');
     }
 
     activateCurrentStep() {
