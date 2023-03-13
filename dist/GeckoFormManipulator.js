@@ -38,7 +38,7 @@ class GeckoFormManipulator {
     this.activateCurrentStep();
   }
   moveToNextStep() {
-    $(`${this.geckoForm.formSelector} ${gecko_selector_inputElement}`).removeClass(gecko_class_formItemError);
+    $(`${this.geckoForm.formSelector} ${gecko_selector_inputGeneralElement}`).removeClass(gecko_class_formItemError);
     const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1];
     const currentStepSelector = `${this.geckoForm.formSelector} ${gecko_selector_formComponent}[stepid="${currentStepId}"]`;
     let categoryRequestObject = {};
@@ -48,7 +48,7 @@ class GeckoFormManipulator {
     let error = false;
     currentStep.rows.forEach(row => {
       row.elements.forEach(element => {
-        const currentSelector = `${currentStepSelector} ${gecko_selector_inputElement}[name="${element.name}"]`;
+        const currentSelector = `${currentStepSelector} ${gecko_selector_inputGeneralElement}[name="${element.name}"]`;
         let value = '';
         switch (element.type) {
           case 'text':

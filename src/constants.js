@@ -6,6 +6,7 @@ const gecko_class_formRowLayout = 'lyt--form-row';
 const gecko_class_formItemComponent = 'cmp--form-item';
 const gecko_class_formItemLayout = 'lyt--form-item';
 const gecko_class_inputElement = 'inp';
+const gecko_class_inputGeneralElement = 'gecko-inp';
 const gecko_class_label = 'p--l';
 const gecko_class_hidden = 'gecko-hidden';
 const gecko_class_formStepComponent = 'cmp--form-step';
@@ -36,5 +37,5 @@ const gecko_class_checkbox = 'cb';
 
 const gecko_selector_formComponent = `.${gecko_class_formComponent}`;
 const gecko_selector_formStepComponent = `.${gecko_class_formStepComponent}`;
-const gecko_selector_inputElement = `.${gecko_class_inputElement}`;
+const gecko_selector_inputGeneralElement = `.${gecko_class_inputGeneralElement}`;
 const gecko_selector_formStepDivider = `.${gecko_class_formStepDivider}`;
