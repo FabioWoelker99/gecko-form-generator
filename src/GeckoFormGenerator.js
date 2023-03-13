@@ -126,7 +126,7 @@ class GeckoFormGenerator {
             json.options.forEach(option => {
                 content += `<div class="${gecko_class_radioButtonComponent} cmp">`;
                     content += `<div class="${gecko_class_radioButtonLayout} lyt">`;
-                        content += `<input id="${option.id}" type="radio" name="${json.name}" class="${gecko_class_radioButton}" value="${option.value}">`;
+                        content += `<input id="${option.id}" type="radio" name="${json.name}" class="${gecko_class_radioButton} ${gecko_class_inputGeneralElement}" value="${option.value}">`;
                         content += `<label class="${gecko_class_label}" for="${option.id}">${option.label}</label>`;
                     content += '</div>';
                 content += '</div>';
@@ -153,7 +153,7 @@ class GeckoFormGenerator {
             json.options.forEach(option => {
                 content += `<div class="${gecko_class_checkboxComponent} cmp">`;
                     content += `<div class="${gecko_class_checkboxLayout} lyt">`;
-                        content += `<input id="${option.id}" type="checkbox" name="${json.name}" class="${gecko_class_checkbox}" value="${option.value}">`;
+                        content += `<input id="${option.id}" type="checkbox" name="${json.name}" class="${gecko_class_checkbox} ${gecko_class_inputGeneralElement}" value="${option.value}">`;
                         content += `<label class="${gecko_class_label}" for="${option.id}">${option.label}</label>`;
                     content += '</div>';
                 content += '</div>';
@@ -174,7 +174,7 @@ class GeckoFormGenerator {
     
         let content = '';
         content += `<p class="${gecko_class_label}">${label}</p>`;
-        content += `<input class="${gecko_class_inputElement}" type="${json.type}" ${placeholder} ${required} ${autocomplete} ${name}>`;
+        content += `<input class="${gecko_class_inputElement} ${gecko_class_inputGeneralElement}" type="${json.type}" ${placeholder} ${required} ${autocomplete} ${name}>`;
     
         return content;
     }
@@ -187,7 +187,7 @@ class GeckoFormGenerator {
     
         let content = '';
         content += `<p class="${gecko_class_label}">${label}</p>`;
-        content += `<textarea class="${gecko_class_inputElement}" ${placeholder} ${required} ${name}"></textarea>`;
+        content += `<textarea class="${gecko_class_inputElement} ${gecko_class_inputGeneralElement}" ${placeholder} ${required} ${name}"></textarea>`;
     
         return content;
     }
