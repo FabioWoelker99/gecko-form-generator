@@ -6,7 +6,7 @@ class GeckoFormGenerator {
     let content = '';
     const stepGroup = json.stepGroup != null ? `stepgroup="${json.stepGroup}"` : '';
     if (this.geckoForm.formSteps.length > 1) {
-      content += `<div class="${gecko_class_formStepDivider} el ${gecko_class_formStepDividerStylingClasses}"></div>`;
+      content += `<div class="${gecko_class_formStepDivider} el ${gecko_class_formStepDividerStylingClasses}" stepid="${json.stepId}" ${stepGroup}></div>`;
     }
     content += `<div class="${gecko_class_formStepComponent} cmp" stepid="${json.stepId}" ${stepGroup}>`;
     content += `<div class="${gecko_class_formStepLayout} lyt">`;
