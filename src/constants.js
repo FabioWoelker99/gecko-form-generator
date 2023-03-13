@@ -1,4 +1,5 @@
 const gecko_selector_formComponent = '.cmp--form';
+const gecko_selector_formStepComponent = '.cmp--form-step';
 const gecko_selector_inputElement = '.inp';
 
 const gecko_class_formComponent = 'cmp--form';

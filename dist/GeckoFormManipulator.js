@@ -3,12 +3,21 @@ class GeckoFormManipulator {
     this.geckoForm = geckoForm;
   }
   buildGeckoSteps(json, stepType) {
+    console.log('build');
     json.forEach(step => {
       if (step.type == stepType) this.buildSingleGeckoStep(step);
     });
   }
-  destroyGeckoSteps(arr) {
-    console.log(this.geckoForm.formSteps);
+  destroyGeckoSteps(json) {
+    console.log('destroy');
+    const stepsToDestroy = this.geckoForm.formJson.steps.filter(step => json.includes(step.stepGroup));
+    let stepsIds = [];
+    stepsToDestroy.forEach(step => stepsIds.push(step.stepId));
+    this.geckoForm.formSteps = this.geckoForm.formSteps.filter(step => !stepIds.includes(step));
+    json.forEach(stepGroup => {
+      $(`${this.geckoForm.formSelector} ${gecko_selector_formStepComponent}[stepgroup="${stepGroup}"]`).remove();
+      $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}[steogroup="${stepGroup}"]`).remove();
+    });
   }
   buildSingleGeckoStep(json) {
     this.geckoForm.formSteps.push(json.stepId);
@@ -16,7 +25,6 @@ class GeckoFormManipulator {
     this.geckoForm.geckoFormGenerator.buildSingleGeckoStepContent(json);
   }
   triggerStepManipulation(value, json) {
-    // delete step groups
     this.destroyGeckoSteps(json.stepGroups);
     console.log('activate');
     // add step groups
