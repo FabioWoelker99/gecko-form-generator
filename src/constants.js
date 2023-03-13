@@ -1,7 +1,3 @@
-const gecko_selector_formComponent = '.cmp--form';
-const gecko_selector_formStepComponent = '.cmp--form-step';
-const gecko_selector_inputElement = '.inp';
-
 const gecko_class_formComponent = 'cmp--form';
 const gecko_class_formLayout = 'lyt--form';
 
@@ -37,3 +33,8 @@ const gecko_class_checkboxGroupLayout = 'lyt--cb-group';
 const gecko_class_checkboxComponent = 'cmp--cb';
 const gecko_class_checkboxLayout = 'lyt--cb';
 const gecko_class_checkbox = 'cb';
+
+const gecko_selector_formComponent = `.${gecko_class_formComponent}`;
+const gecko_selector_formStepComponent = `.${gecko_class_formStepComponent}`;
+const gecko_selector_inputElement = `.${gecko_class_inputElement}`;
+const gecko_selector_formStepDivider = `.${gecko_class_formStepDivider}`;
