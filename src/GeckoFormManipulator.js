@@ -19,6 +19,7 @@ class GeckoFormManipulator {
 
         json.forEach(stepGroup => {
             $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepgroup="${stepGroup}"]`).remove();
+            $(`${this.geckoForm.formStepsSelector} ${gecko_class_formStepDivider}[stepgroup="${stepGroup}"]`).remove();
             $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}[stepgroup="${stepGroup}"]`).remove();
         });
     }
