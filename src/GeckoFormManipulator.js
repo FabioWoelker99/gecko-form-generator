@@ -45,7 +45,7 @@ class GeckoFormManipulator {
 
     moveToLastStep() {
         this.geckoForm.geckoRequest.data.categories.pop();
-        this.currentStep--;
+        this.geckoForm.currentStep--;
         this.activateCurrentStep();
     }
 
@@ -124,7 +124,7 @@ class GeckoFormManipulator {
             });
         }
 
-        this.currentStep++;
+        this.geckoForm.currentStep++;
         this.activateCurrentStep();
     }
 }
