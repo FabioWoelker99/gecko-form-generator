@@ -11,8 +11,8 @@ class GeckoFormManipulator {
   destroyGeckoSteps(json) {
     console.log('destroy');
     const stepsToDestroy = this.geckoForm.formJson.steps.filter(step => json.includes(step.stepGroup));
-    let stepsIds = [];
-    stepsToDestroy.forEach(step => stepsIds.push(step.stepId));
+    let stepIds = [];
+    stepsToDestroy.forEach(step => stepIds.push(step.stepId));
     this.geckoForm.formSteps = this.geckoForm.formSteps.filter(step => !stepIds.includes(step));
     json.forEach(stepGroup => {
       $(`${this.geckoForm.formSelector} ${gecko_selector_formStepComponent}[stepgroup="${stepGroup}"]`).remove();
