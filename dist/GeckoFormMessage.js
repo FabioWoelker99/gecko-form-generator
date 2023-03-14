@@ -8,7 +8,7 @@ class GeckoFormMessage {
   }
   activateMessage() {
     $(`${this.messageContainerSelector}`).append(this.messageContent);
-    const messageElement = $(`${this.messageContainerSelector} ${gecko_class_message}:last-child`);
+    const messageElement = $(`${this.messageContainerSelector} ${gecko_selector_message}:last-child`);
     $(messageElement).animate({
       opacity: 1,
       top: '+=20'
