@@ -99,7 +99,9 @@ class GeckoFormManipulator {
       });
     });
     if (error) {
-      // OTHER ERROR OPTIONS -> throw message
+      const geckoMessage = new GeckoFormMessage(this.geckoForm.messageContainerSelector, 'error', 'Fehler', 'Testnachricht');
+      geckoMessage.generateMessage();
+      geckoMessage.activateMessage();
       return;
     }
     this.geckoForm.geckoRequest.data.categories.push(categoryRequestObject);

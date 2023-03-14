@@ -1,5 +1,5 @@
 class GeckoForm {
-  constructor(formJson, formSelector, submitButtonSelector, backButtonSelector, formStepsSelector) {
+  constructor(formJson, formSelector, submitButtonSelector, backButtonSelector, formStepsSelector, messageContainerSelector) {
     this.geckoFormGenerator = new GeckoFormGenerator(this);
     this.geckoFormListener = new GeckoFormListener(this);
     this.geckoFormManipulator = new GeckoFormManipulator(this);
@@ -8,6 +8,7 @@ class GeckoForm {
     this.submitButtonSelector = submitButtonSelector;
     this.backButtonSelector = backButtonSelector;
     this.formStepsSelector = formStepsSelector;
+    this.messageContainerSelector = messageContainerSelector;
     this.formSteps = [];
     this.currentStep = 1;
     this.geckoRequest = {
