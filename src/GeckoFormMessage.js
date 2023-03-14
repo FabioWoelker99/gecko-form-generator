@@ -31,7 +31,7 @@ class GeckoFormMessage {
         let typeClass = '';
         let typeIcon = '';
 
-        switch(type) {
+        switch(this.type) {
             case 'success':
             {
                 typeClass = gecko_class_messageSuccessStyling;
