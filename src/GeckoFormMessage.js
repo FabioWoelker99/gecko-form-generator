@@ -30,7 +30,7 @@ class GeckoFormMessage {
         let content = '';
         let typeClass = '';
         let typeIcon = '';
-        let typeCard = '';
+        let typeCardClass = '';
 
         switch(this.type) {
             case 'success':
