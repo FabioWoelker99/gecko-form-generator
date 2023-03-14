@@ -10,20 +10,34 @@ class GeckoFormMessage {
     activateMessage() {
         $(`${this.messageContainerSelector}`).append(this.messageContent);
         const messageElement = $(`${this.messageContainerSelector} ${gecko_selector_message}:last-child`);
+        const closeButton = messageElement.find(gecko_selector_messageCloseIconWrapper);
 
+        this.fadeinMessage(messageElement);
+
+        const fadeoutTimeout = setTimeout(function() {
+            this.fadeoutMessage(messageElement);
+        }, 5000);
+
+        $(closeButton).on('click', function() {
+            clearTimeout(fadeoutTimeout);
+            this.fadeoutMessage(messageElement);
+        });
+    }
+
+    fadeinMessage(messageElement) {
         $(messageElement).animate({
             opacity: 1,
-            top: '+=20'
+            left: '+=40'
         }, 300);
+    }
 
-        setTimeout(function() {
-            $(messageElement).animate({
-                opacity: 0,
-                right: '-=40'
-            }, 300, function() {
-                $(this).remove();
-            });
-        }, 5000);
+    fadeoutMessage(messageElement) {
+        $(messageElement).animate({
+            opacity: 0,
+            right: '-=40'
+        }, 300, function() {
+            $(this).remove();
+        });
     }
 
     generateMessage() {
