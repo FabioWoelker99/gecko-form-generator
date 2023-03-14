@@ -59,7 +59,7 @@ class GeckoFormMessage {
                                 content += '</div>'; 
 
                                 content += `<div class="${gecko_class_messageTitleWrapper} wr_p">`;
-                                    content += `<p class="${gecko_class_messageTitleLabel}">${title}</p>`;
+                                    content += `<p class="${gecko_class_messageTitleLabel}">${this.title}</p>`;
                                 content += '</div>'; 
 
                                 content += `<div class="${gecko_class_messageCloseIconWrapper} wr_p">`;
@@ -71,7 +71,7 @@ class GeckoFormMessage {
 
                         
                         content += `<div class="${gecko_class_messageTextWrapper} wr_p">`;
-                            content += `<p class="${gecko_class_messageTextLabel}">${message}</p>`;
+                            content += `<p class="${gecko_class_messageTextLabel}">${this.message}</p>`;
                         content += '</div>'; 
 
                     content += '</div>';
