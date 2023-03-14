@@ -26,21 +26,25 @@ class GeckoFormMessage {
     let content = '';
     let typeClass = '';
     let typeIcon = '';
+    let typeCard = '';
     switch (this.type) {
       case 'success':
         {
           typeClass = gecko_class_messageSuccessStyling;
           typeIcon = gecko_icon_successMessage;
+          typeCardClass = gecko_class_messageSuccessCard;
           break;
         }
       case 'error':
         {
           typeClass = gecko_class_messageErrorStyling;
           typeIcon = gecko_icon_errorMessage;
+          typeCardClass = gecko_class_messageErrorCard;
           break;
         }
     }
     content += `<div class="${gecko_class_messageComponent} cmp ${gecko_class_message} ${typeClass}">`;
+    content += `<div class="${typeCardClass} cd">`;
     content += `<div class="${gecko_class_messageLayout} lyt">`;
     content += `<div class="${gecko_class_messageContentComponent} cmp">`;
     content += `<div class="${gecko_class_messageContentLayout} lyt">`;
@@ -59,6 +63,7 @@ class GeckoFormMessage {
     content += '</div>';
     content += `<div class="${gecko_class_messageTextWrapper} wr_p">`;
     content += `<p class="${gecko_class_messageTextLabel}">${this.message}</p>`;
+    content += '</div>';
     content += '</div>';
     content += '</div>';
     content += '</div>';
