@@ -43,7 +43,7 @@ class GeckoFormMessage {
           break;
         }
     }
-    content += `<div class="${gecko_class_messageComponent} cmp ${gecko_class_message} ${typeClass}">`;
+    content += `<div class="${gecko_class_messageComponent} cmp ${gecko_class_message} ${typeClass}" style="opacity: 0;">`;
     content += `<div class="${typeCardClass} cd">`;
     content += `<div class="${gecko_class_messageLayout} lyt">`;
     content += `<div class="${gecko_class_messageContentComponent} cmp">`;
