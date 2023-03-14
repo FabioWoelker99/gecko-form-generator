@@ -19,7 +19,7 @@ class GeckoFormMessage {
         setTimeout(function() {
             $(messageElement).animate({
                 opacity: 0,
-                top: '-=20'
+                right: '-=40'
             }, 300, function() {
                 $(this).remove();
             });
