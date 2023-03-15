@@ -106,7 +106,7 @@ class GeckoFormManipulator {
                     }
                 }
                 value = value == null ? null : value.trim() == '' ? null : value;
-                if(value != null) categoryRequestObject.children.push({ name: element.name, val: value });
+                if(value != null) categoryRequestObject.children.push({ name: element.name, value: value });
 
                 if(element.required == true && value == null) {
                     $(currentSelector).addClass(gecko_class_formItemError);
