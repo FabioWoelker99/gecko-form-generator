@@ -124,6 +124,7 @@ class GeckoFormManipulator {
         }
       });
     });
+    const resetFormMethod = this.resetForm;
     const geckoFormMessageContainerSelector = this.geckoForm.messageContainerSelector;
     if (error) {
       const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'error', 'Fehler', 'Bitte überprüfe deine Eingaben!');
@@ -147,7 +148,7 @@ class GeckoFormManipulator {
           const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'success', 'Erfolgreich', 'Das Formular wurde abgesendet.');
           geckoMessage.generateMessage();
           geckoMessage.activateMessage();
-          this.resetForm();
+          resetFormMethod();
         },
         error: function (xhr, status, error) {
           const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'error', 'Fehler', 'Es ist ein Fehler aufgetreten');
