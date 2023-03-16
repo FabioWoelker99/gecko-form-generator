@@ -24,7 +24,7 @@ class GeckoFormGenerator {
     content += '</div>';
     content += '</div>';
     content += '</div>';
-    if (position >= 0) $(`${this.geckoForm.formStepsSelector}`).children().eq(position).after(content);else $(`${this.geckoForm.formStepsSelector}`).append(content);
+    if (position >= 0) $(`${this.geckoForm.formStepsSelector}`).children(`${gecko_selector_formStepComponent}`).eq(position).after(content);else $(`${this.geckoForm.formStepsSelector}`).append(content);
     this.geckoForm.geckoFormManipulator.adjustGeckoStepNumbers();
   }
   buildSingleGeckoStepContent(json) {
