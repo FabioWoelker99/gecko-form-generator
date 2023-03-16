@@ -17,4 +17,9 @@ class GeckoFormListener {
       if (ev.currentTarget.checked == false) this.geckoForm.geckoFormManipulator.triggerStepManipulation(null, [$(ev.currentTarget).attr('stepgroup')]);
     });
   }
+  addRealtimeValidationListener(json) {
+    $(document).on('blur', `${this.geckoForm.formSelector} input[type="${json.type}"][name="${json.name}"]`, ev => {
+      this.geckoForm.geckoFormManipulator.validateInput(`${this.geckoForm.formSelector} input[type="${json.type}"][name="${json.name}"]`, json, $(ev.currentTarget).val());
+    });
+  }
 }

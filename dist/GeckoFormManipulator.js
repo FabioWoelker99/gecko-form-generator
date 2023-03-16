@@ -1,3 +1,5 @@
+/* eslint-disable no-control-regex */
+/* eslint-disable no-useless-escape */
 class GeckoFormManipulator {
   constructor(geckoForm) {
     this.geckoForm = geckoForm;
@@ -59,6 +61,7 @@ class GeckoFormManipulator {
     $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${currentStepId}"]`).addClass('active');
     if (previousStepId != null) $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${previousStepId}"]`).addClass('done');
     if (this.geckoForm.currentStep > 1) $(this.geckoForm.backButtonSelector).removeClass('gecko-button-disabled');else $(this.geckoForm.backButtonSelector).addClass('gecko-button-disabled');
+    if (this.geckoForm.currentStep >= this.geckoForm.formSteps.length) $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.sendButtonLabel);
   }
   moveToLastStep() {
     if (this.geckoForm.currentStep <= 1) return;
@@ -118,7 +121,7 @@ class GeckoFormManipulator {
           name: element.name,
           value: value
         });
-        if (element.required == true && value == null) {
+        if (!this.isInputValid(element.required, element.type, value)) {
           $(currentSelector).addClass(gecko_class_formItemError);
           error = true;
         }
@@ -159,6 +162,21 @@ class GeckoFormManipulator {
       this.geckoForm.currentStep++;
       this.activateCurrentStep();
     }
+  }
+  isInputValid(required, type, value) {
+    if (required == true && value == null) return false;
+    if (type == 'email') {
+      const regex = new RegExp('/^\w+([.-]?\w+)@\w+([.-]?\w+)(\.\w{2,3})+$/');
+      if (!regex.text(value)) return false;
+    } else if (type == 'tel') {
+      const regex = new RegExp('/(\b(0041|0)|\B\+41)(\s?\(0\))?(\s)?[1-9]{2}(\s)?[0-9]{3}(\s)?[0-9]{2}(\s)?[0-9]{2}\b/');
+      if (!regex.text(value)) return false;
+    }
+    return true;
+  }
+  validateInput(selector, element, value) {
+    $(selector).removeClass(gecko_class_formItemError);
+    if (!this.isInputValid(element.required, element.type, value)) $(selector).addClass(gecko_class_formItemError);
   }
   resetForm(manipulator) {
     $(`${manipulator.geckoForm.formSelector}`).html('');

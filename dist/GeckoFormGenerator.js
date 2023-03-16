@@ -102,9 +102,10 @@ class GeckoFormGenerator {
     content += `<div class="${gecko_class_radioButtonGroupComponent} cmp">`;
     content += `<div class="${gecko_class_radioButtonGroupLayout} lyt">`;
     json.options.forEach(option => {
+      const checked = option.default ? 'checked' : '';
       content += `<div class="${gecko_class_radioButtonComponent} cmp">`;
       content += `<div class="${gecko_class_radioButtonLayout} lyt">`;
-      content += `<input id="${option.id}" type="radio" name="${json.name}" class="${gecko_class_radioButton} ${gecko_class_inputGeneralElement}" value="${option.value}" stepgroup="${option.stepGroup}">`;
+      content += `<input id="${option.id}" type="radio" name="${json.name}" class="${gecko_class_radioButton} ${gecko_class_inputGeneralElement}" value="${option.value}" stepgroup="${option.stepGroup}" ${checked}>`;
       content += `<label class="${gecko_class_label}" for="${option.id}">${option.label}</label>`;
       content += '</div>';
       content += '</div>';
@@ -142,6 +143,7 @@ class GeckoFormGenerator {
     let content = '';
     content += `<p class="${gecko_class_label}">${label}</p>`;
     content += `<input class="${gecko_class_inputElement} ${gecko_class_inputGeneralElement}" type="${json.type}" ${placeholder} ${required} ${autocomplete} ${name}>`;
+    this.geckoForm.geckoFormListener.addRealtimeValidationListener(json);
     return content;
   }
   generateTextareaFormItem(json) {

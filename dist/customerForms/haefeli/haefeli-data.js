@@ -67,7 +67,8 @@ const geckoHaefeliForm = {
         }, {
           label: 'Kein Umzug',
           value: 'kein_umzug',
-          id: 'kein_umzug'
+          id: 'kein_umzug',
+          default: true
         }]
       }]
     }]
