@@ -110,7 +110,7 @@ class GeckoFormGenerator {
     });
     content += '</div>';
     content += '</div>';
-    if (json.trigger == true) this.geckoForm.geckoFormListener.addRadioTriggerListener(json.stepGroups);
+    if (json.trigger == true) this.geckoForm.geckoFormListener.addRadioTriggerListener(json, json.stepGroups);
     return content;
   }
   generateCheckboxFormItem(json) {
