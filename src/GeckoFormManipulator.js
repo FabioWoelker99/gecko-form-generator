@@ -132,7 +132,7 @@ class GeckoFormManipulator {
                 value = value == null ? null : value.trim() == '' ? null : value;
                 if(value != null) categoryRequestObject.children.push({ name: element.name, value: value });
 
-                if(!this.isInputValid(element, value)) {
+                if(!this.isInputValid(element.required, element.type, value)) {
                     $(currentSelector).addClass(gecko_class_formItemError);
                     error = true;
                 }
@@ -181,17 +181,22 @@ class GeckoFormManipulator {
         }
     }
 
-    isInputValid(element, value) {
-        if(element.required == true && value == null) return false;
-        if(element.type == 'email') {
+    isInputValid(required, type, value) {
+        if(required == true && value == null) return false;
+        if(type == 'email') {
             const regex = new RegExp('/^\w+([.-]?\w+)@\w+([.-]?\w+)(\.\w{2,3})+$/');
             if(!regex.text(value)) return false;
         } 
-        else if(element.type == 'tel') {
+        else if(type == 'tel') {
             const regex = new RegExp('/(\b(0041|0)|\B\+41)(\s?\(0\))?(\s)?[1-9]{2}(\s)?[0-9]{3}(\s)?[0-9]{2}(\s)?[0-9]{2}\b/');
             if(!regex.text(value)) return false;
         } 
         return true;
+    }
+
+    validateInput(selector, element, value) {
+        $(selector).removeClass(gecko_class_formItemError);
+        if(!this.isInputValid(element.required, element.type, value)) $(selector).addClass(gecko_class_formItemError);
     }
 
     resetForm(manipulator) {
