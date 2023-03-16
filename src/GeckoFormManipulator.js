@@ -15,7 +15,7 @@ class GeckoFormManipulator {
         let stepIds = [];
         stepsToDestroy.forEach(step => stepIds.push(step.stepId) );
 
-        this.geckoForm.formSteps = this.geckoForm.formSteps.filter(step => !stepIds.includes(step));
+        this.geckoForm.formSteps = this.geckoForm.formSteps.filter(step => !stepIds.includes(step.stepId));
 
         this.adjustGeckoStepNumbers();
 
@@ -28,14 +28,14 @@ class GeckoFormManipulator {
 
     adjustGeckoStepNumbers() {
         let i = 0;
-        this.geckoForm.formSteps.forEach(stepGroup => {
-            $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepgroup="${stepGroup}"] ${gecko_selector_formStepNumberLabel}`).html(i);
+        this.geckoForm.formSteps.forEach(step => {
+            $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${step.stepId}"] ${gecko_selector_formStepNumberLabel}`).html(i);
             i++;
         });
     }
 
     buildSingleGeckoStep(json) {
-        this.geckoForm.formSteps.push(json.stepId);
+        this.geckoForm.formSteps.push({ stepId: json.stepId, index: json.index });
 
         this.geckoForm.geckoFormGenerator.buildSingleGeckoStepView(json);
         this.geckoForm.geckoFormGenerator.buildSingleGeckoStepContent(json);
@@ -51,8 +51,8 @@ class GeckoFormManipulator {
     }
 
     activateCurrentStep() {
-        const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1];
-        const previousStepId = this.geckoForm.currentStep - 2 >= 0 ? this.geckoForm.formSteps[this.geckoForm.currentStep - 2] : null;
+        const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1].stepId;
+        const previousStepId = this.geckoForm.currentStep - 2 >= 0 ? this.geckoForm.formSteps[this.geckoForm.currentStep - 2].stepId : null;
 
         $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}`).addClass(gecko_class_hidden);
         $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}[stepid="${currentStepId}"]`).removeClass(gecko_class_hidden);
@@ -77,7 +77,7 @@ class GeckoFormManipulator {
     moveToNextStep() {
         $(`${this.geckoForm.formSelector} ${gecko_selector_inputGeneralElement}`).removeClass(gecko_class_formItemError);
 
-        const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1];
+        const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1].stepId;
         const currentStepSelector = `${this.geckoForm.formSelector} ${gecko_selector_formComponent}[stepid="${currentStepId}"]`;
         let categoryRequestObject = {};
 
