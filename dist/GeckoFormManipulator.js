@@ -11,16 +11,36 @@ class GeckoFormManipulator {
     const stepsToDestroy = this.geckoForm.formJson.steps.filter(step => json.includes(step.stepGroup));
     let stepIds = [];
     stepsToDestroy.forEach(step => stepIds.push(step.stepId));
-    this.geckoForm.formSteps = this.geckoForm.formSteps.filter(step => !stepIds.includes(step));
+    this.geckoForm.formSteps = this.geckoForm.formSteps.filter(step => !stepIds.includes(step.stepId));
+    this.adjustGeckoStepNumbers();
     json.forEach(stepGroup => {
       $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepgroup="${stepGroup}"]`).remove();
       $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepDivider}[stepgroup="${stepGroup}"]`).remove();
       $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}[stepgroup="${stepGroup}"]`).remove();
     });
   }
+  adjustGeckoStepNumbers() {
+    let i = 0;
+    this.geckoForm.formSteps.forEach(step => {
+      $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${step.stepId}"] ${gecko_selector_formStepNumberLabel}`).html(i);
+      i++;
+    });
+  }
   buildSingleGeckoStep(json) {
-    this.geckoForm.formSteps.push(json.stepId);
-    this.geckoForm.geckoFormGenerator.buildSingleGeckoStepView(json);
+    let position = 0;
+    this.geckoForm.formSteps.forEach(step => {
+      if (json.index < step.index) return;
+      position++;
+    });
+    position--;
+    if (i >= 0) this.geckoForm.formSteps.splice(position, 0, {
+      stepId: json.stepId,
+      index: json.index
+    });else this.geckoForm.formSteps.push({
+      stepId: json.stepId,
+      index: json.index
+    });
+    this.geckoForm.geckoFormGenerator.buildSingleGeckoStepView(json, position);
     this.geckoForm.geckoFormGenerator.buildSingleGeckoStepContent(json);
   }
   triggerStepManipulation(stepGroup, json) {
@@ -31,8 +51,8 @@ class GeckoFormManipulator {
     }
   }
   activateCurrentStep() {
-    const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1];
-    const previousStepId = this.geckoForm.currentStep - 2 >= 0 ? this.geckoForm.formSteps[this.geckoForm.currentStep - 2] : null;
+    const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1].stepId;
+    const previousStepId = this.geckoForm.currentStep - 2 >= 0 ? this.geckoForm.formSteps[this.geckoForm.currentStep - 2].stepId : null;
     $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}`).addClass(gecko_class_hidden);
     $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}[stepid="${currentStepId}"]`).removeClass(gecko_class_hidden);
     $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}`).removeClass('active');
@@ -49,7 +69,7 @@ class GeckoFormManipulator {
   }
   moveToNextStep() {
     $(`${this.geckoForm.formSelector} ${gecko_selector_inputGeneralElement}`).removeClass(gecko_class_formItemError);
-    const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1];
+    const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1].stepId;
     const currentStepSelector = `${this.geckoForm.formSelector} ${gecko_selector_formComponent}[stepid="${currentStepId}"]`;
     let categoryRequestObject = {};
     categoryRequestObject.name = currentStepId;
@@ -105,8 +125,9 @@ class GeckoFormManipulator {
         }
       });
     });
+    const geckoFormMessageContainerSelector = this.geckoForm.messageContainerSelector;
     if (error) {
-      const geckoMessage = new GeckoFormMessage(this.geckoForm.messageContainerSelector, 'error', 'Fehler', 'Bitte überprüfe deine Eingaben!');
+      const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'error', 'Fehler', 'Bitte überprüfe deine Eingaben!');
       geckoMessage.generateMessage();
       geckoMessage.activateMessage();
       return;
@@ -124,19 +145,20 @@ class GeckoFormManipulator {
         contentType: 'application/json',
         data: JSON.stringify(this.geckoForm.geckoRequest),
         success: function (response) {
-          const geckoMessage = new GeckoFormMessage(this.geckoForm.messageContainerSelector, 'success', 'Erfolgreich', 'Das Formular wurde abgesendet.');
+          const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'success', 'Erfolgreich', 'Das Formular wurde abgesendet.');
           geckoMessage.generateMessage();
           geckoMessage.activateMessage();
         },
         error: function (xhr, status, error) {
-          const geckoMessage = new GeckoFormMessage(this.geckoForm.messageContainerSelector, 'error', 'Fehler', 'Es ist ein Fehler aufgetreten');
+          const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'error', 'Fehler', 'Es ist ein Fehler aufgetreten');
           geckoMessage.generateMessage();
           geckoMessage.activateMessage();
         }
       });
+    } else {
+      this.geckoForm.currentStep++;
+      this.activateCurrentStep();
     }
-    this.geckoForm.currentStep++;
-    this.activateCurrentStep();
   }
   resetForm() {
     $(`${this.geckoForm.formSelector}`).html('');

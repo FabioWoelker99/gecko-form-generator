@@ -3,7 +3,7 @@ class GeckoFormGenerator {
         this.geckoForm = geckoForm;
     }
     
-    buildSingleGeckoStepView(json) {
+    buildSingleGeckoStepView(json, position) {
         let content = '';
         const stepGroup = json.stepGroup != null ? `stepgroup="${json.stepGroup}"` : '';
 
@@ -31,7 +31,10 @@ class GeckoFormGenerator {
             content += '</div>';
         content += '</div>';
 
-        $(`${this.geckoForm.formStepsSelector}`).append(content);
+        if(position >= 0) $(`${this.geckoForm.formStepsSelector}`).children().eq(position).after(content);
+        else $(`${this.geckoForm.formStepsSelector}`).append(content);
+
+        this.geckoForm.geckoFormManipulator.adjustGeckoStepNumbers();
     }
 
     buildSingleGeckoStepContent(json) {

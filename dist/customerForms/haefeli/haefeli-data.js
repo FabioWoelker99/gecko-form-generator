@@ -4,6 +4,7 @@ const geckoHaefeliForm = {
     type: 'default',
     label: 'Persönliche Daten',
     stepId: 'personal',
+    index: 0,
     rows: [{
       elements: [{
         type: 'text',
@@ -75,6 +76,7 @@ const geckoHaefeliForm = {
     label: 'Auszugsort',
     stepId: 'auszugsort',
     stepGroup: 'privatumzug',
+    index: 1,
     rows: [{
       elements: [{
         type: 'text',
@@ -167,6 +169,7 @@ const geckoHaefeliForm = {
     label: 'Einzugsort',
     stepId: 'einzugsort',
     stepGroup: 'privatumzug',
+    index: 1,
     rows: [{
       elements: [{
         type: 'text',
@@ -231,6 +234,7 @@ const geckoHaefeliForm = {
     label: 'Auszugsort Firma',
     stepId: 'auszugsort_firma',
     stepGroup: 'firmenumzug',
+    index: 1,
     rows: [{
       elements: [{
         type: 'text',
@@ -317,6 +321,7 @@ const geckoHaefeliForm = {
     label: 'Einzugsort Firma',
     stepId: 'einzugsort_firma',
     stepGroup: 'firmenumzug',
+    index: 1,
     rows: [{
       elements: [{
         type: 'text',
@@ -380,6 +385,7 @@ const geckoHaefeliForm = {
     type: 'default',
     label: 'Services',
     stepId: 'services',
+    index: 2,
     rows: [{
       elements: [{
         type: 'checkbox',
@@ -419,6 +425,7 @@ const geckoHaefeliForm = {
     label: 'Reinigung',
     stepId: 'reinigung',
     stepGroup: 'reinigung',
+    index: 3,
     rows: [{
       elements: [{
         type: 'text',
@@ -475,6 +482,7 @@ const geckoHaefeliForm = {
     label: 'Lagerung',
     stepId: 'lagerung',
     stepGroup: 'lagerung',
+    index: 3,
     rows: [{
       elements: [{
         type: 'text',
@@ -511,6 +519,7 @@ const geckoHaefeliForm = {
     label: 'Treppensteiger',
     stepId: 'treppensteiger',
     stepGroup: 'treppensteiger',
+    index: 3,
     rows: [{
       elements: [{
         type: 'text',
@@ -561,6 +570,7 @@ const geckoHaefeliForm = {
     label: 'Möbellift',
     stepId: 'moebellift',
     stepGroup: 'moebellift',
+    index: 3,
     rows: [{
       elements: [{
         type: 'text',
@@ -611,6 +621,7 @@ const geckoHaefeliForm = {
     label: 'Entsorgung',
     stepId: 'entsorgung',
     stepGroup: 'entsorgung',
+    index: 3,
     rows: [{
       elements: [{
         type: 'text',
