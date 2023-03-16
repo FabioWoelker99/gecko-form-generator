@@ -72,6 +72,8 @@ class GeckoFormManipulator {
 
         if(this.geckoForm.currentStep > 1) $(this.geckoForm.backButtonSelector).removeClass('gecko-button-disabled');
         else $(this.geckoForm.backButtonSelector).addClass('gecko-button-disabled');
+
+        if(this.geckoForm.currentStep >= this.geckoForm.formSteps.length) $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.sendButtonLabel);
     }
 
     moveToLastStep() {
