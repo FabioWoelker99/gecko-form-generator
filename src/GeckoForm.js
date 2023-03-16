@@ -18,22 +18,6 @@ class GeckoForm {
         this.geckoFormManipulator.buildGeckoSteps(this.formJson.steps, 'default');
         this.geckoFormManipulator.activateCurrentStep();
         this.geckoFormListener.addMoveButtonListener();
-      }
+    }
 }
 
-
-// CHECK JSON RULES!!!
-
-// Edge casees (form steps change AFTER WE STARTED!!!)
-
-// Add error handling for exceptions????
-
-
-// TODO Form clear nach absenden
-
-// TODO Messages
-
-// TODO maybe some loading after adding new sections
-
-
-        // TODO possible VALIDATION of JSON here

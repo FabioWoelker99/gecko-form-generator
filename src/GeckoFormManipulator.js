@@ -116,7 +116,7 @@ class GeckoFormManipulator {
         });
 
         if(error) {
-            const geckoMessage = new GeckoFormMessage(this.geckoForm.messageContainerSelector, 'error', 'Fehler', 'Testnachricht');
+            const geckoMessage = new GeckoFormMessage(this.geckoForm.messageContainerSelector, 'error', 'Fehler', 'Bitte überprüfe deine Eingaben!');
             geckoMessage.generateMessage();
             geckoMessage.activateMessage();
             return;
@@ -136,15 +136,29 @@ class GeckoFormManipulator {
                 contentType: 'application/json',
                 data: JSON.stringify(this.geckoForm.geckoRequest),
                 success: function(response) {
-                    console.log('Response:', response);
+                    const geckoMessage = new GeckoFormMessage(this.geckoForm.messageContainerSelector, 'success', 'Erfolgreich', 'Das Formular wurde abgesendet.');
+                    geckoMessage.generateMessage();
+                    geckoMessage.activateMessage();
+
+                    
                 },
                 error: function(xhr, status, error) {
-                    console.error('Error:', error);
+                    const geckoMessage = new GeckoFormMessage(this.geckoForm.messageContainerSelector, 'error', 'Fehler', 'Es ist ein Fehler aufgetreten');
+                    geckoMessage.generateMessage();
+                    geckoMessage.activateMessage();
                 }
             });
         }
 
         this.geckoForm.currentStep++;
         this.activateCurrentStep();
+    }
+
+    resetForm() {
+        $(`${this.geckoForm.formSelector}`).html('');
+        $(`${this.geckoForm.formStepsSelector}`).html('');
+
+        const newForm = new GeckoForm(this.geckoForm.formJson, this.geckoForm.formJson, this.geckoForm.formJson, this.geckoForm.formJson, this.geckoForm.formJson, this.geckoForm.formJson);
+        newForm.buildGeckoForm();
     }
 }
