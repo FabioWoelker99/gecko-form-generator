@@ -377,9 +377,48 @@ const geckoHaefeliForm = {
       }]
     }]
   }, {
+    type: 'default',
+    label: 'Services',
+    stepId: 'services',
+    rows: [{
+      elements: [{
+        type: 'checkbox',
+        label: 'Weitere Services',
+        name: 'services',
+        trigger: true,
+        options: [{
+          label: 'Reinigung',
+          value: 'reinigung',
+          id: 'reinigung',
+          stepGroup: 'reinigung'
+        }, {
+          label: 'Lagerung',
+          value: 'lagerung',
+          id: 'lagerung',
+          stepGroup: 'lagerung'
+        }, {
+          label: 'Treppensteiger',
+          value: 'treppensteiger',
+          id: 'treppensteiger',
+          stepGroup: 'treppensteiger'
+        }, {
+          label: 'Möbellift',
+          value: 'moebellift',
+          id: 'moebellift',
+          stepGroup: 'moebellift'
+        }, {
+          label: 'Entsorgung',
+          value: 'entsorgung',
+          id: 'entsorgung',
+          stepGroup: 'entsorgung'
+        }]
+      }]
+    }]
+  }, {
     type: 'hidden',
     label: 'Reinigung',
     stepId: 'reinigung',
+    stepGroup: 'reinigung',
     rows: [{
       elements: [{
         type: 'text',
@@ -435,6 +474,7 @@ const geckoHaefeliForm = {
     type: 'hidden',
     label: 'Lagerung',
     stepId: 'lagerung',
+    stepGroup: 'lagerung',
     rows: [{
       elements: [{
         type: 'text',
@@ -470,6 +510,7 @@ const geckoHaefeliForm = {
     type: 'hidden',
     label: 'Treppensteiger',
     stepId: 'treppensteiger',
+    stepGroup: 'treppensteiger',
     rows: [{
       elements: [{
         type: 'text',
@@ -519,6 +560,7 @@ const geckoHaefeliForm = {
     type: 'hidden',
     label: 'Möbellift',
     stepId: 'moebellift',
+    stepGroup: 'moebellift',
     rows: [{
       elements: [{
         type: 'text',
@@ -568,6 +610,7 @@ const geckoHaefeliForm = {
     type: 'hidden',
     label: 'Entsorgung',
     stepId: 'entsorgung',
+    stepGroup: 'entsorgung',
     rows: [{
       elements: [{
         type: 'text',

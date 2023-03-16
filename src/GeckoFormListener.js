@@ -9,6 +9,13 @@ class GeckoFormListener {
     }
 
     addRadioTriggerListener(json) {
-        $(document).on('change', `${this.geckoForm.formSelector} input[type="radio"][name="${json.name}"]`, ev => { this.geckoForm.geckoFormManipulator.triggerStepManipulation(ev.currentTarget.value, json); });
+        $(document).on('change', `${this.geckoForm.formSelector} input[type="radio"][name="${json.name}"]`, ev => { this.geckoForm.geckoFormManipulator.triggerStepManipulation(ev.currentTarget.attr('stepgroup'), json); });
+    }
+
+    addCheckboxTriggerListener(json) {
+        $(document).on('change', `${this.geckoForm.formSelector} input[type="checkbox"][name="${json.name}"]`, ev => { 
+            if(ev.currentTarget.checked == true) this.geckoForm.geckoFormManipulator.triggerStepManipulation(ev.currentTarget.attr('stepgroup'), null); 
+            if(ev.currentTarget.checked == false) this.geckoForm.geckoFormManipulator.triggerStepManipulation(null, [ev.currentTarget.attr('stepgroup')]); 
+        });
     }
 }

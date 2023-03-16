@@ -31,11 +31,13 @@ class GeckoFormManipulator {
         this.geckoForm.geckoFormGenerator.buildSingleGeckoStepContent(json);
     }
 
-    triggerStepManipulation(value, json) {
-        this.destroyGeckoSteps(json.stepGroups);
+    triggerStepManipulation(stepGroup, json) {
+        if(json != null) this.destroyGeckoSteps(json);
 
-        const stepsToCreate = this.geckoForm.formJson.steps.filter(step => step.stepGroup == value);
-        this.buildGeckoSteps(stepsToCreate, 'hidden');
+        if(stepGroup != null) {
+            const stepsToCreate = this.geckoForm.formJson.steps.filter(step => step.stepGroup == stepGroup);
+            this.buildGeckoSteps(stepsToCreate, 'hidden');
+        }
     }
 
     activateCurrentStep() {
@@ -102,6 +104,7 @@ class GeckoFormManipulator {
                         break;
                     }
                     case 'checkbox': {
+                        value = $(`${currentSelector}:checked`).map(function() { return $(this).val(); }).get().join(', ');                
                         break;
                     }
                 }
