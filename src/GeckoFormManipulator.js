@@ -29,7 +29,7 @@ class GeckoFormManipulator {
     adjustGeckoStepNumbers() {
         let i = 0;
         this.geckoForm.formSteps.forEach(step => {
-            $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${step.stepId}"] ${gecko_selector_formStepNumberLabel}`).html(i);
+            $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${step.stepId}"] ${gecko_selector_formStepNumberWrapper} ${gecko_selector_formStepNumberLabel}`).html(i);
             i++;
         });
     }
