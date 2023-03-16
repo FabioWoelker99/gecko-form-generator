@@ -33,7 +33,7 @@ class GeckoFormManipulator {
       position++;
     });
     position--;
-    if (i >= 0) this.geckoForm.formSteps.splice(position, 0, {
+    if (position >= 0) this.geckoForm.formSteps.splice(position, 0, {
       stepId: json.stepId,
       index: json.index
     });else this.geckoForm.formSteps.push({
