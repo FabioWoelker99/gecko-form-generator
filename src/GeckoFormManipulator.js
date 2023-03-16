@@ -57,6 +57,9 @@ class GeckoFormManipulator {
             const stepsToCreate = this.geckoForm.formJson.steps.filter(step => step.stepGroup == stepGroup);
             this.buildGeckoSteps(stepsToCreate, 'hidden');
         }
+
+        if(this.geckoForm.currentStep >= this.geckoForm.formSteps.length) $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.sendButtonLabel);
+        else $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.fowardButtonLabel);
     }
 
     activateCurrentStep() {
@@ -76,6 +79,7 @@ class GeckoFormManipulator {
         else $(this.geckoForm.backButtonSelector).addClass('gecko-button-disabled');
 
         if(this.geckoForm.currentStep >= this.geckoForm.formSteps.length) $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.sendButtonLabel);
+        else $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.fowardButtonLabel);
     }
 
     moveToLastStep() {
