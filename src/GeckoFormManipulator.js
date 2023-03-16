@@ -136,11 +136,10 @@ class GeckoFormManipulator {
         });
 
 
-        const resetFormMethod = this.resetForm;
-        const geckoFormMessageContainerSelector = this.geckoForm.messageContainerSelector;
+        const manipulator = this;
 
         if(error) {
-            const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'error', 'Fehler', 'Bitte überprüfe deine Eingaben!');
+            const geckoMessage = new GeckoFormMessage(this.geckoForm.messageContainerSelector, 'error', 'Fehler', 'Bitte überprüfe deine Eingaben!');
             geckoMessage.generateMessage();
             geckoMessage.activateMessage();
             return;
@@ -160,13 +159,13 @@ class GeckoFormManipulator {
                 contentType: 'application/json',
                 data: JSON.stringify(this.geckoForm.geckoRequest),
                 success: function(response) {
-                    const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'success', 'Erfolgreich', 'Das Formular wurde abgesendet.');
+                    const geckoMessage = new GeckoFormMessage(manipulator.geckoForm.messageContainerSelector, 'success', 'Erfolgreich', 'Das Formular wurde abgesendet.');
                     geckoMessage.generateMessage();
                     geckoMessage.activateMessage();
-                    resetFormMethod();
+                    manipulator.resetForm(manipulator);
                 },
                 error: function(xhr, status, error) {
-                    const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'error', 'Fehler', 'Es ist ein Fehler aufgetreten');
+                    const geckoMessage = new GeckoFormMessage(manipulator.geckoForm.messageContainerSelector, 'error', 'Fehler', 'Es ist ein Fehler aufgetreten');
                     geckoMessage.generateMessage();
                     geckoMessage.activateMessage();
                 }
@@ -178,11 +177,11 @@ class GeckoFormManipulator {
         }
     }
 
-    resetForm() {
-        $(`${this.geckoForm.formSelector}`).html('');
-        $(`${this.geckoForm.formStepsSelector}`).html('');
+    resetForm(manipulator) {
+        $(`${manipulator.geckoForm.formSelector}`).html('');
+        $(`${manipulator.geckoForm.formStepsSelector}`).html('');
 
-        const newForm = new GeckoForm(this.geckoForm.formJson, this.geckoForm.formJson, this.geckoForm.formJson, this.geckoForm.formJson, this.geckoForm.formJson, this.geckoForm.formJson);
+        const newForm = new GeckoForm(manipulator.geckoForm.formJson, manipulator.geckoForm.formJson, manipulator.geckoForm.formJson, manipulator.geckoForm.formJson, manipulator.geckoForm.formJson, manipulator.geckoForm.formJson);
         newForm.buildGeckoForm();
     }
 }
