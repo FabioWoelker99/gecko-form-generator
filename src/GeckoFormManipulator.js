@@ -1,3 +1,5 @@
+/* eslint-disable no-control-regex */
+/* eslint-disable no-useless-escape */
 class GeckoFormManipulator {
     constructor(geckoForm) {
         this.geckoForm = geckoForm;
@@ -130,7 +132,7 @@ class GeckoFormManipulator {
                 value = value == null ? null : value.trim() == '' ? null : value;
                 if(value != null) categoryRequestObject.children.push({ name: element.name, value: value });
 
-                if(element.required == true && value == null) {
+                if(!this.isInputValid(element, value)) {
                     $(currentSelector).addClass(gecko_class_formItemError);
                     error = true;
                 }
@@ -177,6 +179,19 @@ class GeckoFormManipulator {
             this.geckoForm.currentStep++;
             this.activateCurrentStep();
         }
+    }
+
+    isInputValid(element, value) {
+        if(element.required == true && value == null) return false;
+        if(element.type == 'email') {
+            const regex = new RegExp('/^\w+([.-]?\w+)@\w+([.-]?\w+)(\.\w{2,3})+$/');
+            if(!regex.text(value)) return false;
+        } 
+        else if(element.type == 'tel') {
+            const regex = new RegExp('/(\b(0041|0)|\B\+41)(\s?\(0\))?(\s)?[1-9]{2}(\s)?[0-9]{3}(\s)?[0-9]{2}(\s)?[0-9]{2}\b/');
+            if(!regex.text(value)) return false;
+        } 
+        return true;
     }
 
     resetForm(manipulator) {
