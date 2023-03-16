@@ -17,6 +17,12 @@ class GeckoFormManipulator {
 
         this.geckoForm.formSteps = this.geckoForm.formSteps.filter(step => !stepIds.includes(step));
 
+        let i = 0;
+        this.geckoForm.formSteps.forEach(stepGroup => {
+            $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepgroup="${stepGroup}"] ${gecko_selector_formStepNumberLabel}`).html(i);
+            i++;
+        });
+
         json.forEach(stepGroup => {
             $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepgroup="${stepGroup}"]`).remove();
             $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepDivider}[stepgroup="${stepGroup}"]`).remove();
@@ -118,8 +124,11 @@ class GeckoFormManipulator {
             });
         });
 
+
+        const geckoFormMessageContainerSelector = this.geckoForm.messageContainerSelector;
+
         if(error) {
-            const geckoMessage = new GeckoFormMessage(this.geckoForm.messageContainerSelector, 'error', 'Fehler', 'Bitte überprüfe deine Eingaben!');
+            const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'error', 'Fehler', 'Bitte überprüfe deine Eingaben!');
             geckoMessage.generateMessage();
             geckoMessage.activateMessage();
             return;
@@ -139,22 +148,23 @@ class GeckoFormManipulator {
                 contentType: 'application/json',
                 data: JSON.stringify(this.geckoForm.geckoRequest),
                 success: function(response) {
-                    const geckoMessage = new GeckoFormMessage(this.geckoForm.messageContainerSelector, 'success', 'Erfolgreich', 'Das Formular wurde abgesendet.');
+                    const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'success', 'Erfolgreich', 'Das Formular wurde abgesendet.');
                     geckoMessage.generateMessage();
                     geckoMessage.activateMessage();
 
                     
                 },
                 error: function(xhr, status, error) {
-                    const geckoMessage = new GeckoFormMessage(this.geckoForm.messageContainerSelector, 'error', 'Fehler', 'Es ist ein Fehler aufgetreten');
+                    const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'error', 'Fehler', 'Es ist ein Fehler aufgetreten');
                     geckoMessage.generateMessage();
                     geckoMessage.activateMessage();
                 }
             });
         }
-
-        this.geckoForm.currentStep++;
-        this.activateCurrentStep();
+        else {
+            this.geckoForm.currentStep++;
+            this.activateCurrentStep();
+        }
     }
 
     resetForm() {
