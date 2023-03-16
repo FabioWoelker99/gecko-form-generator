@@ -27,7 +27,7 @@ class GeckoFormManipulator {
     }
 
     adjustGeckoStepNumbers() {
-        let i = 0;
+        let i = 1;
         this.geckoForm.formSteps.forEach(step => {
             $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${step.stepId}"] ${gecko_selector_formStepNumberWrapper} ${gecko_selector_formStepNumberLabel}`).html(i);
             i++;
@@ -162,6 +162,7 @@ class GeckoFormManipulator {
                     const geckoMessage = new GeckoFormMessage(geckoFormMessageContainerSelector, 'success', 'Erfolgreich', 'Das Formular wurde abgesendet.');
                     geckoMessage.generateMessage();
                     geckoMessage.activateMessage();
+                    this.resetForm();
 
                     
                 },
