@@ -40,12 +40,11 @@ class GeckoFormManipulator {
             if(json.index < step.index) return;
             position++;
         });
-        position--;
 
         if(position >= 0) this.geckoForm.formSteps.splice(position, 0, { stepId: json.stepId, index: json.index });
         else this.geckoForm.formSteps.push({ stepId: json.stepId, index: json.index });
 
-        this.geckoForm.geckoFormGenerator.buildSingleGeckoStepView(json, position);
+        this.geckoForm.geckoFormGenerator.buildSingleGeckoStepView(json, position-1);
         this.geckoForm.geckoFormGenerator.buildSingleGeckoStepContent(json);
     }
 
