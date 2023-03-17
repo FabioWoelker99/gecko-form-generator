@@ -1,5 +1,5 @@
 class GeckoForm {
-  constructor(formJson, formSelector, submitButtonSelector, backButtonSelector, formStepsSelector, messageContainerSelector, sendButtonLabel) {
+  constructor(formJson, formSelector, submitButtonSelector, backButtonSelector, formStepsSelector, messageContainerSelector, fowardButtonLabel, sendButtonLabel) {
     this.geckoFormGenerator = new GeckoFormGenerator(this);
     this.geckoFormListener = new GeckoFormListener(this);
     this.geckoFormManipulator = new GeckoFormManipulator(this);
@@ -16,6 +16,7 @@ class GeckoForm {
         categories: []
       }
     };
+    this.fowardButtonLabel = fowardButtonLabel;
     this.sendButtonLabel = sendButtonLabel;
   }
   buildGeckoForm() {

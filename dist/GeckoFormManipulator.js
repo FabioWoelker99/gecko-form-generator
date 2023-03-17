@@ -1,5 +1,3 @@
-/* eslint-disable no-control-regex */
-/* eslint-disable no-useless-escape */
 class GeckoFormManipulator {
   constructor(geckoForm) {
     this.geckoForm = geckoForm;
@@ -50,6 +48,7 @@ class GeckoFormManipulator {
       const stepsToCreate = this.geckoForm.formJson.steps.filter(step => step.stepGroup == stepGroup);
       this.buildGeckoSteps(stepsToCreate, 'hidden');
     }
+    if (this.geckoForm.currentStep >= this.geckoForm.formSteps.length) $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.sendButtonLabel);else $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.fowardButtonLabel);
   }
   activateCurrentStep() {
     const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1].stepId;
@@ -61,7 +60,7 @@ class GeckoFormManipulator {
     $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${currentStepId}"]`).addClass('active');
     if (previousStepId != null) $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${previousStepId}"]`).addClass('done');
     if (this.geckoForm.currentStep > 1) $(this.geckoForm.backButtonSelector).removeClass('gecko-button-disabled');else $(this.geckoForm.backButtonSelector).addClass('gecko-button-disabled');
-    if (this.geckoForm.currentStep >= this.geckoForm.formSteps.length) $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.sendButtonLabel);
+    if (this.geckoForm.currentStep >= this.geckoForm.formSteps.length) $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.sendButtonLabel);else $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.fowardButtonLabel);
   }
   moveToLastStep() {
     if (this.geckoForm.currentStep <= 1) return;
@@ -167,10 +166,10 @@ class GeckoFormManipulator {
     value = value == null ? null : value.trim() == '' ? null : value;
     if (required == true && value == null) return false;
     if (type == 'email') {
-      const regex = new RegExp('/^\w+([.-]?\w+)@\w+([.-]?\w+)(\.\w{2,3})+$/');
+      const regex = /^\w+([.-]?\w+)@\w+([.-]?\w+)(\.\w{2,3})+$/;
       if (!regex.test(value)) return false;
     } else if (type == 'tel') {
-      const regex = new RegExp('/(\b(0041|0)|\B\+41)(\s?\(0\))?(\s)?[1-9]{2}(\s)?[0-9]{3}(\s)?[0-9]{2}(\s)?[0-9]{2}\b/');
+      const regex = /(\b(0041|0)|\B\+41)(\s?\(0\))?(\s)?[1-9]{2}(\s)?[0-9]{3}(\s)?[0-9]{2}(\s)?[0-9]{2}\b/;
       if (!regex.test(value)) return false;
     }
     return true;
