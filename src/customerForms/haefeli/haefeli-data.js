@@ -16,6 +16,7 @@ const geckoHaefeliForm = {
                             autocomplete: 'given-name',
                             label: 'Name',
                             name: 'surname',
+                            mailLabel: 'surname',
                         },
                         {
                             type: 'text',
@@ -23,6 +24,7 @@ const geckoHaefeliForm = {
                             required: true,
                             autocomplete: 'family-name',
                             name: 'name',
+                            mailLabel: 'name',
                         }
                     ]
                 },
@@ -35,6 +37,7 @@ const geckoHaefeliForm = {
                             autocomplete: 'email',
                             label: 'E-Mail',
                             name: 'email',
+                            mailLabel: 'email',
                         },
                     ]
                 },
@@ -47,6 +50,7 @@ const geckoHaefeliForm = {
                             autocomplete: 'tel',
                             label: 'Telefonnummer',
                             name: 'telefon',
+                            mailLabel: 'telefon',
                         },
                     ]
                 },
@@ -58,6 +62,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Nachricht',
                             name: 'nachricht',
+                            mailLabel: 'nachricht',
                         },
                     ]
                 },
@@ -68,6 +73,7 @@ const geckoHaefeliForm = {
                             required: true,
                             label: 'Art des Umzugs',
                             name: 'umzugsart',
+                            mailLabel: 'umzugsart',
                             trigger: true,
                             stepGroups: ['privatumzug', 'firmenumzug'],
                             options: [
@@ -110,6 +116,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Strasse',
                             name: 'auszug_strasse',
+                            mailLabel: 'auszug_strasse',
                         },
                         {
                             type: 'text',
@@ -117,6 +124,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Hausnummer',
                             name: 'auszug_hausnummer',
+                            mailLabel: 'auszug_hausnummer',
                         }
                     ]
                 },
@@ -128,6 +136,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Adresszusatz',
                             name: 'auszug_adresszusatz',
+                            mailLabel: 'auszug_adresszusatz',
                         }
                     ]
                 },
@@ -139,6 +148,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Ort',
                             name: 'auszug_ort',
+                            mailLabel: 'auszug_ort',
                         },
                         {
                             type: 'text',
@@ -146,6 +156,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'PLZ',
                             name: 'auszug_plz',
+                            mailLabel: 'auszug_plz',
                         }
                     ]
                 },
@@ -157,6 +168,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Anzahl der Räume',
                             name: 'auszug_anzahl_räume',
+                            mailLabel: 'auszug_anzahl_räume',
                         },
                         {
                             type: 'text',
@@ -164,6 +176,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Gesamtfläche',
                             name: 'auszug_gesamtfläche',
+                            mailLabel: 'auszug_gesamtfläche',
                         },
                     ]
                 },
@@ -175,6 +188,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Etage',
                             name: 'auszug_etage',
+                            mailLabel: 'auszug_etage',
                         },
                         {
                             type: 'text',
@@ -182,6 +196,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Anzahl der umziehenden Personen',
                             name: 'auszug_personen',
+                            mailLabel: 'auszug_personen',
                         }
                     ]
                 },
@@ -193,6 +208,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Der Umzug wird bezahlt von',
                             name: 'auszug_bezahlung',
+                            mailLabel: 'auszug_bezahlung',
                         },
                         {
                             type: 'text',
@@ -200,6 +216,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'gewünschtes Datum Auszug',
                             name: 'auszug_datum',
+                            mailLabel: 'auszug_datum',
                         }
                     ]
                 },
@@ -211,6 +228,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Bemerkung',
                             name: 'auszug_bemerkung',
+                            mailLabel: 'auszug_bemerkung',
                         }
                     ]
                 },
@@ -231,6 +249,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Strasse',
                             name: 'einzug_strasse',
+                            mailLabel: 'einzug_strasse',
                         },
                         {
                             type: 'text',
@@ -238,6 +257,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Hausnummer',
                             name: 'einzug_hausnummer',
+                            mailLabel: 'einzug_hausnummer',
                         }
                     ]
                 },
@@ -249,6 +269,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Adresszusatz',
                             name: 'einzug_adresszusatz',
+                            mailLabel: 'einzug_adresszusatz',
                         }
                     ]
                 },
@@ -260,6 +281,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Ort',
                             name: 'einzug_ort',
+                            mailLabel: 'einzug_ort',
                         },
                         {
                             type: 'text',
@@ -267,6 +289,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'PLZ',
                             name: 'einzug_plz',
+                            mailLabel: 'einzug_plz',
                         }
                     ]
                 },
@@ -278,6 +301,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Etage',
                             name: 'einzug_etage',
+                            mailLabel: 'einzug_etage',
                         },
                         {
                             type: 'text',
@@ -285,6 +309,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'gewünschtes Datum Einzug',
                             name: 'einzug_datum',
+                            mailLabel: 'einzug_datum',
                         }
                     ]
                 },
@@ -296,6 +321,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Bemerkung',
                             name: 'einzug_bemerkung',
+                            mailLabel: 'einzug_bemerkung',
                         }
                     ]
                 },
@@ -316,6 +342,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Strasse',
                             name: 'auszug_firma_strasse',
+                            mailLabel: 'auszug_firma_strasse',
                         },
                         {
                             type: 'text',
@@ -323,6 +350,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Hausnummer',
                             name: 'auszug_firma_hausnummer',
+                            mailLabel: 'auszug_firma_hausnummer',
                         }
                     ]
                 },
@@ -334,6 +362,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Adresszusatz',
                             name: 'auszug_firma_adresszusatz',
+                            mailLabel: 'auszug_firma_adresszusatz',
                         }
                     ]
                 },
@@ -345,6 +374,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Ort',
                             name: 'auszug_firma_ort',
+                            mailLabel: 'auszug_firma_ort',
                         },
                         {
                             type: 'text',
@@ -352,6 +382,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'PLZ',
                             name: 'auszug_firma_plz',
+                            mailLabel: 'auszug_firma_plz',
                         }
                     ]
                 },
@@ -363,6 +394,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Anzahl der Räume',
                             name: 'auszug_firma_anzahl_räume',
+                            mailLabel: 'auszug_firma_anzahl_räume',
                         },
                         {
                             type: 'text',
@@ -370,6 +402,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Gesamtfläche',
                             name: 'auszug_firma_gesamtfläche',
+                            mailLabel: 'auszug_firma_gesamtfläche',
                         }
                     ]
                 },
@@ -381,6 +414,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Etage',
                             name: 'auszug_firma_etage',
+                            mailLabel: 'auszug_firma_etage',
                         },
                         {
                             type: 'text',
@@ -388,6 +422,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Anzahl der Arbeitsplätze',
                             name: 'auszug_firma_personen',
+                            mailLabel: 'auszug_firma_personen',
                         }
                     ]
                 },
@@ -399,6 +434,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'gewünschtes Datum Auszug',
                             name: 'auszug_firma_datum',
+                            mailLabel: 'auszug_firma_datum',
                         }
                     ]
                 },
@@ -410,6 +446,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Bemerkung',
                             name: 'auszug_bemerkung',
+                            mailLabel: 'auszug_bemerkung',
                         }
                     ]
                 },
@@ -430,6 +467,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Strasse',
                             name: 'einzug_firma_strasse',
+                            mailLabel: 'einzug_firma_strasse',
                         },
                         {
                             type: 'text',
@@ -437,6 +475,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Hausnummer',
                             name: 'einzug_firma_hausnummer',
+                            mailLabel: 'einzug_firma_hausnummer',
                         }
                     ]
                 },
@@ -448,6 +487,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Adresszusatz',
                             name: 'einzug_firma_adresszusatz',
+                            mailLabel: 'einzug_firma_adresszusatz',
                         }
                     ]
                 },
@@ -459,6 +499,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Ort',
                             name: 'einzug_firma_ort',
+                            mailLabel: 'einzug_firma_ort',
                         },
                         {
                             type: 'text',
@@ -466,6 +507,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'PLZ',
                             name: 'einzug_firma_plz',
+                            mailLabel: 'einzug_firma_plz',
                         }
                     ]
                 },
@@ -477,6 +519,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Etage',
                             name: 'einzug_firma_etage',
+                            mailLabel: 'einzug_firma_etage',
                         },
                         {
                             type: 'text',
@@ -484,6 +527,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'gewünschtes Datum Einzug',
                             name: 'einzug_firma_datum',
+                            mailLabel: 'einzug_firma_datum',
                         }
                     ]
                 },
@@ -495,6 +539,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Bemerkung',
                             name: 'einzug_firma_bemerkung',
+                            mailLabel: 'einzug_firma_bemerkung',
                         }
                     ]
                 },
@@ -512,6 +557,7 @@ const geckoHaefeliForm = {
                             type: 'checkbox',
                             label: 'Weitere Services',
                             name: 'services',
+                            mailLabel: 'services',
                             trigger: true,
                             options: [
                                 {
@@ -565,6 +611,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Reinigungstermin',
                             name: 'reinigung_termin',
+                            mailLabel: 'reinigung_termin',
                         },
                         {
                             type: 'text',
@@ -572,6 +619,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Uhrzeit',
                             name: 'reinigung_termin_uhrzeit',
+                            mailLabel: 'reinigung_termin_uhrzeit',
                         }
                     ]
                 },
@@ -583,6 +631,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Abgabetermin',
                             name: 'abgabe_termin',
+                            mailLabel: 'abgabe_termin',
                         },
                         {
                             type: 'text',
@@ -590,6 +639,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Uhrzeit',
                             name: 'abgabe_termin_uhrzeit',
+                            mailLabel: 'abgabe_termin_uhrzeit',
                         }
                     ]
                 },
@@ -601,6 +651,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Anzahl der Räume',
                             name: 'reinigung_anzahl_räume',
+                            mailLabel: 'reinigung_anzahl_räume',
                         },
                         {
                             type: 'text',
@@ -608,6 +659,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Gesamtfläche',
                             name: 'reinigung_gesamtfläche',
+                            mailLabel: 'reinigung_gesamtfläche',
                         }
                     ]
                 },
@@ -619,6 +671,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Bemerkung',
                             name: 'reinigung_bemerkung',
+                            mailLabel: 'reinigung_bemerkung',
                         }
                     ]
                 },
@@ -639,6 +692,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Lagerungs Beginn',
                             name: 'lagerung_beginn',
+                            mailLabel: 'lagerung_beginn',
                         },
                         {
                             type: 'text',
@@ -646,6 +700,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Voraussichtliches Lagerungs Ende',
                             name: 'lagerung_ende',
+                            mailLabel: 'lagerung_ende',
                         },
                     ]
                 },
@@ -657,6 +712,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Volumen',
                             name: 'lagerung_volumen',
+                            mailLabel: 'lagerung_volumen',
                         },
                     ]
                 },
@@ -668,6 +724,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Bemerkung',
                             name: 'lagerung_bemerkung',
+                            mailLabel: 'lagerung_bemerkung',
                         }
                     ]
                 },
@@ -688,6 +745,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Miete Beginn',
                             name: 'treppensteiger_miete_beginn',
+                            mailLabel: 'treppensteiger_miete_beginn',
                         },
                         {
                             type: 'text',
@@ -695,6 +753,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Uhrzeit',
                             name: 'treppensteiger_miete_beginn_uhrzeit',
+                            mailLabel: 'treppensteiger_miete_beginn_uhrzeit',
                         }
                     ]
                 },
@@ -706,6 +765,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Miete Ende',
                             name: 'treppensteiger_miete_ende',
+                            mailLabel: 'treppensteiger_miete_ende',
                         },
                         {
                             type: 'text',
@@ -713,6 +773,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Uhrzeit',
                             name: 'treppensteiger_miete_ende_uhrzeit',
+                            mailLabel: 'treppensteiger_miete_ende_uhrzeit',
                         }
                     ]
                 },
@@ -724,6 +785,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Anzahl benötigter Helfer',
                             name: 'treppensteiger_helfer',
+                            mailLabel: 'treppensteiger_helfer',
                         }
                     ]
                 },
@@ -735,6 +797,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Bemerkung',
                             name: 'treppensteiger_bemerkung',
+                            mailLabel: 'treppensteiger_bemerkung',
                         }
                     ]
                 },
@@ -755,6 +818,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Miete Beginn',
                             name: 'möbellift_miete_beginn',
+                            mailLabel: 'möbellift_miete_beginn',
                         },
                         {
                             type: 'text',
@@ -762,6 +826,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Uhrzeit',
                             name: 'möbellift_miete_beginn_uhrzeit',
+                            mailLabel: 'möbellift_miete_beginn_uhrzeit',
                         }
                     ]
                 },
@@ -773,6 +838,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Miete Ende',
                             name: 'möbellift_miete_ende',
+                            mailLabel: 'möbellift_miete_ende',
                         },
                         {
                             type: 'text',
@@ -780,6 +846,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Uhrzeit',
                             name: 'möbellift_miete_ende_uhrzeit',
+                            mailLabel: 'möbellift_miete_ende_uhrzeit',
                         }
                     ]
                 },
@@ -791,6 +858,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Anzahl benötigter Helfer',
                             name: 'möbellift_helfer',
+                            mailLabel: 'möbellift_helfer',
                         }
                     ]
                 },
@@ -802,6 +870,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Bemerkung',
                             name: 'möbellift_bemerkung',
+                            mailLabel: 'möbellift_bemerkung',
                         }
                     ]
                 },
@@ -822,6 +891,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Entsorgung Termin',
                             name: 'entsorgung_termin',
+                            mailLabel: 'entsorgung_termin',
                         },
                         {
                             type: 'text',
@@ -829,6 +899,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Uhrzeit',
                             name: 'entsorgung_uhrzeit',
+                            mailLabel: 'entsorgung_uhrzeit',
                         }
                     ]
                 },
@@ -840,6 +911,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Anzahl der Packstücke',
                             name: 'entsorgung_packstuecke',
+                            mailLabel: 'entsorgung_packstuecke',
                         },
                         {
                             type: 'text',
@@ -847,6 +919,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Gewicht',
                             name: 'entsorgung_gewicht',
+                            mailLabel: 'entsorgung_gewicht',
                         },
                         {
                             type: 'text',
@@ -854,6 +927,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Volumen',
                             name: 'entsorgung_volumen',
+                            mailLabel: 'entsorgung_volumen',
                         }
                     ]
                 },
@@ -865,6 +939,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Strasse Abholung',
                             name: 'entsorgung_strasse_abholung',
+                            mailLabel: 'entsorgung_strasse_abholung',
                         },
                         {
                             type: 'text',
@@ -872,6 +947,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Hausnummer Abholung',
                             name: 'entsorgung_hausnummer_abholung',
+                            mailLabel: 'entsorgung_hausnummer_abholung',
                         }
                     ]
                 },
@@ -883,6 +959,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Adresszusatz Abholung',
                             name: 'entsorgung_adresszusatz_abholung',
+                            mailLabel: 'entsorgung_adresszusatz_abholung',
                         }
                     ]
                 },
@@ -894,6 +971,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Ort Abholung',
                             name: 'entsorgung_ort_abholung',
+                            mailLabel: 'entsorgung_ort_abholung',
                         },
                         {
                             type: 'text',
@@ -901,6 +979,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'PLZ Abholung',
                             name: 'entsorgung_plz_abholung',
+                            mailLabel: 'entsorgung_plz_abholung',
                         }
                     ]
                 },
@@ -912,6 +991,7 @@ const geckoHaefeliForm = {
                             required: false,
                             label: 'Bemerkung',
                             name: 'entsorgung_bemerkung',
+                            mailLabel: 'entsorgung_bemerkung',
                         }
                     ]
                 },

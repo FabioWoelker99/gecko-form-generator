@@ -132,7 +132,7 @@ class GeckoFormManipulator {
                     }
                 }
                 value = value == null ? null : value.trim() == '' ? null : value;
-                if(value != null) categoryRequestObject.children.push({ name: element.name, value: value });
+                if(value != null) categoryRequestObject.children.push({ name: element.mailLabel, value: value });
 
                 if(!this.isInputValid(element.required, element.type, value)) {
                     $(currentSelector).addClass(gecko_class_formItemError);
