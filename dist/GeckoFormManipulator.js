@@ -117,7 +117,7 @@ class GeckoFormManipulator {
         }
         value = value == null ? null : value.trim() == '' ? null : value;
         if (value != null) categoryRequestObject.children.push({
-          name: element.name,
+          name: element.mailLabel,
           value: value
         });
         if (!this.isInputValid(element.required, element.type, value)) {
