@@ -15,7 +15,6 @@ class GeckoForm {
         this.fowardButtonLabel = fowardButtonLabel;
         this.sendButtonLabel = sendButtonLabel;
         this.fowardSafeButtonLabel = fowardSafeButtonLabel;
-        this.stepSaveId;
     }
 
     buildGeckoForm() {
