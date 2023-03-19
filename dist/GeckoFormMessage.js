@@ -54,6 +54,20 @@ class GeckoFormMessage {
           typeCardClass = gecko_class_messageErrorCard;
           break;
         }
+      case 'warning':
+        {
+          typeClass = gecko_class_messageWarningStyling;
+          typeIcon = gecko_icon_errorMessage;
+          typeCardClass = gecko_class_messageWarningCard;
+          break;
+        }
+      case 'info':
+        {
+          typeClass = gecko_class_messageInfoStyling;
+          typeIcon = gecko_icon_infoMessage;
+          typeCardClass = gecko_class_messageInfoCard;
+          break;
+        }
     }
     content += `<div class="${gecko_class_messageComponent} cmp ${gecko_class_message} ${typeClass}" style="opacity: 0;">`;
     content += `<div class="${typeCardClass} cd">`;
