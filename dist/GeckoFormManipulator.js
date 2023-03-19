@@ -169,12 +169,9 @@ class GeckoFormManipulator {
       });
     } else {
       if (currentStep.saveStep) {
-        let request = this.geckoForm.stepSaveId ? {
-          data: this.geckoForm.geckoRequest,
-          id: this.geckoForm.stepSaveId
-        } : {
-          data: this.geckoForm.geckoRequest
-        };
+        if (this.geckoForm.stepSaveId) {
+          this.geckoForm.geckoRequest.id = this.geckoForm.stepSaveId;
+        }
         let geckoHeaders = {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp3dHpvbXR1cnJ0amNrcXpncnN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg0NjE4NDAsImV4cCI6MTk5NDAzNzg0MH0.K2Y_CMi3M6ZkHoebXGLfLffRncrilb57CI9Wx9_oL4o'
@@ -184,7 +181,7 @@ class GeckoFormManipulator {
           method: 'POST',
           headers: geckoHeaders,
           contentType: 'application/json',
-          data: JSON.stringify(request),
+          data: JSON.stringify(this.geckoForm.geckoRequest),
           success: function (response) {
             console.log(response);
             this.geckoForm.stepSaveId = response.id;
