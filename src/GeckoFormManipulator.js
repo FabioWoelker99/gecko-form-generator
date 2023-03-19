@@ -76,7 +76,14 @@ class GeckoFormManipulator {
         if(this.geckoForm.currentStep > 1) $(this.geckoForm.backButtonSelector).removeClass('gecko-button-disabled');
         else $(this.geckoForm.backButtonSelector).addClass('gecko-button-disabled');
 
-        if(this.geckoForm.currentStep >= this.geckoForm.formSteps.length) $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.sendButtonLabel);
+        const currentStep = this.geckoForm.formJson.steps.filter(step => step.stepId == currentStepId)[0];
+
+        if(this.geckoForm.currentStep >= this.geckoForm.formSteps.length) {
+            $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.sendButtonLabel);
+            return;
+        }
+        
+        if(currentStep.saveStep) $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.fowardSafeButtonLabel);
         else $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.fowardButtonLabel);
     }
 
@@ -178,6 +185,26 @@ class GeckoFormManipulator {
             });
         }
         else {
+            if(currentStep.saveStep) {
+                let request = this.geckoForm.stepSaveId ? {data: this.geckoForm.geckoRequest, id: this.geckoForm.stepSaveId} : {data: this.geckoForm.geckoRequest}
+                let geckoHeaders = {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp3dHpvbXR1cnJ0amNrcXpncnN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg0NjE4NDAsImV4cCI6MTk5NDAzNzg0MH0.K2Y_CMi3M6ZkHoebXGLfLffRncrilb57CI9Wx9_oL4o'
+                  };
+                  $.ajax({
+                      url: `https://zwtzomturrtjckqzgrsu.functions.supabase.co/saveStep?name=${this.geckoForm.formJson.requestName}`,
+                      method: 'POST',
+                      headers: geckoHeaders,
+                      contentType: 'application/json',
+                      data: JSON.stringify(request),
+                      success: function(response) {
+                        console.log(response)
+                        this.geckoForm.stepSaveId = response.id
+                      },
+                      error: function(xhr, status, error) {}
+                  });
+            }
+
             this.geckoForm.currentStep++;
             this.activateCurrentStep();
         }
