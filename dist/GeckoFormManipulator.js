@@ -48,7 +48,7 @@ class GeckoFormManipulator {
       const stepsToCreate = this.geckoForm.formJson.steps.filter(step => step.stepGroup == stepGroup);
       this.buildGeckoSteps(stepsToCreate, 'hidden');
     }
-    if (this.geckoForm.currentStep >= this.geckoForm.formSteps.length) $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.sendButtonLabel);else $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.fowardButtonLabel);
+    this.setButtonLabels();
   }
   activateCurrentStep() {
     const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1].stepId;
@@ -60,6 +60,10 @@ class GeckoFormManipulator {
     $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${currentStepId}"]`).addClass('active');
     if (previousStepId != null) $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${previousStepId}"]`).addClass('done');
     if (this.geckoForm.currentStep > 1) $(this.geckoForm.backButtonSelector).removeClass('gecko-button-disabled');else $(this.geckoForm.backButtonSelector).addClass('gecko-button-disabled');
+    this.setButtonLabels();
+  }
+  setButtonLabels() {
+    const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1].stepId;
     const currentStep = this.geckoForm.formJson.steps.filter(step => step.stepId == currentStepId)[0];
     if (this.geckoForm.currentStep >= this.geckoForm.formSteps.length) {
       $(`${this.geckoForm.submitButtonSelector} p`).html(this.geckoForm.sendButtonLabel);
