@@ -241,7 +241,17 @@ class GeckoFormManipulator {
         $(`${manipulator.geckoForm.formSelector}`).html('');
         $(`${manipulator.geckoForm.formStepsSelector}`).html('');
 
-        const newForm = new GeckoForm(manipulator.geckoForm.formJson, manipulator.geckoForm.formSelector, manipulator.geckoForm.submitButtonSelector, manipulator.geckoForm.backButtonSelector, manipulator.geckoForm.formStepsSelector, manipulator.geckoForm.messageContainerSelector);
+        const newForm = new GeckoForm(
+            manipulator.geckoForm.formJson,
+            manipulator.geckoForm.formSelector,
+            manipulator.geckoForm.submitButtonSelector, 
+            manipulator.geckoForm.backButtonSelector,
+            manipulator.geckoForm.formStepsSelector,
+            manipulator.geckoForm.messageContainerSelector,
+            manipulator.geckoForm.fowardButtonLabel,
+            manipulator.geckoForm.sendButtonLabel,
+            manipulator.geckoForm.fowardSafeButtonLabel
+        );
         newForm.buildGeckoForm();
     }
 }
