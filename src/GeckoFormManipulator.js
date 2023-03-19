@@ -161,6 +161,12 @@ class GeckoFormManipulator {
         this.geckoForm.geckoRequest.data.categories.push(categoryRequestObject);
 
         if(this.geckoForm.currentStep >= this.geckoForm.formSteps.length) {
+            $(`${this.geckoForm.formSelector} ${gecko_selector_formComponent}`).addClass(gecko_class_hidden);
+
+            const geckoMessage = new GeckoFormMessage(manipulator.geckoForm.messageContainerSelector, 'info', 'Absenden...', 'Das Formular wird abgesendet.');
+            geckoMessage.generateMessage();
+            geckoMessage.activateMessage();
+
             let geckoHeaders = {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp3dHpvbXR1cnJ0amNrcXpncnN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg0NjE4NDAsImV4cCI6MTk5NDAzNzg0MH0.K2Y_CMi3M6ZkHoebXGLfLffRncrilb57CI9Wx9_oL4o'
@@ -181,12 +187,14 @@ class GeckoFormManipulator {
                     const geckoMessage = new GeckoFormMessage(manipulator.geckoForm.messageContainerSelector, 'error', 'Fehler', 'Es ist ein Fehler aufgetreten');
                     geckoMessage.generateMessage();
                     geckoMessage.activateMessage();
+
+                    this.activateCurrentStep();
                 }
             });
         }
         else {
             if(currentStep.saveStep) {
-                let request = this.geckoForm.stepSaveId ? {data: this.geckoForm.geckoRequest, id: this.geckoForm.stepSaveId} : {data: this.geckoForm.geckoRequest}
+                let request = this.geckoForm.stepSaveId ? {data: this.geckoForm.geckoRequest, id: this.geckoForm.stepSaveId} : {data: this.geckoForm.geckoRequest};
                 let geckoHeaders = {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp3dHpvbXR1cnJ0amNrcXpncnN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg0NjE4NDAsImV4cCI6MTk5NDAzNzg0MH0.K2Y_CMi3M6ZkHoebXGLfLffRncrilb57CI9Wx9_oL4o'
@@ -198,8 +206,8 @@ class GeckoFormManipulator {
                       contentType: 'application/json',
                       data: JSON.stringify(request),
                       success: function(response) {
-                        console.log(response)
-                        this.geckoForm.stepSaveId = response.id
+                        console.log(response);
+                        this.geckoForm.stepSaveId = response.id;
                       },
                       error: function(xhr, status, error) {}
                   });
