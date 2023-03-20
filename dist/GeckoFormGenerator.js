@@ -142,11 +142,11 @@ class GeckoFormGenerator {
     const placeholder = json.placeholder ? `placeholder="${json.placeholder}"` : '';
     const required = json.required ? `required="${json.required}"` : '';
     const name = json.name ? `name="${json.name}"` : '';
-    const autofocus = this.counter === 0 ? 'autofocus' : '';
+    const isFirst = this.counter === 0 ? 'isFirst="true"' : '';
     const label = json.label ?? '';
     let content = '';
     content += `<p class="${gecko_class_label}">${label}</p>`;
-    content += `<input class="${gecko_class_inputElement} ${gecko_class_inputGeneralElement}" type="${json.type}" ${placeholder} ${required} ${autocomplete} ${name} ${autofocus}>`;
+    content += `<input class="${gecko_class_inputElement} ${gecko_class_inputGeneralElement}" type="${json.type}" ${placeholder} ${required} ${autocomplete} ${name} ${isFirst}>`;
     this.geckoForm.geckoFormListener.addRealtimeValidationListener(json);
     return content;
   }

@@ -61,6 +61,10 @@ class GeckoFormManipulator {
     if (previousStepId != null) $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${previousStepId}"]`).addClass('done');
     if (this.geckoForm.currentStep > 1) $(this.geckoForm.backButtonSelector).removeClass('gecko-button-disabled');else $(this.geckoForm.backButtonSelector).addClass('gecko-button-disabled');
     this.setButtonLabels();
+
+    // set autofocus to first input
+    // get stepid parent, get isFirst="true" and set focus
+    $(`${this.geckoForm.formStepsSelector} ${gecko_selector_formStepComponent}[stepid="${currentStepId}"] [isFirst="true"]`).focus();
   }
   setButtonLabels() {
     const currentStepId = this.geckoForm.formSteps[this.geckoForm.currentStep - 1].stepId;
