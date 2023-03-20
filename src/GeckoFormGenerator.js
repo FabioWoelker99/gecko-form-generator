@@ -1,6 +1,7 @@
 class GeckoFormGenerator {
     constructor(geckoForm) {
         this.geckoForm = geckoForm;
+        this.counter = 0
     }
     
     buildSingleGeckoStepView(json, position) {
@@ -68,11 +69,12 @@ class GeckoFormGenerator {
     
                 json.elements.forEach(element => {
                     content += this.generateSingleFormItem(element);
+                    this.counter += 1;
                 });
     
             content += '</div>';
         content += '</div>';
-    
+        this.counter = 0;
         return content;
     }
     
@@ -176,11 +178,12 @@ class GeckoFormGenerator {
         const placeholder = json.placeholder ? `placeholder="${json.placeholder}"` : '';
         const required = json.required ? `required="${json.required}"` : '';
         const name = json.name ? `name="${json.name}"` : '';
+        const autofocus = this.counter === 0 ? "autofocus" : "";
         const label = json.label ?? '';
     
         let content = '';
         content += `<p class="${gecko_class_label}">${label}</p>`;
-        content += `<input class="${gecko_class_inputElement} ${gecko_class_inputGeneralElement}" type="${json.type}" ${placeholder} ${required} ${autocomplete} ${name}>`;
+        content += `<input class="${gecko_class_inputElement} ${gecko_class_inputGeneralElement}" type="${json.type}" ${placeholder} ${required} ${autocomplete} ${name} ${autofocus}>`;
     
         this.geckoForm.geckoFormListener.addRealtimeValidationListener(json);
 
