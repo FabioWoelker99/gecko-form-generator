@@ -1,7 +1,7 @@
 class GeckoFormGenerator {
     constructor(geckoForm) {
         this.geckoForm = geckoForm;
-        this.counter = 0
+        this.counter = 0;
     }
     
     buildSingleGeckoStepView(json, position) {
@@ -57,7 +57,7 @@ class GeckoFormGenerator {
         json.forEach(row => {
             content += this.generateSingleRow(row);
         });
-    
+        this.counter = 0;
         return content;
     }
     
@@ -74,7 +74,6 @@ class GeckoFormGenerator {
     
             content += '</div>';
         content += '</div>';
-        this.counter = 0;
         return content;
     }
     
@@ -178,7 +177,7 @@ class GeckoFormGenerator {
         const placeholder = json.placeholder ? `placeholder="${json.placeholder}"` : '';
         const required = json.required ? `required="${json.required}"` : '';
         const name = json.name ? `name="${json.name}"` : '';
-        const autofocus = this.counter === 0 ? "autofocus" : "";
+        const autofocus = this.counter === 0 ? 'autofocus' : '';
         const label = json.label ?? '';
     
         let content = '';
