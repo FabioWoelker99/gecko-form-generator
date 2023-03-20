@@ -177,7 +177,7 @@ class GeckoFormGenerator {
         const placeholder = json.placeholder ? `placeholder="${json.placeholder}"` : '';
         const required = json.required ? `required="${json.required}"` : '';
         const name = json.name ? `name="${json.name}"` : '';
-        const isFirst = this.counter === 0 ? 'isFirst="true"' : '';
+        const isFirst = this.counter === 0 ? 'isfirst="true"' : '';
         const label = json.label ?? '';
     
         let content = '';
