@@ -151,6 +151,8 @@ class GeckoFormManipulator {
                 if(!this.isInputValid(element.required, element.type, value)) {
                     $(currentSelector).addClass(gecko_class_formItemError);
                     error = true;
+                } else {
+                    $(currentSelector).addClass(gecko_class_formItemValid);
                 }
             });
         });
@@ -253,7 +255,12 @@ class GeckoFormManipulator {
 
     validateInput(selector, element, value) {
         $(selector).removeClass(gecko_class_formItemError);
-        if(!this.isInputValid(element.required, element.type, value)) $(selector).addClass(gecko_class_formItemError);
+        $(selector).removeClass(gecko_class_formItemValid);
+        if(!this.isInputValid(element.required, element.type, value)) {
+            $(selector).addClass(gecko_class_formItemError);
+        } else {
+            $(selector).addClass(gecko_class_formItemValid);
+        }
     }
 
     resetForm(manipulator) {
