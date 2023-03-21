@@ -76,6 +76,9 @@ class GeckoFormManipulator {
         else $(this.geckoForm.backButtonSelector).addClass('gecko-button-disabled');
 
         this.setButtonLabels();
+
+        let x = $(`${gecko_class_formComponent}[stepid="${currentStepId}"]`).find('[isfirst="true"]')[0];
+        x.focus();
     }
 
     setButtonLabels() {
