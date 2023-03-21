@@ -74,7 +74,7 @@ class GeckoFormManipulator {
 
         if(this.geckoForm.currentStep > 1) 
         {
-            $(`${gecko_selector_formComponent}[stepid="${currentStepId}"]`).find(`${gecko_selector_inputElement}`)[0].focus();
+            $(`${gecko_selector_formComponent}[stepid="${currentStepId}"]`).find(`${gecko_selector_inputGeneralElement}`)[0].focus();
             $(this.geckoForm.backButtonSelector).removeClass('gecko-button-disabled');
         }
         else $(this.geckoForm.backButtonSelector).addClass('gecko-button-disabled');
@@ -153,6 +153,8 @@ class GeckoFormManipulator {
                 if(!this.isInputValid(element.required, element.type, value)) {
                     $(currentSelector).addClass(gecko_class_formItemError);
                     error = true;
+                } else if(value != '') {
+                    $(currentSelector).addClass(gecko_class_formItemValid);
                 }
             });
         });
@@ -255,7 +257,12 @@ class GeckoFormManipulator {
 
     validateInput(selector, element, value) {
         $(selector).removeClass(gecko_class_formItemError);
-        if(!this.isInputValid(element.required, element.type, value)) $(selector).addClass(gecko_class_formItemError);
+        $(selector).removeClass(gecko_class_formItemValid);
+        if(!this.isInputValid(element.required, element.type, value)) {
+            $(selector).addClass(gecko_class_formItemError);
+        } else if(value != '') {
+            $(selector).addClass(gecko_class_formItemValid);
+        }
     }
 
     resetForm(manipulator) {

@@ -1,5 +1,6 @@
 const geckoTestForm = {
   requestName: 'winno',
+  googleConversionCode: 'test',
   steps: [{
     label: 'Persönliche Daten',
     stepId: 'personal',
