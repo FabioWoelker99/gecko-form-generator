@@ -228,7 +228,7 @@ class GeckoFormManipulator {
     $(selector).removeClass(gecko_class_formItemValid);
     if (!this.isInputValid(element.required, element.type, value)) {
       $(selector).addClass(gecko_class_formItemError);
-    } else {
+    } else if (value != '') {
       $(selector).addClass(gecko_class_formItemValid);
     }
   }
