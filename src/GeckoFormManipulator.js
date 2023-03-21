@@ -151,7 +151,7 @@ class GeckoFormManipulator {
                 if(!this.isInputValid(element.required, element.type, value)) {
                     $(currentSelector).addClass(gecko_class_formItemError);
                     error = true;
-                } else {
+                } else if(value != '') {
                     $(currentSelector).addClass(gecko_class_formItemValid);
                 }
             });
