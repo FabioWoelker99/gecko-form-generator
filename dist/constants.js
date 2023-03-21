@@ -39,6 +39,7 @@ const gecko_selector_inputGeneralElement = `.${gecko_class_inputGeneralElement}`
 const gecko_selector_formStepDivider = `.${gecko_class_formStepDivider}`;
 const gecko_selector_formStepNumberWrapper = `.${gecko_class_formStepNumberWrapper}`;
 const gecko_selector_formStepNumberLabel = `.${gecko_class_formStepNumberLabel}`;
+const gecko_selector_inputElement = `.${gecko_class_inputElement}`;
 const gecko_class_message = 'gecko-msg';
 const gecko_class_messageComponent = 'cmp--msg';
 const gecko_class_messageSuccessCard = 'cd--msg-success';
