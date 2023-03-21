@@ -77,7 +77,7 @@ class GeckoFormManipulator {
 
         this.setButtonLabels();
 
-        let x = $(`${gecko_class_formComponent}[stepid="${currentStepId}"]`).find('[isfirst="true"]')[0];
+        let x = $(`${gecko_selector_formComponent}[stepid="${currentStepId}"]`).find('[isfirst="true"]')[0];
         x.focus();
     }
 
