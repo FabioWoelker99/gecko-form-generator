@@ -1,5 +1,5 @@
 const geckoHaefeliForm = {
-  requestName: 'winno',
+  requestName: 'haefeli',
   googleConversionCode: 'AW-10827149179/DtmuCIyTnJMYEPve5Koo',
   steps: [{
     type: 'default',
