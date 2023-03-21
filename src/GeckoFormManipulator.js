@@ -106,14 +106,12 @@ class GeckoFormManipulator {
 
         const currentFormStep = this.geckoForm.formSteps[this.geckoForm.currentStep - 1];
         const currentStepId = currentFormStep.stepId;
-        const currentStepMailLabel = currentFormStep.mailLabel;
         const currentStepSelector = `${this.geckoForm.formSelector} ${gecko_selector_formComponent}[stepid="${currentStepId}"]`;
         let categoryRequestObject = {};
-
-        categoryRequestObject.name = currentStepMailLabel;
-        categoryRequestObject.children = [];
-
+        
         const currentStep = this.geckoForm.formJson.steps.filter(step => step.stepId == currentStepId)[0];
+        categoryRequestObject.name = currentStep.mailLabel;
+        categoryRequestObject.children = [];
 
         let error = false;
         
