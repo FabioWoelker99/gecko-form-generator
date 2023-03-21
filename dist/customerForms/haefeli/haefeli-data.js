@@ -5,6 +5,7 @@ const geckoHaefeliForm = {
     type: 'default',
     label: 'Persönliche Daten',
     stepId: 'personal',
+    mailLabel: 'Persönliche Daten',
     index: 0,
     saveStep: true,
     rows: [{
@@ -84,6 +85,7 @@ const geckoHaefeliForm = {
     label: 'Auszugsort',
     stepId: 'auszugsort',
     stepGroup: 'privatumzug',
+    mailLabel: 'Auszugsort',
     index: 1,
     rows: [{
       elements: [{
@@ -261,6 +263,7 @@ const geckoHaefeliForm = {
     label: 'Einzugsort',
     stepId: 'einzugsort',
     stepGroup: 'privatumzug',
+    mailLabel: 'Einzugsort',
     index: 1,
     rows: [{
       elements: [{
@@ -394,6 +397,7 @@ const geckoHaefeliForm = {
     label: 'Auszugsort Firma',
     stepId: 'firma_auszugsort',
     stepGroup: 'firmenumzug',
+    mailLabel: 'Firma Auszugsort',
     index: 1,
     rows: [{
       elements: [{
@@ -518,6 +522,7 @@ const geckoHaefeliForm = {
     label: 'Einzugsort Firma',
     stepId: 'firma_einzugsort',
     stepGroup: 'firmenumzug',
+    mailLabel: 'Firma Einzugsort',
     index: 1,
     rows: [{
       elements: [{
@@ -618,6 +623,7 @@ const geckoHaefeliForm = {
     type: 'default',
     label: 'Leistungen',
     stepId: 'leistungen',
+    mailLabel: 'Leistungen',
     index: 2,
     rows: [{
       elements: [{
@@ -659,6 +665,7 @@ const geckoHaefeliForm = {
     label: 'Reinigung',
     stepId: 'reinigung',
     stepGroup: 'reinigung',
+    mailLabel: 'Reinigung',
     index: 3,
     rows: [{
       elements: [{
@@ -761,6 +768,7 @@ const geckoHaefeliForm = {
     label: 'Lagerung',
     stepId: 'lagerung',
     stepGroup: 'lagerung',
+    mailLabel: 'Lagerung',
     index: 3,
     rows: [{
       elements: [{
@@ -847,6 +855,7 @@ const geckoHaefeliForm = {
     label: 'Treppensteiger',
     stepId: 'treppensteiger',
     stepGroup: 'treppensteiger',
+    mailLabel: 'Treppensteiger',
     index: 3,
     rows: [{
       elements: [{
@@ -903,6 +912,7 @@ const geckoHaefeliForm = {
     label: 'Möbellift',
     stepId: 'moebellift',
     stepGroup: 'moebellift',
+    mailLabel: 'Möbellift',
     index: 3,
     rows: [{
       elements: [{
@@ -959,6 +969,7 @@ const geckoHaefeliForm = {
     label: 'Entsorgung',
     stepId: 'entsorgung',
     stepGroup: 'entsorgung',
+    mailLabel: 'Entsorgung',
     index: 3,
     rows: [{
       elements: [{
@@ -1047,6 +1058,7 @@ const geckoHaefeliForm = {
     label: 'Transport',
     stepId: 'transport',
     stepGroup: 'transport',
+    mailLabel: 'Transport',
     index: 3,
     rows: [{
       elements: [{
