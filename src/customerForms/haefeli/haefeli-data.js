@@ -6,6 +6,7 @@ const geckoHaefeliForm = {
             type: 'default',
             label: 'Persönliche Daten',
             stepId: 'personal',
+            mailLabel: 'Persönliche Daten',
             index: 0,
             saveStep: true,
             rows: [
