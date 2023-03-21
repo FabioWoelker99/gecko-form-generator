@@ -74,7 +74,7 @@ class GeckoFormManipulator {
 
         if(this.geckoForm.currentStep > 1) 
         {
-            $(`${gecko_selector_formComponent}[stepid="${currentStepId}"]`).find(`${gecko_selector_inputElement}`)[0].focus();
+            $(`${gecko_selector_formComponent}[stepid="${currentStepId}"]`).find(`${gecko_selector_inputGeneralElement}`)[0].focus();
             $(this.geckoForm.backButtonSelector).removeClass('gecko-button-disabled');
         }
         else $(this.geckoForm.backButtonSelector).addClass('gecko-button-disabled');
