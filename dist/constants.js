@@ -23,7 +23,6 @@ const gecko_class_formStepLabelStylingClasses = 'txt--lh-100';
 const gecko_class_formStepDivider = 'el--form-step';
 const gecko_class_formStepDividerStylingClasses = 'bg--pri';
 const gecko_class_formItemError = 'has_error';
-const gecko_class_formItemValid = 'is_valid';
 const gecko_class_radioButtonGroupComponent = 'cmp--rb-group';
 const gecko_class_radioButtonGroupLayout = 'lyt--rb-group';
 const gecko_class_radioButtonComponent = 'cmp--rb';
