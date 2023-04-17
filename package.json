@@ -15,6 +15,6 @@
     "deployment-general": "npx uglifyjs dist/constants.js dist/GeckoFormManipulator.js dist/GeckoFormListener.js dist/GeckoFormMessage.js dist/GeckoFormGenerator.js dist/GeckoForm.js -o dist/bundles/gecko-form-generator.js",
     "deployment-haefeli": "npx uglifyjs dist/constants.js dist/GeckoFormManipulator.js dist/GeckoFormListener.js dist/GeckoFormMessage.js dist/GeckoFormGenerator.js dist/GeckoForm.js dist/customerForms/haefeli/haefeli-data.js dist/customerForms/haefeli/executioner.js -o dist/bundles/gecko-form-generator-haefeli.js",
     "deployment-multitransport": "npx uglifyjs dist/constants.js dist/GeckoFormManipulator.js dist/GeckoFormListener.js dist/GeckoFormMessage.js dist/GeckoFormGenerator.js dist/GeckoForm.js dist/customerForms/multitransport/multitransport-data.js dist/customerForms/multitransport/executioner.js -o dist/bundles/gecko-form-generator-multitransport.js",
-    "build": "npm run generate-dist && npm run deploy-src && npm run deployment-general && npm run deployment-haefeli"
+    "build": "npm run generate-dist && npm run deploy-src && npm run deployment-general && npm run deployment-haefeli && npm run deployment-multitransport"
   }
 }
