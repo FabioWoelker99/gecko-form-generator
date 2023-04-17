@@ -1,6 +1,7 @@
 class GeckoFormGenerator {
   constructor(geckoForm) {
     this.geckoForm = geckoForm;
+    this.counter = 0;
   }
   buildSingleGeckoStepView(json, position) {
     let content = '';
@@ -42,6 +43,7 @@ class GeckoFormGenerator {
     json.forEach(row => {
       content += this.generateSingleRow(row);
     });
+    this.counter = 0;
     return content;
   }
   generateSingleRow(json) {
@@ -50,6 +52,7 @@ class GeckoFormGenerator {
     content += `<div class="${gecko_class_formRowLayout} lyt">`;
     json.elements.forEach(element => {
       content += this.generateSingleFormItem(element);
+      this.counter += 1;
     });
     content += '</div>';
     content += '</div>';
