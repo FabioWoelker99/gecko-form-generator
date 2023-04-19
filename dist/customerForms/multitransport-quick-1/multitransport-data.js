@@ -28,6 +28,16 @@ const geckoMultitransportForm = {
       }]
     }, {
       elements: [{
+        type: 'email',
+        name: 'email',
+        label: 'E-Mail',
+        mailLabel: 'E-Mail',
+        placeholder: '',
+        autocomplete: 'email',
+        required: true
+      }]
+    }, {
+      elements: [{
         type: 'textarea',
         name: 'nachricht',
         label: 'Nachricht',
