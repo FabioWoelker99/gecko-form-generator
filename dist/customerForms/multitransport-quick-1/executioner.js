@@ -1,0 +1,2 @@
+const geckoForm = new GeckoForm(geckoMultitransportForm, '#mt-quick-form-1', '.wr_btn--submit', '.wr_btn--form-back', '.lyt--form-steps', '.main', 'Weiter', 'Absenden', 'Speichern & Weiter');
+geckoForm.buildGeckoForm();
