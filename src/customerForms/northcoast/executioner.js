@@ -1,0 +1,2 @@
+const geckoForm = new GeckoForm(geckoNorthcoastForm, '#test-gecko-form', '.wr_btn--submit', '.wr_btn--form-back', '.lyt--form-steps', '.main', 'Next', 'Send Message', 'Save and Next');
+geckoForm.buildGeckoForm();
