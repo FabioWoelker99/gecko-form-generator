@@ -11,6 +11,55 @@ const geckoMultitransportFormq2 = {
     rows: [{
       elements: [{
         type: 'text',
+        name: 'von strasse',
+        label: 'Von: Strasse/ Nr.',
+        mailLabel: 'von strasse',
+        placeholder: '',
+        required: true
+      }, {
+        type: 'text',
+        name: 'von plz',
+        label: 'Von: PLZ/ Nr.',
+        mailLabel: 'von plz',
+        placeholder: '',
+        required: true
+      }]
+    }, {
+      elements: [{
+        type: 'text',
+        name: 'nach strasse',
+        label: 'Nach: Strasse/ Nr.',
+        mailLabel: 'nach strasse',
+        placeholder: '',
+        required: true
+      }, {
+        type: 'text',
+        name: 'nach plz',
+        label: 'Nach: PLZ/ Nr.',
+        mailLabel: 'nach plz',
+        placeholder: '',
+        required: true
+      }]
+    }, 
+    {
+      elements: [{
+        type: 'text',
+        name: 'datum',
+        label: 'Umzugsdatum',
+        mailLabel: 'umzugsdatum',
+        placeholder: '',
+        required: true
+      }, {
+        type: 'text',
+        name: 'zimmer',
+        label: 'Anzahl Zimmer / Räume',
+        mailLabel: 'zimmer',
+        placeholder: '',
+        required: true
+      }]
+    }, {
+      elements: [{
+        type: 'text',
         name: 'prename',
         label: 'Vorname',
         mailLabel: 'Vorname',
@@ -38,11 +87,12 @@ const geckoMultitransportFormq2 = {
       }]
     }, {
       elements: [{
-        type: 'textarea',
-        name: 'nachricht',
-        label: 'Nachricht',
-        mailLabel: 'Nachricht',
-        placeholder: 'Ihre Nachricht...'
+        type: 'tel',
+        name: 'telefon',
+        label: 'Telefon',
+        mailLabel: 'telefon',
+        placeholder: '',
+        required: true
       }]
     }]
   }]
