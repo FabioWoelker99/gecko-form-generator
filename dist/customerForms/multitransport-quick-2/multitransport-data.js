@@ -12,32 +12,28 @@ const geckoMultitransportFormq2 = {
       elements: [{
         type: 'text',
         name: 'von strasse',
-        label: 'Von: Strasse/ Nr.',
         mailLabel: 'von strasse',
-        placeholder: '',
+        placeholder: 'Von: Strasse/ Nr.',
         required: true
       }, {
         type: 'text',
         name: 'von plz',
-        label: 'Von: PLZ/ Nr.',
         mailLabel: 'von plz',
-        placeholder: '',
+        placeholder: 'Von: PLZ/ Nr.',
         required: true
       }]
     }, {
       elements: [{
         type: 'text',
         name: 'nach strasse',
-        label: 'Nach: Strasse/ Nr.',
         mailLabel: 'nach strasse',
-        placeholder: '',
+        placeholder: 'Nach: Strasse/ Nr.',
         required: true
       }, {
         type: 'text',
         name: 'nach plz',
-        label: 'Nach: PLZ/ Nr.',
         mailLabel: 'nach plz',
-        placeholder: '',
+        placeholder: 'Nach: PLZ/ Nr.',
         required: true
       }]
     }, 
@@ -45,33 +41,29 @@ const geckoMultitransportFormq2 = {
       elements: [{
         type: 'text',
         name: 'datum',
-        label: 'Umzugsdatum',
         mailLabel: 'umzugsdatum',
-        placeholder: '',
+        placeholder: 'Umzugsdatum',
         required: true
       }, {
         type: 'text',
         name: 'zimmer',
-        label: 'Anzahl Zimmer / Räume',
         mailLabel: 'zimmer',
-        placeholder: '',
+        placeholder: 'Anzahl Zimmer / Räume',
         required: true
       }]
     }, {
       elements: [{
         type: 'text',
         name: 'prename',
-        label: 'Vorname',
         mailLabel: 'Vorname',
-        placeholder: '',
+        placeholder: 'Vorname',
         autocomplete: 'given-name',
         required: true
       }, {
         type: 'text',
         name: 'surname',
-        label: 'Nachname',
         mailLabel: 'Nachname',
-        placeholder: '',
+        placeholder: 'Nachname',
         autocomplete: 'family-name',
         required: true
       }]
@@ -79,9 +71,8 @@ const geckoMultitransportFormq2 = {
       elements: [{
         type: 'email',
         name: 'email',
-        label: 'E-Mail',
         mailLabel: 'E-Mail',
-        placeholder: '',
+        placeholder: 'E-Mail',
         autocomplete: 'email',
         required: true
       }]
@@ -89,9 +80,8 @@ const geckoMultitransportFormq2 = {
       elements: [{
         type: 'tel',
         name: 'telefon',
-        label: 'Telefon',
         mailLabel: 'telefon',
-        placeholder: '',
+        placeholder: 'Telefon',
         required: true
       }]
     }]
