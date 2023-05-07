@@ -11,6 +11,53 @@ const geckoMultitransportForm = {
     rows: [{
       elements: [{
         type: 'text',
+        name: 'beladen',
+        mailLabel: 'beladen',
+        placeholder: 'Beladen',
+        required: true
+      }, {
+        type: 'text',
+        name: 'entladen',
+        mailLabel: 'entladen',
+        placeholder: 'entladen',
+        required: true
+      }]
+    }, {
+      elements: [{
+        type: 'text',
+        name: 'termin',
+        mailLabel: 'Termin',
+        placeholder: 'Gewünschter Termin',
+        required: true
+      }]
+    }, {
+      elements: [{
+        type: 'text',
+        name: 'unternehmen',
+        mailLabel: 'Unternehmen',
+        placeholder: 'Unternehmen',
+        required: true
+      }]
+    }, {
+      elements: [{
+        type: 'radio',
+        required: true,
+        label: '',
+        name: 'anrede',
+        options: [{
+          label: 'Herr',
+          value: 'Herr',
+          id: 'Herr'
+        }, {
+          label: 'Frau',
+          value: 'Frau',
+          id: 'Frau',
+          default: true
+        }]
+      }]
+    }, {
+      elements: [{
+        type: 'text',
         name: 'prename',
         label: 'Vorname',
         mailLabel: 'Vorname',
@@ -51,33 +98,6 @@ const geckoMultitransportForm = {
         label: 'Bemerkung',
         mailLabel: 'Bemerkung',
         placeholder: 'Ihre Nachricht oder Bemerkung'
-      }]
-    }, {
-      elements: [{
-        type: 'radio',
-        name: 'umzugsart',
-        label: 'Art des Umzugs',
-        mailLabel: 'Art des Umzugs',
-        required: true,
-        trigger: true,
-        stepGroups: ['privatumzug', 'firmenumzug'],
-        options: [{
-          id: 'privatumzug',
-          label: 'Privatumzug',
-          value: 'Privatumzug',
-          stepGroup: 'privatumzug'
-        }, {
-          id: 'firmenumzug',
-          label: 'Firmenumzug',
-          value: 'Firmenumzug',
-          stepGroup: 'firmenumzug'
-        }, {
-          id: 'kein_umzug',
-          label: 'Kein Umzug',
-          value: 'Kein Umzug',
-          stepGroup: '',
-          default: true
-        }]
       }]
     }]
   }]
