@@ -40,6 +40,18 @@ const geckoMultitransportForm = {
                     ]
                 },
                 {
+                    elements: 
+                    [
+                        {
+                            type: 'text',
+                            name: 'unternehmen',
+                            label: 'Unternehmen',
+                            mailLabel: 'Unternehmen',
+                            placeholder: 'Unternehmen'
+                        }
+                    ]
+                },
+                {
                     elements: [
                         {
                             type: 'radio',

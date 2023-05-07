@@ -43,11 +43,11 @@ const geckoMultitransportForm = {
         label: 'Lift vorhanden?',
         name: 'lift',
         options: [{
-          label: 'ja',
+          label: 'Ja',
           value: 'ja',
           id: 'auszug_lift_ja'
         }, {
-          label: 'nein',
+          label: 'Nein',
           value: 'nein',
           id: 'auszug_lift_nein',
           default: true
@@ -123,7 +123,7 @@ const geckoMultitransportForm = {
       elements: [{
         type: 'radio',
         required: true,
-        label: '',
+        label: 'Anrede',
         name: 'anrede',
         options: [{
           label: 'Herr',
@@ -135,6 +135,15 @@ const geckoMultitransportForm = {
           id: 'Frau',
           default: true
         }]
+      }]
+    }, {
+      elements: [{
+        type: 'text',
+        name: 'unternehmen',
+        label: 'Unternehmen',
+        mailLabel: 'Unternehmen',
+        placeholder: 'Unternehmen',
+        required: true
       }]
     }, {
       elements: [{

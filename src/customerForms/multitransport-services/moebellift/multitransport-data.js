@@ -13,60 +13,28 @@ const geckoMultitransportForm = {
                 {
                     elements: [
                         {
-                            type: 'text',
-                            name: 'auszug_strasse',
-                            mailLabel: 'Auszug Straße',
-                            placeholder: 'Strasse/Nr.',
-                            required: true
-                        },
-                        {
-                            type: 'text',
-                            name: 'auszug_plz',
-                            mailLabel: 'Auszug PLZ/Ort',
-                            placeholder: 'PLZ/Ort',
-                            required: true
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            name: 'auszug_zimmer',
-                            mailLabel: 'Auszug Anzahl Zimmer',
-                            placeholder: 'Anzahl Zimmer',
-                            required: true
-                        },
-                        {
-                            type: 'text',
-                            name: 'auszug_etage',
-                            mailLabel: 'Auszug Etage',
-                            placeholder: 'Etage',
-                            required: true
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
                             type: 'radio',
                             required: true,
-                            label: 'Lift vorhanden?',
-                            name: 'lift',
+                            label: 'Anfragen als',
+                            name: 'anfragen_als',
                             options: [
                                 {
-                                    label: 'Ja',
-                                    value: 'ja',
-                                    id: 'auszug_lift_ja',
+                                    label: 'Privatkunde',
+                                    value: 'Privatkunde',
+                                    id: 'privat',
+                                    default: true,
                                 },
                                 {
-                                    label: 'Nein',
-                                    value: 'nein',
-                                    id: 'auszug_lift_nein',
-                                    default: true,
+                                    label: 'Unternehmen',
+                                    value: 'Unternehmen',
+                                    id: 'unternehmen',
                                 }
                             ]
-                        },
+                        }
+                    ]
+                },
+                {
+                    elements: [
                         {
                             type: 'checkbox',
                             name: 'auszug_zusaetzliche_leistungen',
@@ -74,84 +42,110 @@ const geckoMultitransportForm = {
                             mailLabel: 'Weitere Dienstleistungen',
                             options: [
                                 {
-                                    id: 'Reinigung',
-                                    label: 'Reinigung',
-                                    value: 'Reinigung',
-                                    stepGroup: ''
+                                    id: 'einpack_auspackservice',
+                                    label: 'Ein-/Auspackservice',
+                                    value: 'Einpack Auspackservice',
+                                },
+                                {
+                                    id: 'Umzug',
+                                    label: 'Umzug',
+                                    value: 'Umzug',
                                 },
                                 {
                                     id: 'Entsorgung',
-                                    label: 'Entsorgung',
-                                    value: 'Entsorgung',
-                                    stepGroup: ''
+                                    label: 'Räumung/Entsorgung',
+                                    value: 'Räumung Entsorgung',
                                 },
                                 {
                                     id: 'Lagerung',
                                     label: 'Lagerung',
                                     value: 'Lagerung',
-                                    stepGroup: ''
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            name: 'einzug_strasse',
-                            mailLabel: 'Einzug Straße',
-                            placeholder: 'Strasse/Nr.',
-                            required: true
-                        },
-                        {
-                            type: 'text',
-                            name: 'einzug_plz',
-                            mailLabel: 'Einzug PLZ/Ort',
-                            placeholder: 'PLZ/Ort',
-                            required: true
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            name: 'einzug_etage',
-                            mailLabel: 'Einzug Etage',
-                            placeholder: 'Etage',
-                            required: true
-                        },
-                        {
-                            type: 'text',
-                            name: 'einzug_datum',
-                            mailLabel: 'Einzug Datum',
-                            placeholder: 'Umzugsdatum',
-                            required: true
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'radio',
-                            required: true,
-                            label: 'Lift vorhanden?',
-                            name: 'einzug_lift',
-                            options: [
-                                {
-                                    label: 'ja',
-                                    value: 'ja',
-                                    id: 'einzug_lift_ja',
                                 },
                                 {
-                                    label: 'nein',
-                                    value: 'nein',
-                                    id: 'einzug_lift_nein',
-                                    default: true,
+                                    id: 'Reinigungsservice',
+                                    label: 'Reinigungsservice',
+                                    value: 'Reinigungsservice',
                                 }
                             ]
+                        }
+                    ]
+                },
+                {
+                    elements: 
+                    [
+                        {
+                            type: 'text',
+                            name: 'von',
+                            label: 'Von/Strasse/PLZ/Ort',
+                            mailLabel: 'von',
                         },
+                    ]
+                },
+                {
+                    elements: 
+                    [
+                        {
+                            type: 'text',
+                            name: 'von_etage',
+                            label: 'Etage',
+                            mailLabel: 'Von Etage',
+                        },
+                    ]
+                },
+                {
+                    elements: 
+                    [
+                        {
+                            type: 'text',
+                            name: 'nach',
+                            label: 'Nach/Strasse/PLZ/Ort',
+                            mailLabel: 'nach',
+                        },
+                    ]
+                },
+                {
+                    elements: 
+                    [
+                        {
+                            type: 'text',
+                            name: 'nach_etage',
+                            label: 'Etage',
+                            mailLabel: 'Nach Etage',
+                        },
+                    ]
+                },
+                {
+                    elements: 
+                    [
+                        {
+                            type: 'text',
+                            name: 'datum',
+                            label: 'Gewünschtes Datum',
+                            mailLabel: 'Gewünschtes Datum',
+                        },
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'textarea',
+                            name: 'mitteilungen',
+                            label: 'Mitteilungen',
+                            mailLabel: 'Mitteilungen',
+                            placeholder: ''
+                        }
+                    ]
+                },
+                {
+                    elements: 
+                    [
+                        {
+                            type: 'text',
+                            name: 'unternehmen',
+                            label: 'Unternehmen',
+                            mailLabel: 'Unternehmen',
+                            placeholder: 'Unternehmen'
+                        }
                     ]
                 },
                 {
@@ -223,10 +217,10 @@ const geckoMultitransportForm = {
                     elements: [
                         {
                             type: 'textarea',
-                            name: 'bemerkung',
-                            label: 'Bemerkung',
-                            mailLabel: 'Bemerkung',
-                            placeholder: 'Ihre Nachricht oder Bemerkung'
+                            name: 'aufmerksam_durch',
+                            label: 'Wie sind Sie auf uns aufmerksam geworden?',
+                            mailLabel: 'Wie sind Sie auf uns aufmerksam geworden?',
+                            placeholder: ''
                         }
                     ]
                 }

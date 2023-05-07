@@ -14,66 +14,14 @@ const geckoMultitransportForm = {
                     elements: [
                         {
                             type: 'text',
-                            name: 'beladen',
-                            mailLabel: 'beladen',
-                            placeholder: 'Beladen',
-                            required: true
-                        },
-                        {
-                            type: 'text',
-                            name: 'entladen',
-                            mailLabel: 'Entladen',
-                            placeholder: 'Entladen',
-                            required: true
-                        }
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'text',
-                            name: 'termin',
-                            mailLabel: 'Termin',
-                            placeholder: 'Gewünschter Termin',
-                            required: true
-                        },
-                    ]
-                },
-                {
-                    elements: [
-                        {
-                            type: 'radio',
-                            required: true,
-                            label: 'Anrede',
-                            name: 'anrede',
-                            options: [
-                                {
-                                    label: 'Herr',
-                                    value: 'Herr',
-                                    id: 'Herr',
-                                },
-                                {
-                                    label: 'Frau',
-                                    value: 'Frau',
-                                    id: 'Frau',
-                                    default: true,
-                                }
-                            ]
-                        },
-                    ]
-                },
-                {
-                    elements: 
-                    [
-                        {
-                            type: 'text',
                             name: 'prename',
                             label: 'Vorname',
                             mailLabel: 'Vorname',
                             placeholder: '',
                             autocomplete: 'given-name',
                             required: true
-                        }, {
+                        },
+                        {
                             type: 'text',
                             name: 'surname',
                             label: 'Nachname',
@@ -83,7 +31,8 @@ const geckoMultitransportForm = {
                             required: true
                         }
                     ]
-                }, {
+                },
+                {
                     elements: [
                         {
                             type: 'email',
@@ -93,7 +42,8 @@ const geckoMultitransportForm = {
                             placeholder: '',
                             autocomplete: 'email',
                             required: true
-                        }, {
+                        },
+                        {
                             type: 'tel',
                             name: 'phone',
                             label: 'Telefonnummer',
@@ -103,7 +53,7 @@ const geckoMultitransportForm = {
                             required: true
                         }
                     ]
-                }, 
+                },
                 {
                     elements: [
                         {
@@ -114,8 +64,42 @@ const geckoMultitransportForm = {
                             placeholder: 'Ihre Nachricht oder Bemerkung'
                         }
                     ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'radio',
+                            name: 'umzugsart',
+                            label: 'Art des Umzugs',
+                            mailLabel: 'Art des Umzugs',
+                            required: true,
+                            trigger: true,
+                            stepGroups: ['privatumzug', 'firmenumzug'],
+                            options: [
+                                {
+                                    id: 'privatumzug',
+                                    label: 'Privatumzug',
+                                    value: 'Privatumzug',
+                                    stepGroup: 'privatumzug'
+                                },
+                                {
+                                    id: 'firmenumzug',
+                                    label: 'Firmenumzug',
+                                    value: 'Firmenumzug',
+                                    stepGroup: 'firmenumzug'
+                                },
+                                {
+                                    id: 'kein_umzug',
+                                    label: 'Kein Umzug',
+                                    value: 'Kein Umzug',
+                                    stepGroup: '',
+                                    default: true
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
-        },
+        }
     ]
 };

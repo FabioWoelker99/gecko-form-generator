@@ -11,24 +11,40 @@ const geckoMultitransportForm = {
     rows: [{
       elements: [{
         type: 'text',
-        name: 'beladen',
-        mailLabel: 'beladen',
-        placeholder: 'Beladen',
-        required: true
-      }, {
-        type: 'text',
-        name: 'entladen',
-        mailLabel: 'Entladen',
-        placeholder: 'Entladen',
+        name: 'adresse',
+        mailLabel: 'Adresse',
+        placeholder: 'Adresse (Strasse/PLZ/Ort)',
         required: true
       }]
     }, {
       elements: [{
         type: 'text',
+        name: 'anzahl',
+        mailLabel: 'Anzahl Zimmer',
+        placeholder: 'Anazhl Zimmer/Räume',
+        required: true
+      }]
+    }, {
+      elements: [{
+        type: 'text',
+        name: 'groesse',
+        mailLabel: 'Größe',
+        placeholder: 'Größe in m2',
+        required: true
+      }, {
+        type: 'text',
         name: 'termin',
         mailLabel: 'Termin',
-        placeholder: 'Gewünschter Termin',
+        placeholder: 'Reinigungstermin',
         required: true
+      }]
+    }, {
+      elements: [{
+        type: 'text',
+        name: 'unternehmen',
+        label: 'Unternehmen',
+        mailLabel: 'Unternehmen',
+        placeholder: 'Unternehmen'
       }]
     }, {
       elements: [{

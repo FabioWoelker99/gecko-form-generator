@@ -14,29 +14,90 @@ const geckoMultitransportForm = {
                     elements: [
                         {
                             type: 'text',
-                            name: 'beladen',
-                            mailLabel: 'beladen',
-                            placeholder: 'Beladen',
+                            name: 'beginn',
+                            mailLabel: 'Beginn Lagerung',
+                            placeholder: 'Beginn der Lagerung',
                             required: true
                         },
                         {
                             type: 'text',
-                            name: 'entladen',
-                            mailLabel: 'entladen',
-                            placeholder: 'entladen',
+                            name: 'ende',
+                            mailLabel: 'Ende Lagerung',
+                            placeholder: 'Ende der Lagerung',
                             required: true
-                        }
+                        },
                     ]
                 },
                 {
                     elements: [
                         {
                             type: 'text',
-                            name: 'termin',
-                            mailLabel: 'Termin',
-                            placeholder: 'Gewünschter Termin',
+                            name: 'beladeort',
+                            mailLabel: 'Beladeort',
+                            placeholder: 'Beladeort',
                             required: true
                         },
+                        {
+                            type: 'text',
+                            name: 'anzahl_zimmer',
+                            mailLabel: 'Anzahl Zimmer',
+                            placeholder: 'Anzahl Zimmer / Räume',
+                            required: true
+                        },
+                    ]
+                },
+                {
+                    elements: 
+                    [
+                        {
+                            type: 'text',
+                            name: 'etage',
+                            label: 'Etage',
+                            mailLabel: 'Etage',
+                            placeholder: 'Etage'
+                        },
+                        {
+                            type: 'radio',
+                            required: true,
+                            label: 'Lift',
+                            name: 'lift',
+                            options: [
+                                {
+                                    label: 'Ja',
+                                    value: 'Ja',
+                                    id: 'auszug_lift_ja',
+                                },
+                                {
+                                    label: 'Nein',
+                                    value: 'Nein',
+                                    id: 'auszug_lift_nein',
+                                    default: true,
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    elements: [
+                        {
+                            type: 'textarea',
+                            name: 'was_lagern',
+                            label: 'Was möchten Sie einlagern?',
+                            mailLabel: 'Was möchten Sie einlagern?',
+                            placeholder: ''
+                        }
+                    ]
+                },
+                {
+                    elements: 
+                    [
+                        {
+                            type: 'text',
+                            name: 'unternehmen',
+                            label: 'Unternehmen',
+                            mailLabel: 'Unternehmen',
+                            placeholder: 'Unternehmen'
+                        }
                     ]
                 },
                 {
@@ -44,7 +105,7 @@ const geckoMultitransportForm = {
                         {
                             type: 'radio',
                             required: true,
-                            label: '',
+                            label: 'Anrede',
                             name: 'anrede',
                             options: [
                                 {
@@ -108,10 +169,10 @@ const geckoMultitransportForm = {
                     elements: [
                         {
                             type: 'textarea',
-                            name: 'bemerkung',
-                            label: 'Bemerkung',
-                            mailLabel: 'Bemerkung',
-                            placeholder: 'Ihre Nachricht oder Bemerkung'
+                            name: 'aufmerksam_durch',
+                            label: 'Wie sind Sie auf uns aufmerksam geworden?',
+                            mailLabel: 'Wie sind Sie auf uns aufmerksam geworden?',
+                            placeholder: ''
                         }
                     ]
                 }
