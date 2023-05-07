@@ -36,7 +36,8 @@ const geckoMultitransportFormq1 = {
         placeholder: 'Nach: PLZ/ Nr.',
         required: true
       }]
-    }, {
+    }, 
+    {
       elements: [{
         type: 'text',
         name: 'datum',
