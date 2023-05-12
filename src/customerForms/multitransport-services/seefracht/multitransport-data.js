@@ -14,6 +14,7 @@ const geckoMultitransportForm = {
                     elements: [
                         {
                             type: 'text',
+                            label: 'Auszug',
                             name: 'auszug_strasse',
                             mailLabel: 'Auszug Straße',
                             placeholder: 'Strasse/Nr.',
@@ -99,6 +100,7 @@ const geckoMultitransportForm = {
                     elements: [
                         {
                             type: 'text',
+                            label: 'Einzug',
                             name: 'einzug_strasse',
                             mailLabel: 'Einzug Straße',
                             placeholder: 'Strasse/Nr.',
