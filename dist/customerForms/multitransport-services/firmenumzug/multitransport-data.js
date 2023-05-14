@@ -11,16 +11,15 @@ const geckoMultitransportForm = {
     rows: [{
       elements: [{
         type: 'text',
-        label: 'Auszug',
         name: 'auszug_strasse',
         mailLabel: 'Auszug Straße',
-        placeholder: 'Strasse/Nr.',
+        placeholder: 'Auszug Strasse/Nr.',
         required: true
       }, {
         type: 'text',
         name: 'auszug_plz',
         mailLabel: 'Auszug PLZ/Ort',
-        placeholder: 'PLZ/Ort',
+        placeholder: 'Auszug PLZ/Ort',
         required: true
       }]
     }, {
@@ -78,16 +77,15 @@ const geckoMultitransportForm = {
     }, {
       elements: [{
         type: 'text',
-        label: 'Einzug',
         name: 'einzug_strasse',
         mailLabel: 'Einzug Straße',
-        placeholder: 'Strasse/Nr.',
+        placeholder: 'Einzug Strasse/Nr.',
         required: true
       }, {
         type: 'text',
         name: 'einzug_plz',
         mailLabel: 'Einzug PLZ/Ort',
-        placeholder: 'PLZ/Ort',
+        placeholder: 'Einzug PLZ/Ort',
         required: true
       }]
     }, {
