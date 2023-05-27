@@ -56,28 +56,10 @@ const geckoNorthcoastForm = {
     }, {
       elements: [{
         type: 'text',
-        label: 'Do you have expercience with OnlyFans?',
-        name: 'experience',
-        mailLabel: 'OnlyFans Experience',
-        placeholder: 'Do you have experience with OnlyFans?',
-        required: true
-      }]
-    }, {
-      elements: [{
-        type: 'text',
         name: 'time',
-        label: 'Daily Time',
+        label: 'How much time do you have per day?',
         mailLabel: 'Daily Time',
-        placeholder: 'How much time do you have per day?',
-        required: true
-      }]
-    }, {
-      elements: [{
-        type: 'text',
-        name: 'limits',
-        label: 'What are your content creation limits?',
-        mailLabel: 'Content Creation Limits',
-        placeholder: 'What are your content creation limits?',
+        placeholder: 'Daily Time',
         required: true
       }]
     }, {
