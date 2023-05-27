@@ -28,6 +28,23 @@ const geckoNorthcoastForm = {
       }]
     }, {
       elements: [{
+        type: 'text',
+        name: 'countrycode',
+        label: 'Country code',
+        mailLabel: 'Country Code',
+        placeholder: 'Country Code',
+        required: true
+      }, {
+        type: 'tel',
+        name: 'phone',
+        label: 'Phone number',
+        mailLabel: 'Phone number',
+        placeholder: 'Phone number',
+        autocomplete: 'tel',
+        required: true
+      }]
+    }, {
+      elements: [{
         type: 'email',
         name: 'email',
         label: 'E-Mail',
