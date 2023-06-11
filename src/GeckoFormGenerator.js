@@ -175,7 +175,7 @@ class GeckoFormGenerator {
     generateInputFormItem(json) {
         const autocomplete = json.autocomplete ? `autocomplete="${json.autocomplete}"` : '';
         const placeholder = json.placeholder ? `placeholder="${json.placeholder}"` : '';
-        const required = json.required ? `required="${json.required}"` : '';
+        //const required = json.required ? `required="${json.required}"` : '';
         const name = json.name ? `name="${json.name}"` : '';
         const label = json.label ?? '';
     
@@ -190,7 +190,7 @@ class GeckoFormGenerator {
     
     generateTextareaFormItem(json) {
         const placeholder = json.placeholder ? `placeholder="${json.placeholder}"` : '';
-        const required = json.required ? `required="${json.required}"` : '';
+        //const required = json.required ? `required="${json.required}"` : '';
         const name = json.name ? `name="${json.name}"` : '';
         const label = json.label ?? '';
     
