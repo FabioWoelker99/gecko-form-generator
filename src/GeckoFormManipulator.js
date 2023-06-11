@@ -191,7 +191,6 @@ class GeckoFormManipulator {
                     geckoMessage.generateMessage();
                     geckoMessage.activateMessage();
                     manipulator.resetForm(manipulator);
-                    manipulator.gtag_report_conversion(undefined);
                     if(manipulator.geckoForm.submitFormSelector != null)
                         $(`${manipulator.geckoForm.submitFormSelector}`).submit();
                 },
@@ -227,19 +226,6 @@ class GeckoFormManipulator {
             this.activateCurrentStep();
         }
     }
-
-    gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof(url) != 'undefined') {
-            window.location = url;
-          }
-        };
-        gtag('event', 'conversion', {
-            'send_to': this.geckoForm.formJson.googleConversionCode,
-            'event_callback': callback
-        });
-        return false;
-      }
 
     isInputValid(required, type, value) {
         value = value == null ? null : value.trim() == '' ? null : value;
