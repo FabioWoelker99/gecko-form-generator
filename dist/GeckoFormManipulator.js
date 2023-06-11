@@ -170,6 +170,7 @@ class GeckoFormManipulator {
           geckoMessage.activateMessage();
           manipulator.resetForm(manipulator);
           manipulator.gtag_report_conversion(undefined);
+          if (manipulator.geckoForm.submitFormSelector != null) $(`${manipulator.geckoForm.submitFormSelector}`).submit();
         },
         error: function (xhr, status, error) {
           const geckoMessage = new GeckoFormMessage(manipulator.geckoForm.messageContainerSelector, 'error', 'Fehler', 'Es ist ein Fehler aufgetreten');
