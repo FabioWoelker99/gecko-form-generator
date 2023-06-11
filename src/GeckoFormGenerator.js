@@ -181,7 +181,7 @@ class GeckoFormGenerator {
     
         let content = '';
         content += `<p class="${gecko_class_label}">${label}</p>`;
-        content += `<input class="${gecko_class_inputElement} ${gecko_class_inputGeneralElement}" type="${json.type}" ${placeholder} ${required} ${autocomplete} ${name}>`;
+        content += `<input class="${gecko_class_inputElement} ${gecko_class_inputGeneralElement}" type="${json.type}" ${placeholder} ${autocomplete} ${name}>`;
     
         this.geckoForm.geckoFormListener.addRealtimeValidationListener(json);
 
@@ -196,7 +196,7 @@ class GeckoFormGenerator {
     
         let content = '';
         content += `<p class="${gecko_class_label}">${label}</p>`;
-        content += `<textarea class="${gecko_class_inputElement} ${gecko_class_inputGeneralElement}" ${placeholder} ${required} ${name}"></textarea>`;
+        content += `<textarea class="${gecko_class_inputElement} ${gecko_class_inputGeneralElement}" ${placeholder} ${name}"></textarea>`;
     
         return content;
     }
