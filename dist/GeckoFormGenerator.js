@@ -78,6 +78,11 @@ class GeckoFormGenerator {
           content += this.generateInputFormItem(json);
           break;
         }
+      case 'tel_':
+        {
+          content += this.generateInputFormItem(json);
+          break;
+        }
       case 'textarea':
         {
           content += this.generateTextareaFormItem(json);

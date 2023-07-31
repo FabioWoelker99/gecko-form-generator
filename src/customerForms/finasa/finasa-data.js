@@ -35,14 +35,14 @@ const geckoFinasaForm = {
                 {
                     elements: [
                         {
-                            type: 'email',
+                            type: 'text',
                             name: 'country-code',
                             label: 'Country Code',
                             mailLabel: 'Country Code',
                             placeholder: '+1',
                         },
                         {
-                            type: 'tel',
+                            type: 'tel_',
                             name: 'phone',
                             label: 'Telefonnummer',
                             mailLabel: 'Telefonnummer',

@@ -110,6 +110,11 @@ class GeckoFormManipulator {
               value = $(currentSelector).val();
               break;
             }
+          case 'tel_':
+            {
+              value = $(currentSelector).val();
+              break;
+            }
           case 'textarea':
             {
               value = $(currentSelector).val();
@@ -220,6 +225,9 @@ class GeckoFormManipulator {
       if (!regex.test(value)) return false;
     } else if (type == 'tel') {
       const regex = /(\b(0041|0)|\B\+41)(\s?\(0\))?(\s)?[1-9]{2}(\s)?[0-9]{3}(\s)?[0-9]{2}(\s)?[0-9]{2}\b/;
+      if (!regex.test(value)) return false;
+    } else if (type == 'tel_') {
+      const regex = /\b\d+(\s\d+)*\b/;
       if (!regex.test(value)) return false;
     }
     return true;
