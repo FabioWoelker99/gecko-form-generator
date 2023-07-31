@@ -44,8 +44,8 @@ const geckoFinasaForm = {
                         {
                             type: 'tel_',
                             name: 'phone',
-                            label: 'Telefonnummer',
-                            mailLabel: 'Telefonnummer',
+                            label: 'Phone Number',
+                            mailLabel: 'Phone Number',
                             placeholder: '',
                             autocomplete: 'tel',
                         }
@@ -69,7 +69,7 @@ const geckoFinasaForm = {
                         {
                             type: 'text',
                             name: 'workhours',
-                            label: 'How much time do you have per dayy?',
+                            label: 'How much time do you have per day?',
                             mailLabel: 'Workhours',
                             placeholder: '6-8 hours',
                         }
