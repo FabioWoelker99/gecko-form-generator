@@ -15,18 +15,18 @@ const geckoFinasaForm = {
                         {
                             type: 'text',
                             name: 'prename',
-                            label: 'Name',
+                            label: 'Name *',
                             mailLabel: 'Prename',
-                            placeholder: '',
+                            placeholder: 'Amanda',
                             autocomplete: 'given-name',
                             required: true
                         },
                         {
                             type: 'text',
                             name: 'surname',
-                            label: 'Surname',
+                            label: 'Surname *',
                             mailLabel: 'Surname',
-                            placeholder: '',
+                            placeholder: 'Smith',
                             autocomplete: 'family-name',
                             required: true
                         }
@@ -37,17 +37,17 @@ const geckoFinasaForm = {
                         {
                             type: 'text',
                             name: 'country-code',
-                            label: 'Country Code',
+                            label: 'Country Code *',
                             mailLabel: 'Country Code',
-                            placeholder: '+1',
+                            placeholder: '+1 (United States)',
                             required: true
                         },
                         {
                             type: 'tel_',
                             name: 'phone',
-                            label: 'Phone Number',
+                            label: 'Phone Number *',
                             mailLabel: 'Phone Number',
-                            placeholder: '',
+                            placeholder: '123 456 789',
                             autocomplete: 'tel',
                             required: true
                         }
@@ -58,9 +58,9 @@ const geckoFinasaForm = {
                         {
                             type: 'email',
                             name: 'email',
-                            label: 'E-Mail',
+                            label: 'E-Mail *',
                             mailLabel: 'E-Mail',
-                            placeholder: '',
+                            placeholder: 'amandasmith@gmail.com',
                             autocomplete: 'email',
                             required: true
                         }
@@ -70,11 +70,10 @@ const geckoFinasaForm = {
                     elements: [
                         {
                             type: 'text',
-                            name: 'instagram',
-                            label: 'Instagram Profile',
-                            mailLabel: 'Instagram Profile',
+                            name: 'socialmedia',
+                            label: 'Social Media Profile',
+                            mailLabel: 'socialmedia',
                             placeholder: '',
-                            required: true
                         }
                     ]
                 },
