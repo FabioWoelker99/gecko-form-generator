@@ -32,14 +32,16 @@ const geckoFinasaForm = {
         name: 'country-code',
         label: 'Country Code',
         mailLabel: 'Country Code',
-        placeholder: '+1'
+        placeholder: '+1',
+        required: true
       }, {
         type: 'tel_',
         name: 'phone',
         label: 'Phone Number',
         mailLabel: 'Phone Number',
         placeholder: '',
-        autocomplete: 'tel'
+        autocomplete: 'tel',
+        required: true
       }]
     }, {
       elements: [{
@@ -54,10 +56,11 @@ const geckoFinasaForm = {
     }, {
       elements: [{
         type: 'text',
-        name: 'workhours',
-        label: 'How much time do you have per day?',
-        mailLabel: 'Workhours',
-        placeholder: '6-8 hours'
+        name: 'instagram',
+        label: 'Instagram Profile',
+        mailLabel: 'Instagram Profile',
+        placeholder: '',
+        required: true
       }]
     }, {
       elements: [{
