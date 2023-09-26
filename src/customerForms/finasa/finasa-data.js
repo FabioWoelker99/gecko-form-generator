@@ -71,9 +71,9 @@ const geckoFinasaForm = {
                         {
                             type: 'text',
                             name: 'socialmedia',
-                            label: 'Social Media Profile',
+                            label: 'Social Media Profile *',
                             mailLabel: 'socialmedia',
-                            placeholder: '',
+                            placeholder: '@amanadasmith',
                         }
                     ]
                 },
@@ -84,7 +84,7 @@ const geckoFinasaForm = {
                             name: 'message',
                             label: 'Your Message',
                             mailLabel: 'Message',
-                            placeholder: 'Your Message'
+                            placeholder: 'Tell us more about yourself'
                         }
                     ]
                 }
